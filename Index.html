@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>findavet.online — ER & Specialty Vets Near You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Instantly find emergency, specialty, and exotic veterinarians near you." />
+  <style>
+    :root { --bg:#0b0b0c; --fg:#f4f4f5; --muted:#a1a1aa; --accent:#14b8a6; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+    header{padding:16px 20px;font-weight:700;border-bottom:1px solid #1f1f22}
+    .bar{display:flex;gap:8px;align-items:center;padding:12px;flex-wrap:wrap}
+    input{flex:1;min-width:220px;padding:12px 14px;border:1px solid #26262a;background:#131316;color:var(--fg);border-radius:10px;outline:none}
+    button{padding:10px 12px;border:1px solid #26262a;background:#131316;color:var(--fg);border-radius:10px}
+    button.active{outline:2px solid var(--accent)}
+    #map{height:70vh;width:100%;margin:12px 0}
+    .note{padding:0 12px 16px 12px;font-size:14px;color:var(--muted)}
+    a{color:var(--accent)}
+  </style>
+</head>
+<body>
+  <header>findavet.online — <span style="color:var(--accent)">ER & Specialty</span></header>
+
+  <div class="bar">
+    <input id="searchInput" placeholder="City or ZIP (e.g., Dallas or 75201)" />
+    <button data-filter="er" class="active">Emergency</button>
+    <button data-filter="specialist">Specialist</button>
+    <button data-filter="exotic">Exotic</button>
+    <button id="goBtn">Search</button>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="note">
+    Informational only. Not a substitute for diagnosis, treatment, or prescription.
+  </div>
+
+  <!-- Replace YOUR_API_KEY with your restricted key (already set up) -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+  <script src="app.js"></script>
+</body>
+</html>
