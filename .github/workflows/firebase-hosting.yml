@@ -10,9 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: findavetonline          # << your Project ID
+          siteId: findavetonline             # << your Hosting site ID
           channelId: live
-          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+          entryPoint: .
