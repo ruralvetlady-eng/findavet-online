@@ -4,67 +4,93 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FindAVet Online — Emergency & Specialty Vets Near You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Favicon (optional: upload favicon.png to repo root) -->
+  <meta name="description" content="Nationwide directory for emergency & specialty veterinary care. Search by city or ZIP and get directions instantly.">
   <link rel="icon" type="image/png" href="favicon.png">
-
-  <meta name="description" content="Nationwide directory to find emergency & specialty veterinarians fast. Search by city or ZIP.">
-  <meta property="og:title" content="FindAVet Online — Emergency & Specialty Vets Near You">
-  <meta property="og:description" content="Find ER and specialty vets anywhere in the U.S.">
-  <meta property="og:image" content="https://findavet.online/favicon.png">
-  <meta name="twitter:card" content="summary_large_image">
 
   <style>
     :root{
-      --bg:#0b0b0c;--fg:#e7e9ee;--muted:#b8bdc7;
-      --card:#101218;--border:#1f232b;
-      --accent:#58a6ff;--accent2:#2D6CDF;--danger:#E63946;
+      --bg:#0b0c10; --panel:#0f1218; --panel2:#0c1016; --border:#1b2130;
+      --text:#e9edf2; --muted:#b6c0cf; --brand:#2D6CDF; --brand2:#58A6FF; --alert:#E63946;
+      --radius:16px; --shadow:0 12px 30px rgba(0,0,0,.28);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;background:radial-gradient(1200px 700px at 50% -10%, #153459 0%, #0b0b0c 55%);color:var(--fg);font-family:system-ui,Segoe UI,Arial,sans-serif}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:
+      radial-gradient(1200px 700px at 50% -10%,#12315a 0%,#0b0c10 55%);color:var(--text)}
+    a{color:var(--brand2);text-decoration:none}
 
-    .container{max-width:1000px;margin:0 auto;padding:20px}
-    .hero{
-      text-align:center;
-      padding:36px 12px 10px;
-    }
-    .logo{max-width:280px;width:70%;height:auto;filter:drop-shadow(0 6px 24px rgba(0,0,0,.35))}
-    .tag{opacity:.9;margin:10px auto 0;max-width:740px;line-height:1.6}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    /* Header */
+    .header{position:sticky;top:0;z-index:10;background:rgba(11,12,16,.65);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:42px;width:auto}
+    .brand .title{font-weight:800;letter-spacing:.2px}
+    .nav{display:flex;gap:18px;font-weight:600}
+    .nav a{opacity:.9}
+    .nav a:hover{opacity:1}
 
-    .grid{display:grid;gap:18px;margin-top:24px}
-    @media(min-width:900px){ .grid{grid-template-columns:1.2fr .8fr} }
+    /* Hero */
+    .hero{padding:36px 0 14px;text-align:center}
+    .subtitle{max-width:760px;margin:10px auto 0;color:var(--muted);line-height:1.6}
 
-    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 10px 28px rgba(0,0,0,.25)}
-    h2{margin:0 0 10px;font-size:clamp(20px,3.6vw,26px)}
+    /* Grid */
+    .grid{display:grid;gap:22px;margin:20px 0 34px}
+    @media(min-width:960px){.grid{grid-template-columns:1.2fr .8fr}}
+
+    /* Cards */
+    .card{background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
+      border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,26px)}
 
     /* Search */
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px}
-    .chip{border:1px solid #2a2f3a;background:#0e1116;color:var(--fg);padding:10px 12px;border-radius:999px;font-weight:600}
-    .chip.active{background:var(--accent);border-color:transparent;color:#081018}
-    .searchrow{display:flex;gap:8px;flex-wrap:wrap}
-    input[type="text"]{flex:1;min-width:220px;padding:14px 12px;border-radius:12px;border:1px solid #2a2f3a;background:#0e1116;color:var(--fg)}
-    button{padding:14px 16px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#091018;font-weight:800;letter-spacing:.2px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+    .chip{border:1px solid #2a3347;background:#0e1116;color:var(--text);padding:10px 12px;border-radius:999px;font-weight:700}
+    .chip.active{background:linear-gradient(135deg,var(--brand),var(--brand2));border-color:transparent;color:#081018}
+    .searchrow{display:flex;gap:10px;flex-wrap:wrap}
+    input[type="text"]{flex:1;min-width:220px;padding:14px 12px;border-radius:12px;border:1px solid #2a3347;background:#0e1116;color:var(--text)}
+    button{padding:14px 16px;border:0;border-radius:12px;font-weight:800;letter-spacing:.2px;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0a0f16}
     .hint{color:var(--muted);font-size:14px;margin-top:8px}
 
-    /* ER list */
-    ul{margin:10px 0 0 18px;line-height:1.6}
-    .poison{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
-    .cta{display:inline-block;background:#113356;border:1px solid #1c4f86;color:#cfe6ff;padding:12px 14px;border-radius:12px;font-weight:800;text-decoration:none}
+    /* ER box */
+    ul{margin:10px 0 0 20px;line-height:1.6}
 
-    footer{opacity:.7;margin:24px 0;text-align:center;font-size:14px}
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:20px 0;color:var(--muted);text-align:center}
   </style>
 </head>
 <body>
-  <header class="hero container">
-    <img class="logo" src="Red Modern Pet Veterinary Clinic Logo_20250829_021620_0000.png" alt="FindAVet Online logo">
-    <p class="tag">Nationwide directory to find <strong>emergency</strong> &amp; <strong>specialty</strong> veterinarians fast. Search by city or ZIP and get directions instantly.</p>
+  <!-- Header -->
+  <header class="header">
+    <div class="container bar">
+      <div class="brand">
+        <img src="Red Modern Pet Veterinary Clinic Logo_20250829_021620_0000.png" alt="FindAVet Online logo">
+        <div class="title">FindAVet Online</div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#search">Find Care</a>
+        <a href="#er">ER Guide</a>
+        <a href="mailto:hello@findavet.online">List Your Clinic</a>
+      </nav>
+    </div>
   </header>
 
+  <!-- Hero -->
+  <section class="hero container">
+    <h1 style="margin:0;font-size:clamp(26px,5vw,38px);letter-spacing:.2px">Emergency & Specialty Vets — Fast</h1>
+    <p class="subtitle">Search by city or ZIP to open directions in Google Maps. Nationwide coverage, mobile-friendly, and expanding daily.</p>
+  </section>
+
   <main class="container grid">
-    <!-- Left: Search + ER guidance -->
-    <section class="card">
-      <h2>Quick search</h2>
+    <!-- Search + ER -->
+    <section id="search" class="card">
+      <h2>Find care near you</h2>
+
       <div class="chips" id="species">
         <span class="chip active" data-q="">All</span>
         <span class="chip" data-q=" dog">Dog</span>
@@ -76,14 +102,14 @@
       </div>
 
       <div class="searchrow">
-        <input id="q" type="text" placeholder="e.g. 75201 or Boise, ID" />
+        <input id="q" type="text" placeholder="e.g. 30309 or Boise, ID" aria-label="City or ZIP">
         <button onclick="go()">Search</button>
       </div>
-      <div class="hint">Opens Google Maps with “emergency veterinarian” near your location + selected species.</div>
+      <div class="hint">Opens Google Maps with “emergency veterinarian” + your selected species.</div>
 
-      <div class="card" style="margin-top:16px;background:#0f1218">
-        <h2 style="margin-bottom:6px">When to go to the ER</h2>
-        <p style="margin:0;color:var(--muted)">(General info only — if you’re unsure, go now.)</p>
+      <div id="er" class="card" style="margin-top:16px">
+        <h2 style="display:flex;align-items:center;gap:8px;margin-bottom:6px">When to go to the ER</h2>
+        <p class="hint" style="margin:0">(General info only. If you’re unsure—go now.)</p>
         <ul>
           <li>Trouble breathing, collapse, unconsciousness</li>
           <li>Severe bleeding or suspected broken bones</li>
@@ -91,29 +117,30 @@
           <li>Persistent vomiting/diarrhea, bloated painful abdomen</li>
           <li>Seizures, heatstroke, extreme lethargy</li>
           <li>Urinary blockage signs (straining/no urine), esp. male cats</li>
-          <li>Serious eye injuries, snake/spider bites, trauma</li>
+          <li>Serious eye injuries, snake/spider bites, or trauma</li>
         </ul>
-        <div class="poison">
-          <a class="cta" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">🚑 ASPCA Animal Poison Control</a>
-          <span class="hint">24/7 resource with hotline & toxin info</span>
-        </div>
+        <p style="margin-top:12px">
+          <a class="chip" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">🚑 ASPCA Animal Poison Control</a>
+        </p>
       </div>
     </section>
 
-    <!-- Right: About / CTA -->
+    <!-- Right column -->
     <aside class="card">
       <h2>About</h2>
-      <p>FindAVet Online helps pet owners quickly locate qualified veterinary care anywhere in the U.S. Coming soon: in-site results with filters for ER, specialty, exotics, and 24/7 hours.</p>
-      <p><a href="mailto:hello@findavet.online" style="color:var(--accent)">List your clinic</a></p>
+      <p>FindAVet Online helps pet owners locate qualified emergency and specialty veterinarians anywhere in the U.S. In the next release: built-in results with filters (24/7, specialties, exotics) and clinic submissions.</p>
+      <p><a href="mailto:hello@findavet.online">List your clinic</a> · <a href="mailto:hello@findavet.online">Contact</a></p>
 
-      <div class="card" style="margin-top:14px;background:#0f1218">
+      <div class="card" style="margin-top:14px">
         <h2>Share</h2>
-        <p class="hint" style="margin:0">Know someone who needs this? Send them our site: <br><strong>findavet.online</strong></p>
+        <p class="hint" style="margin:0">Send a friend our site: <strong>findavet.online</strong></p>
       </div>
     </aside>
   </main>
 
-  <footer>© <span id="y"></span> FindAVet Online</footer>
+  <footer>
+    © <span id="y"></span> FindAVet Online · Not a substitute for professional veterinary advice or care.
+  </footer>
 
   <script>
     // species chip toggle
@@ -128,7 +155,7 @@
     // search builder
     function go(){
       const place = document.getElementById('q').value.trim();
-      if(!place) return;
+      if(!place) { document.getElementById('q').focus(); return; }
       const term = ['emergency veterinarian', speciesAddon, place].join(' ').trim();
       location.href = 'https://www.google.com/maps/search/' + encodeURIComponent(term);
     }
