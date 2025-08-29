@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Page Not Found — FindAVet Online</title>
+  <style>
+    :root{--bg:#0b0b0c;--fg:#e7e9ee;--muted:#b8bdc7;--accent:#58a6ff;--card:#111217;--border:#1f232b}
+    body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--fg);display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;text-align:center}
+    .card{max-width:700px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+    h1{font-size:clamp(28px,6vw,42px);margin:0 0 12px}
+    ul{margin:14px 0;text-align:left}
+    .cta{display:inline-block;margin-top:14px;background:#113356;border:1px solid #1c4f86;color:#cfe6ff;padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none}
+    footer{opacity:.7;margin-top:18px;font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>⚠️ Page Not Found</h1>
+    <p>Oops — this page doesn’t exist. But here’s what you need to know if your pet is in trouble:</p>
+
+    <h2>When to go to the ER</h2>
+    <ul>
+      <li>Trouble breathing, collapse, unconsciousness</li>
+      <li>Severe bleeding or suspected broken bones</li>
+      <li>Poison/toxin ingestion (chocolate, meds, lilies, xylitol, etc.)</li>
+      <li>Persistent vomiting/diarrhea, bloated abdomen</li>
+      <li>Seizures, heatstroke, extreme lethargy</li>
+      <li>Urinary blockage signs (straining/no urine)</li>
+      <li>Serious trauma, bites, or eye injuries</li>
+    </ul>
+
+    <a class="cta" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">🚑 ASPCA Animal Poison Control</a>
+
+    <footer>© <span id="y"></span> FindAVet Online</footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
