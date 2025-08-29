@@ -2,42 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>findavet.online — ER & Specialty Vets Near You</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Instantly find emergency, specialty, and exotic veterinarians near you." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FindAVet Online — Emergency & Specialty Vets Near You</title>
   <style>
-    :root { --bg:#0b0b0c; --fg:#f4f4f5; --muted:#a1a1aa; --accent:#14b8a6; }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg)}
-    header{padding:16px 20px;font-weight:700;border-bottom:1px solid #1f1f22}
-    .bar{display:flex;gap:8px;align-items:center;padding:12px;flex-wrap:wrap}
-    input{flex:1;min-width:220px;padding:12px 14px;border:1px solid #26262a;background:#131316;color:var(--fg);border-radius:10px;outline:none}
-    button{padding:10px 12px;border:1px solid #26262a;background:#131316;color:var(--fg);border-radius:10px}
-    button.active{outline:2px solid var(--accent)}
-    #map{height:70vh;width:100%;margin:12px 0}
-    .note{padding:0 12px 16px 12px;font-size:14px;color:var(--muted)}
-    a{color:var(--accent)}
+    :root{--bg:#0b0b0c;--fg:#e7e9ee;--muted:#b8bdc7;--accent:#58a6ff;--card:#111217;--border:#1f232b}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+    .wrap{max-width:980px;margin:0 auto;padding:28px}
+    header h1{font-size:clamp(28px,5vw,40px);margin:0}
+    p{line-height:1.6}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-top:18px}
+    .search{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    input{flex:1;min-width:220px;padding:14px 12px;border-radius:12px;border:1px solid #2a2f3a;background:#0e1116;color:var(--fg)}
+    button,.chip{padding:12px 14px;border:0;border-radius:12px;background:var(--accent);color:#081018;font-weight:700;cursor:pointer}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .chip{background:#2a2f3a;color:var(--fg);font-weight:600}
+    .chip.active{background:var(--accent);color:#081018}
+    a{color:var(--accent);text-decoration:none}
+    small{color:var(--muted)}
+    ul{margin:10px 0 0 18px}
+    .poison{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .cta{background:#113356;border:1px solid #1c4f86;color:#cfe6ff;padding:12px 14px;border-radius:12px;font-weight:700}
+    footer{opacity:.7;margin-top:32px;font-size:14px}
   </style>
 </head>
 <body>
-  <header>findavet.online — <span style="color:var(--accent)">ER & Specialty</span></header>
+  <div class="wrap">
+    <header>
+      <h1>🐾 FindAVet Online</h1>
+      <p>Nationwide directory to find <strong>emergency</strong> &amp; <strong>specialty</strong> veterinarians fast.</p>
+    </header>
 
-  <div class="bar">
-    <input id="searchInput" placeholder="City or ZIP (e.g., Dallas or 75201)" />
-    <button data-filter="er" class="active">Emergency</button>
-    <button data-filter="specialist">Specialist</button>
-    <button data-filter="exotic">Exotic</button>
-    <button id="goBtn">Search</button>
+    <!-- Search -->
+    <section class="card">
+      <h2>Quick search</h2>
+      <p>Enter a city, ZIP, or state. Choose your pet to improve results.</p>
+
+      <div class="row" id="species">
+        <span class="chip active" data-q="">All</span>
+        <span class="chip" data-q=" dog">Dog</span>
+        <span class="chip" data-q=" cat">Cat</span>
+        <span class="chip" data-q=" bird avian">Bird</span>
+        <span class="chip" data-q=" reptile exotics">Reptile</span>
+        <span class="chip" data-q=" rabbit guinea pig small mammal">Small Mammal</span>
+        <span class="chip" data-q=" equine horse">Horse</span>
+      </div>
+
+      <div class="search">
+        <input id="q" placeholder="e.g. 75201 or Boise, ID" />
+        <button onclick="go()">Search</button>
+      </div>
+      <small>Search opens Google Maps with “emergency veterinarian” near your location + selected species.</small>
+    </section>
+
+    <!-- When to visit the ER -->
+    <section class="card">
+      <h2>When to go to the ER</h2>
+      <p><small>(General info only — not medical advice. If you’re unsure, go now.)</small></p>
+      <ul>
+        <li>Trouble breathing, blue/pale gums, collapse, unconsciousness</li>
+        <li>Severe bleeding, deep wounds, or suspected broken bones</li>
+        <li>Poison/exposure to toxins (chocolate, xylitol, lilies, rodenticides, meds)</li>
+        <li>Persistent vomiting/diarrhea, bloated or painful abdomen</li>
+        <li>Seizures, heatstroke, extreme lethargy, or inability to stand</li>
+        <li>Urinary blockage signs (straining/no urine), especially male cats</li>
+        <li>Serious eye injuries, snake/spider bites, trauma/car hit</li>
+      </ul>
+      <p class="poison">
+        ⚠️ Suspect poisoning? <a class="cta" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">ASPCA Animal Poison Control</a>
+        <small>24/7 resource with hotline and toxin info</small>
+      </p>
+    </section>
+
+    <!-- About / Contact -->
+    <section class="card">
+      <h2>About</h2>
+      <p>FindAVet Online helps pet owners quickly locate qualified veterinary care anywhere in the U.S. Coming soon: in-site results with filters for ER, specialty, exotics, and 24/7 hours.</p>
+      <p><a href="mailto:hello@findavet.online">List your clinic</a> • <a href="/">Home</a></p>
+    </section>
+
+    <footer>© <span id="y"></span> FindAVet Online</footer>
   </div>
 
-  <div id="map"></div>
+  <script>
+    // species chip toggle
+    let speciesAddon = "";
+    const chips = document.querySelectorAll(".chip");
+    chips.forEach(ch => ch.addEventListener("click", () => {
+      chips.forEach(c=>c.classList.remove("active"));
+      ch.classList.add("active");
+      speciesAddon = ch.getAttribute("data-q") || "";
+    }));
 
-  <div class="note">
-    Informational only. Not a substitute for diagnosis, treatment, or prescription.
-  </div>
+    // search builder
+    function go(){
+      const place = document.getElementById('q').value.trim();
+      if(!place) return;
+      const base = 'emergency veterinarian';
+      const q = [base, speciesAddon, place].join(' ').trim();
+      location.href = 'https://www.google.com/maps/search/' + encodeURIComponent(q);
+    }
 
-  <!-- Replace YOUR_API_KEY with your restricted key (already set up) -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
-  <script src="app.js"></script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
