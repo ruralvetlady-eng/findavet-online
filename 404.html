@@ -1,42 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Page Not Found — FindAVet Online</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Page Not Found — FindAVet.online</title>
+  <meta name="theme-color" content="#0b0c10"/>
   <style>
-    :root{--bg:#0b0b0c;--fg:#e7e9ee;--muted:#b8bdc7;--accent:#58a6ff;--card:#111217;--border:#1f232b}
-    body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--fg);display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;text-align:center}
-    .card{max-width:700px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
-    h1{font-size:clamp(28px,6vw,42px);margin:0 0 12px}
-    ul{margin:14px 0;text-align:left}
-    .cta{display:inline-block;margin-top:14px;background:#113356;border:1px solid #1c4f86;color:#cfe6ff;padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none}
-    footer{opacity:.7;margin-top:18px;font-size:14px}
+    :root{
+      --bg:#0b0c10;--panel:#101a24;--panel2:#0c1016;--text:#e9edf2;--muted:#9fb2c6;
+      --border:#1b2130;--brand:#2D6CF6;--alert:#e63946;--radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;color:var(--text);background:
+        radial-gradient(1200px 700px at 50% -12%, #12202e 0%, transparent 70%),
+        radial-gradient(900px 500px at 120% 10%, #0f1722 0%, transparent 60%),var(--bg);
+      font-family: Inter, system-ui, Segoe UI, Arial, sans-serif;
+      display:flex;align-items:center;justify-content:center;padding:24px;
+    }
+    .card{
+      width:min(880px,100%);
+      background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
+      border:1px solid var(--border);border-radius:var(--radius);padding:28px;
+      box-shadow:0 14px 38px rgba(0,0,0,.32);text-align:center;
+    }
+    h1{margin:6px 0 6px;font-size:clamp(24px,4.2vw,42px)}
+    p{color:var(--muted);margin:.2rem auto 1rem;max-width:720px}
+    ul{margin:10px auto 0;max-width:720px;line-height:1.6;text-align:left}
+    .btn{display:inline-flex;gap:10px;align-items:center;padding:12px 16px;border-radius:12px;
+         border:1px solid var(--border);background:#0f1724;color:#fff;font-weight:800;margin:10px}
+    .btn.red{background:var(--alert);border-color:#6f2430}
+    footer{color:var(--muted);margin-top:10px;font-size:.92rem}
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>⚠️ Page Not Found</h1>
-    <p>Oops — this page doesn’t exist. But here’s what you need to know if your pet is in trouble:</p>
-
-    <h2>When to go to the ER</h2>
+  <main class="card">
+    <div style="font-size:42px">⚠️</div>
+    <h1>Page Not Found</h1>
+    <p>This page doesn’t exist. While you’re here, here’s when to go to the ER:</p>
     <ul>
       <li>Trouble breathing, collapse, unconsciousness</li>
       <li>Severe bleeding or suspected broken bones</li>
-      <li>Poison/toxin ingestion (chocolate, meds, lilies, xylitol, etc.)</li>
-      <li>Persistent vomiting/diarrhea, bloated abdomen</li>
       <li>Seizures, heatstroke, extreme lethargy</li>
-      <li>Urinary blockage signs (straining/no urine)</li>
+      <li>Persistent vomiting/diarrhea, bloated abdomen</li>
+      <li>Urinary blockage (straining/no urine)</li>
       <li>Serious trauma, bites, or eye injuries</li>
     </ul>
-
-    <a class="cta" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">🚑 ASPCA Animal Poison Control</a>
-
-    <footer>© <span id="y"></span> FindAVet Online</footer>
-  </div>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+    <div style="margin-top:14px">
+      <a class="btn" href="/">🏠 Back home</a>
+      <a class="btn red" target="_blank" href="https://www.aspca.org/pet-care/animal-poison-control">🚨 Need Poison Control?</a>
+    </div>
+    <footer>© <span id="y"></span> FindAVet.online</footer>
+  </main>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
