@@ -1,349 +1,390 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FindAVet.online — Emergency & Specialty Vet Directory</title>
-
-  <!-- Meta -->
-  <meta name="description" content="Find emergency and specialty veterinary care fast. Search by city or ZIP. Clear ER guidance and poison control resources." />
+  <title>FindAVet.online — Veterinary Emergency & Low-Cost Care</title>
+  <meta name="description" content="Find emergency, specialty, low-cost and species-specific veterinary care near you. Dark Google search, ER guidance, payment help, rescues, microchip lookup, supplies, and heartworm info." />
   <link rel="canonical" href="https://findavet.online/" />
-  <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0c10" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="FindAVet.online — Emergency & Specialty Vet Directory" />
-  <meta property="og:description" content="Search by city or ZIP to find emergency and specialty vets near you." />
+  <meta property="og:title" content="FindAVet.online — Veterinary Emergency & Low-Cost Care" />
+  <meta property="og:description" content="Search emergency, specialty, low-cost vet care. Quick chips for species, rescues, spay/neuter, and more." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://findavet.online/" />
-  <!-- If you want a social image, upload one and update the URL below -->
-  <!-- <meta property="og:image" content="https://findavet.online/social-card.png" /> -->
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      /* Brand palette */
-      --bg:#0b0c10;       /* page background */
-      --panel:#0f1218;    /* card bg (top) */
-      --panel2:#0c1016;   /* card bg (bottom) */
-      --border:#1b2130;   /* borders */
-      --text:#e9edf2;     /* primary text */
-      --muted:#b6c0cf;    /* secondary text */
-      --brand:#2D6CDF;    /* primary blue */
-      --brand2:#58A6FF;   /* accent blue */
-      --alert:#E63946;    /* ER red */
-
-      --radius:18px;
-      --shadow:0 14px 38px rgba(0,0,0,.32);
-      --ring:0 0 0 3px rgba(45,108,223,.35);
+      --bg:#0b0c10; --panel:#101a24; --panel2:#0c1016;
+      --text:#e9edf2; --muted:#9fb2c6; --border:#1b2130;
+      --brand:#2D6CF6; --brand2:#58A6FF; --alert:#e63946;
+      --radius:18px; --shadow:0 14px 38px rgba(0,0,0,.32);
     }
-
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     html,body{height:100%}
     body{
       margin:0; color:var(--text);
-      background:radial-gradient(1200px 700px at 50% -10%, #12315a 0%, #0b0c10 55%);
-      font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;
-      line-height:1.5; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      background:
+        radial-gradient(1200px 700px at 50% -12%, #12202e 0%, transparent 70%),
+        radial-gradient(900px 500px at 120% 10%, #0f1722 0%, transparent 60%),
+        var(--bg);
+      font-family:Inter, system-ui, Segoe UI, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
       display:flex; flex-direction:column; min-height:100vh;
-      scroll-behavior:smooth;
     }
-    @media (prefers-reduced-motion: reduce){ html,body{scroll-behavior:auto} }
-
     a{color:var(--brand2); text-decoration:none}
-    a:focus-visible, button:focus-visible, input:focus-visible{outline:none; box-shadow:var(--ring); border-radius:12px}
+    a:hover{opacity:.9}
 
-    /* Layout */
-    .container{max-width:1024px; margin:0 auto; padding:0 20px}
-    .section{padding:28px 0}
-    .divider{height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); margin:24px 0}
-
-    /* Skip link for accessibility */
-    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
-    .skip:focus{position:fixed; left:16px; top:16px; width:auto; height:auto; padding:8px 10px; background:#111827; color:#fff; z-index:9999; border-radius:8px}
-
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:30;
-      background:rgba(11,12,16,.7); backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--border);
-    }
-    .bar{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
-    .brand{display:flex; align-items:center; gap:10px}
-    .brand img{height:40px; width:auto; filter:drop-shadow(0 8px 24px rgba(0,0,0,.35))}
-    .wordmark{font-family:Poppins,Inter,sans-serif; font-weight:800; letter-spacing:.2px}
-    nav{display:flex; gap:16px; font-weight:700}
-    nav a{opacity:.9} nav a:hover{opacity:1}
-
-    /* Hero */
-    .hero{text-align:center; padding:40px 0 16px}
-    .eyebrow{
-      display:inline-block; padding:6px 12px; border-radius:999px;
-      background:linear-gradient(135deg, rgba(45,108,223,.18), rgba(88,166,255,.18));
-      border:1px solid rgba(27,33,48,.9); color:#cfe1ff; font-weight:700; font-size:12px; letter-spacing:.6px; text-transform:uppercase
-    }
-    .hero h1{
-      margin:12px 0 8px;
-      font-family:Poppins,Inter,sans-serif; font-weight:800;
-      font-size:clamp(28px,5.5vw,40px); letter-spacing:.2px
-    }
-    .subtitle{max-width:760px; margin:8px auto 0; color:var(--muted)}
-
-    /* Cards */
+    .container{max-width:1040px; margin:0 auto; padding:0 24px}
+    section{padding:64px 0}
     .card{
       background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:22px; margin:18px 0;
+      padding:24px;
     }
-    .card h2{
-      margin:0 0 10px;
-      font-family:Poppins,Inter,sans-serif; font-weight:700;
-      font-size:clamp(20px,3.2vw,26px)
-    }
-    .muted{color:var(--muted)}
+    .divider{height:1px;background:linear-gradient(90deg,transparent, #223145 20%, #223145 80%, transparent);margin:56px 0}
 
-    /* Google CSE polish */
-    .gsc-control-cse, .gsc-control-cse .gsc-table-result{border:0; background:transparent}
-    .gsc-input-box{border-radius:999px !important; border:1px solid #2a3347 !important; background:#0e1116 !important}
-    input.gsc-input, .gsc-input-box input{color:var(--text) !important; height:46px !important}
-    input.gsc-search-button, button.gsc-search-button-v2{
-      background:linear-gradient(135deg,var(--brand),var(--brand2)) !important; color:#081018 !important;
-      border:0 !important; border-radius:999px !important; height:46px !important; padding:0 20px !important;
-      font-weight:800 !important; letter-spacing:.2px
+    /* Header */
+    .header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(11,18,22,.72);
+      border-bottom:1px solid var(--border);
     }
-    .gsc-webResult.gsc-result{background:transparent; border:1px solid var(--border); border-radius:14px; padding:12px; margin:10px 0}
-    .gs-title, .gs-title *{color:var(--brand2) !important; text-decoration:none !important}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:40px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.35))}
+    .wordmark{font-weight:800;letter-spacing:.5px}
+    nav{display:flex;gap:16px;font-weight:700;flex-wrap:wrap}
+    nav a{padding:10px 12px;border-radius:10px}
+    nav a:hover{background:#0f1724}
+    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff;padding:12px 16px;border-radius:12px;font-weight:800;box-shadow:0 10px 22px rgba(45,108,246,.24)}
+    .cta:hover{opacity:1;filter:brightness(1.04)}
+
+    /* Compact sticky mini-header (mobile-first) */
+    .minihdr{
+      position:sticky; top:0; z-index:45;
+      display:none; gap:10px; justify-content:center; flex-wrap:wrap;
+      padding:10px 12px; background:rgba(11,18,22,.86);
+      backdrop-filter:blur(8px); border-bottom:1px solid var(--border);
+    }
+    .minihdr a{
+      font-weight:700; font-size:.95rem; padding:8px 10px; border-radius:10px;
+      background:#0f1724; border:1px solid var(--border); color:#e9edf2; text-decoration:none;
+    }
+    .minihdr a:hover{filter:brightness(1.05)}
+    @media (max-width: 860px){ .minihdr{display:flex} }
+
+    /* Hero */
+    .hero{padding:72px 0 28px; text-align:center}
+    .title{font-size:clamp(28px,4.2vw,46px);font-weight:900;line-height:1.1;margin:6px 0}
+    .sub{color:var(--muted);max-width:820px;margin:0 auto}
+
+    /* Google CSE dark theme */
+    .gcse-wrap{background:#0e1520;border:1px solid var(--border);border-radius:16px;padding:18px}
+    .gsc-control-cse, .gsc-control-cse .gsc-table-result{border:0;background:transparent}
+    .gsc-input-box{border-radius:12px !important;border:1px solid #233146 !important;background:#0f1825 !important}
+    input.gsc-input, .gsc-input-box input{background:transparent !important;color:#fff !important;height:46px !important}
+    input.gsc-search-button, button.gsc-search-button-v2{
+      background:linear-gradient(135deg,var(--brand),var(--brand2)) !important;color:#081018 !important;
+      border:0 !important;border-radius:12px !important;height:46px !important;padding:0 18px !important;font-weight:800 !important
+    }
+    .gsc-webResult.gsc-result{background:transparent;border:1px solid var(--border);border-radius:14px;padding:12px;margin:10px 0}
+    .gs-title, .gs-title *{color:var(--brand2) !important;text-decoration:none !important}
     .gs-snippet{color:var(--muted) !important}
 
-    /* Lists & buttons */
-    ul{margin:10px 0 0 20px}
-    li{line-height:1.6}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      border-radius:12px; border:1px solid transparent; padding:12px 18px; font-weight:800; cursor:pointer;
-      background:var(--alert); color:#fff; text-decoration:none
+    /* Chips & helpers */
+    .hint{color:var(--muted);font-size:.95rem;margin-bottom:10px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;
+      background:#0f1a28;border:1px solid var(--border);color:#d6e2f0;font-weight:800;cursor:pointer
     }
-    .btn:hover{filter:brightness(1.05)}
-    .btn.secondary{background:transparent; border-color:var(--border); color:var(--text)}
+    .chip:hover{filter:brightness(1.03)}
+    .chip.red{background:#201218;border-color:#3a1f27}
+    .logo-inline{height:26px;vertical-align:middle}
 
-    /* FAQ accordion (no JS) */
-    details{border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin:10px 0; background:#0e1116}
-    summary{cursor:pointer; font-weight:700}
-    details[open]{background:#0f131a}
+    /* Back to top */
+    .back-to-top{
+      position:fixed; right:18px; bottom:18px; z-index:60;
+      display:none; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:999px;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#081018; font-weight:800; border:0; cursor:pointer;
+      box-shadow:0 10px 28px rgba(0,0,0,.4);
+    }
+    .back-to-top.show{display:inline-flex}
 
-    /* Footer */
-    footer{
-      margin-top:auto; background:#0f1218; border-top:1px solid var(--border);
-      padding:24px 0; color:var(--text)
-    }
-    .footgrid{display:grid; gap:18px}
-    @media (min-width:860px){ .footgrid{grid-template-columns:1.2fr 1fr 1fr} }
-    .footcol h3{margin:0 0 10px; font-size:16px; font-weight:800}
-    .footcol ul{list-style:none; padding:0; margin:0}
-    .footcol li{margin:6px 0}
-    .footline{
-      margin:14px 0 0; font-size:14px; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap
-    }
-    .footline img{height:20px; vertical-align:middle}
-    .fineprint{color:var(--muted); margin-top:6px; text-align:center; font-size:12px}
+    footer{padding:36px 0;color:var(--muted);border-top:1px solid var(--border);margin-top:52px;text-align:center}
+    .fine{font-size:.92rem}
   </style>
 </head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
 
+<body>
   <!-- Header -->
-  <header role="banner">
+  <header class="header">
     <div class="container bar">
-      <a class="brand" href="/" aria-label="FindAVet.online — Home">
-        <!-- Correct logo file name -->
-        <img src="Red Modern Pet Veterinary Clinic Logo_20250829_021620_0000.png" alt="FindAVet.online logo" />
-        <span class="wordmark">FindAVet.online</span>
-      </a>
-      <nav aria-label="Primary">
+      <div class="brand">
+        <img src="Logo.png" alt="FindAVet.online logo">
+        <div class="wordmark">FindAVet.online</div>
+      </div>
+      <nav>
         <a href="#search">Search</a>
-        <a href="#er">ER Guide</a>
-        <a href="#resources">Resources</a>
+        <a href="#afford">Low-Cost</a>
+        <a href="#rescues">Rescues</a>
+        <a href="#species">Species</a>
+        <a href="#microchip">Microchip</a>
+        <a href="#poison">Poison</a>
+        <a href="#heartworm">Heartworm</a>
         <a href="#about">About</a>
+        <a href="/ads.html">Ads</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="mailto:findavet.online@gmail.com" class="cta">Contact</a>
       </nav>
     </div>
   </header>
 
+  <!-- Mini quick-jump bar (mobile) -->
+  <nav class="minihdr" aria-label="Quick section nav">
+    <a href="#search">Search</a>
+    <a href="#afford">Low-Cost</a>
+    <a href="#rescues">Rescues</a>
+    <a href="#species">Species</a>
+    <a href="#poison">Poison</a>
+    <a href="#about">About</a>
+  </nav>
+
   <!-- Hero -->
-  <section class="hero container">
-    <span class="eyebrow">Nationwide directory</span>
-    <h1>Emergency & Specialty Vets — Fast</h1>
-    <p class="subtitle">Type a city or ZIP to get trusted results. Built for speed in emergencies and clarity on mobile.</p>
+  <section class="hero">
+    <div class="container">
+      <h1 class="title">Find emergency, specialty & low-cost veterinary care — fast.</h1>
+      <p class="sub">Type your city or ZIP. Then tap a category—our buttons combine your location with targeted terms and run the search right on this page.</p>
+    </div>
   </section>
 
-  <div class="divider" aria-hidden="true"></div>
+  <div class="divider container"></div>
 
-  <main id="main" class="container" role="main">
-    <!-- SEARCH -->
-    <section id="search" class="section" aria-labelledby="search-title">
+  <!-- Search -->
+  <section id="search">
+    <div class="container">
       <div class="card">
-        <h2 id="search-title">Find care near you</h2>
-        <p class="muted" style="margin-top:0">Results appear below in a Google panel.</p>
-        <div style="text-align:center; margin-top:8px">
-          <!-- Google Programmable Search (CSE) -->
+        <h2 style="margin:0 0 6px">Search the directory</h2>
+        <p class="hint">Enter a city or ZIP (e.g., <em>Dallas 75201</em>), then refine using the quick buttons.</p>
+
+        <div class="gcse-wrap">
+          <!-- Load CSE and expose a callback for programmatic searches -->
+          <script>
+            window.__gcse = {
+              callback: function(){
+                window.favExecute = function(query){
+                  try{
+                    var el = google.search.cse.element.getElement('standard0') ||
+                             google.search.cse.element.getElement('searchresults-only0') ||
+                             google.search.cse.element.getElement('searchresults0');
+                    if(el){ el.execute(query); location.hash = '#search'; return; }
+                  }catch(e){}
+                  var input = document.querySelector('input.gsc-input');
+                  if(input){ input.value = query; input.form && input.form.submit(); location.hash = '#search'; }
+                };
+              }
+            };
+            function favBuild(extra){
+              var input = document.querySelector('input.gsc-input');
+              var loc = input && input.value ? (' ' + input.value.trim()) : '';
+              return (extra + loc).trim();
+            }
+            function favSearch(extra){ window.favExecute ? window.favExecute(favBuild(extra)) : setTimeout(function(){ favSearch(extra); }, 150); }
+          </script>
+
           <script async src="https://cse.google.com/cse.js?cx=e47182b5ceea24a3d"></script>
           <div class="gcse-search"></div>
         </div>
-      </div>
-    </section>
 
-    <!-- ER DECISION AID -->
-    <section id="er" class="section" aria-labelledby="er-title">
-      <div class="card">
-        <h2 id="er-title">When to go to the ER</h2>
-        <ul>
-          <li>Trouble breathing, collapse, or unconsciousness</li>
-          <li>Severe bleeding or suspected broken bones</li>
-          <li>Poison/toxin ingestion (chocolate, lilies, xylitol, meds, rodenticides)</li>
-          <li>Persistent vomiting/diarrhea or bloated, painful abdomen</li>
-          <li>Seizures, heatstroke, or extreme lethargy</li>
-          <li>Urinary blockage signs (straining/no urine), especially male cats</li>
-          <li>Serious trauma, bites, or eye injuries</li>
-        </ul>
-        <p class="muted">If you’re unsure, seek care now or call a clinic.</p>
-        <p style="text-align:center; margin-top:14px">
-          <a class="btn" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">Need poison control?</a>
-          <a class="btn secondary" href="tel:+18884264435" aria-label="Call ASPCA Animal Poison Control 888-426-4435">Call 888-426-4435</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- RESOURCES -->
-    <section id="resources" class="section" aria-labelledby="res-title">
-      <div class="card">
-        <h2 id="res-title">Resources</h2>
-        <ul>
-          <li><a href="https://www.avma.org/resources-tools/pet-owners" target="_blank" rel="noopener">AVMA — Pet Owner Resources</a></li>
-          <li><a href="https://www.veccs.org/" target="_blank" rel="noopener">VECCS — Emergency & Critical Care Society</a></li>
-          <li><a href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">ASPCA Animal Poison Control</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section" aria-labelledby="about-title">
-      <div class="card">
-        <h2 id="about-title">About</h2>
-        <p>FindAVet.online helps pet owners quickly locate emergency and specialty veterinary care across the U.S. Upcoming releases include richer filtering (24/7 hours, specialties, exotics) and a clinic submission form.</p>
-        <p>Contact us for listing or advertising:</p>
-        <p><a href="mailto:findavet.online@gmail.com">findavet.online@gmail.com</a></p>
-      </div>
-    </section>
-
-    <!-- FAQ (no JS) -->
-    <section class="section" aria-labelledby="faq-title">
-      <div class="card">
-        <h2 id="faq-title">Frequently Asked Questions</h2>
-
-        <details>
-          <summary>Do you provide medical advice?</summary>
-          <p class="muted">No. We’re a directory-style resource. Always consult a licensed veterinarian for medical care.</p>
-        </details>
-
-        <details>
-          <summary>Why do search results show a Google panel?</summary>
-          <p class="muted">We use Google’s Programmable Search to surface the most relevant local results quickly, especially during emergencies.</p>
-        </details>
-
-        <details>
-          <summary>How can my clinic be listed?</summary>
-          <p class="muted">Email us at <a href="mailto:findavet.online@gmail.com">findavet.online@gmail.com</a> with your clinic information. We’ll follow up with next steps.</p>
-        </details>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer role="contentinfo">
-    <div class="container footgrid">
-      <div class="footcol">
-        <h3>FindAVet.online</h3>
-        <p class="muted">A fast, mobile-first way to find emergency and specialty veterinary care anywhere in the U.S.</p>
-        <p class="muted">Not a substitute for professional veterinary advice or care.</p>
-      </div>
-
-      <div class="footcol">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#search">Search</a></li>
-          <li><a href="#er">ER Guide</a></li>
-          <li><a href="#resources">Resources</a></li>
-          <li><a href="/privacy.html">Privacy Policy</a></li>
-        </ul>
-      </div>
-
-      <div class="footcol">
-        <h3>Contact</h3>
-        <ul>
-          <li><a href="mailto:findavet.online@gmail.com">findavet.online@gmail.com</a></li>
-          <li><a href="#about">List your clinic</a></li>
-          <li><a href="#about">Advertising</a></li>
-        </ul>
+        <!-- Quick filters -->
+        <div class="chips" style="margin-top:14px">
+          <button class="chip red" onclick="favSearch('emergency vet 24/7')">🚑 24/7 ER</button>
+          <button class="chip" onclick="favSearch('veterinary specialist cardiology or surgery')">🏥 Specialty</button>
+          <button class="chip" onclick="favSearch('walk-in vet clinic')">🚶‍♀️ Walk-in</button>
+        </div>
       </div>
     </div>
+  </section>
 
-    <p class="footline">
-      Your search powered by <strong style="color:var(--brand2)">Google</strong>
-      <!-- Provide your PNG as maps-logo.png (or adjust the src) -->
-      <img src="maps-logo.png" alt="Google Maps logo" onerror="this.style.display='none'">
-    </p>
-    <p class="fineprint">Google and Google Maps are trademarks of Google LLC.</p>
-    <p class="fineprint">© <span id="yr"></span> FindAVet.online</p>
+  <!-- Low-Cost & Payment Help -->
+  <section id="afford">
+    <div class="container">
+      <h2 class="title" style="font-size:28px;margin-bottom:8px">Short on funds? Options that may help</h2>
+      <p class="sub" style="margin-bottom:18px">Confirm availability and approval requirements with the clinic before your visit.</p>
+
+      <div class="card">
+        <div class="chips">
+          <button class="chip" onclick="favSearch('low cost veterinary clinic')">💸 Low-cost clinics</button>
+          <button class="chip" onclick="favSearch('spay and neuter clinic')">✂️ Spay & neuter</button>
+          <button class="chip" onclick="favSearch('vaccination clinic vet')">💉 Vaccinations</button>
+          <button class="chip" onclick="favSearch('nonprofit veterinary clinic')">🤝 Nonprofit / charity</button>
+          <button class="chip" onclick="favSearch('sliding scale veterinary care')">⚖️ Sliding scale</button>
+        </div>
+
+        <div class="chips" style="margin-top:14px">
+          <!-- Text links (safe) to payment options -->
+          <a class="chip" target="_blank" href="https://www.carecredit.com/vetmed/">💳 CareCredit (Apply)</a>
+          <a class="chip" target="_blank" href="https://scratchpay.com/">💳 Scratchpay (Apply)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rescues & Associations -->
+  <section id="rescues">
+    <div class="container">
+      <h2 class="title" style="font-size:28px;margin-bottom:8px">Rescues & Associations</h2>
+      <p class="sub" style="margin-bottom:18px">These can help with resources, referrals, or low-cost options:</p>
+
+      <div class="card">
+        <div class="chips">
+          <button class="chip" onclick="favSearch('animal rescue')">🐾 Animal rescue</button>
+          <button class="chip" onclick="favSearch('humane society')">🏛 Humane Society</button>
+          <button class="chip" onclick="favSearch('SPCA')">🐶 SPCA</button>
+          <button class="chip" onclick="favSearch('pet food pantry')">🥫 Pet food pantry</button>
+          <button class="chip" onclick="favSearch('community cat program TNR')">🐱 TNR / community cats</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Species -->
+  <section id="species">
+    <div class="container">
+      <h2 class="title" style="font-size:28px;margin-bottom:8px">Search by Species</h2>
+      <p class="sub" style="margin-bottom:18px">Add species to your query. Type your location above, then tap:</p>
+
+      <div class="card">
+        <div class="chips">
+          <button class="chip" onclick="favSearch('emergency vet for dogs')">🐶 Dogs</button>
+          <button class="chip" onclick="favSearch('emergency vet for cats feline')">🐱 Cats</button>
+          <button class="chip" onclick="favSearch('exotics veterinarian small mammals')">🐰 Small mammals</button>
+          <button class="chip" onclick="favSearch('reptile veterinarian herp')">🦎 Reptiles</button>
+          <button class="chip" onclick="favSearch('avian veterinarian bird vet')">🐦 Birds (avian)</button>
+          <button class="chip" onclick="favSearch('equine emergency veterinarian')">🐴 Equine / large animal</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Microchip Lookup (AAHA) -->
+  <section id="microchip">
+    <div class="container">
+      <h2 class="title" style="font-size:28px;margin-bottom:8px">Need your pet’s microchip number?</h2>
+      <div class="card" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div style="max-width:720px">
+          <p class="sub" style="margin:0 0 12px">Use the AAHA National Microchip Lookup tool to search participating registries.</p>
+          <div class="chips">
+            <a class="chip" target="_blank" href="https://petmicrochiplookup.org/">🔎 AAHA Microchip Lookup</a>
+          </div>
+          <p class="sub" style="margin-top:12px">Tip: Your vet or shelter can scan for the number if you don’t have it.</p>
+        </div>
+        <img src="aaha-logo.png" alt="AAHA logo" class="logo-inline" style="height:30px">
+      </div>
+    </div>
+  </section>
+
+  <!-- Poison Control (revamped) -->
+  <section id="poison">
+    <div class="container">
+      <h2 class="title" style="font-size:28px;margin-bottom:8px">Need to call Poison Control?</h2>
+      <div class="card" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div style="max-width:720px">
+          <p class="sub" style="margin:0 0 10px">Call the ASPCA Animal Poison Control Center: <strong>888-426-4435</strong> (fees may apply).</p>
+          <div class="chips">
+            <a class="chip red" target="_blank" href="https://www.aspca.org/pet-care/animal-poison-control">🚨 ASPCA Poison Control — Toxic Substances Info</a>
+          </div>
+          <p class="sub" style="margin-top:10px">If you suspect toxin exposure (e.g., chocolate, xylitol, lilies, meds, rodenticide), seek help immediately.</p>
+        </div>
+        <img src="aspca-logo.png" alt="ASPCA logo" class="logo-inline">
+      </div>
+    </div>
+  </section>
+
+  <!-- Supplies / Chewy -->
+  <section id="supplies">
+    <div class="container">
+      <h2 class="title" style="font-size:28px;margin-bottom:8px">Need to order food or supplies?</h2>
+      <div class="card" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div style="max-width:720px">
+          <p class="sub" style="margin:0 0 10px">Shop for food, prescriptions (with vet approval), and essentials:</p>
+          <div class="chips">
+            <a class="chip" target="_blank" href="https://www.chewy.com/">🛒 Open Chewy.com</a>
+          </div>
+        </div>
+        <img src="chewy-logo.png" alt="Chewy logo" class="logo-inline">
+      </div>
+    </div>
+  </section>
+
+  <!-- Heartworm -->
+  <section id="heartworm">
+    <div class="container">
+      <h2 class="title" style="font-size:28px;margin-bottom:8px">Why does my pet need heartworm prevention?</h2>
+      <div class="card" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div style="max-width:720px">
+          <p class="sub" style="margin:0 0 10px">Heartworm disease can be life-threatening and is spread by mosquitoes. Prevention is far easier than treatment.</p>
+          <div class="chips">
+            <a class="chip" target="_blank" href="https://www.heartwormsociety.org/">❤️ Learn more — American Heartworm Society</a>
+          </div>
+          <p class="sub" style="margin-top:10px">Ask your veterinarian which prevention is best for your pet and region.</p>
+        </div>
+        <img src="heartworm-logo.png" alt="American Heartworm Society logo" class="logo-inline">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="title" style="font-size:28px;margin-bottom:8px">About FindAVet.online</h2>
+      <div class="card">
+        <p class="sub" style="max-width:900px">
+          We’re a fast, mobile-first directory to help you locate emergency, specialty, affordable care, rescues, and resources across the U.S.
+          Searches are powered by Google and work best when you include a city or ZIP code. Always call ahead to confirm hours, species seen, and availability.
+        </p>
+        <p class="sub" style="margin-top:12px">
+          Contact: <a href="mailto:findavet.online@gmail.com">findavet.online@gmail.com</a>
+          &nbsp;•&nbsp; <a href="/ads.html">Ads & Sponsorships</a>
+          &nbsp;•&nbsp; <a href="/privacy.html">Privacy</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container fine">
+      © <span id="y"></span> FindAVet.online — Veterinary Emergency Directory • Your search is powered by Google.
+      <br>
+      <span style="opacity:.9">Google and Google Maps are trademarks of Google LLC.</span>
+      <br>
+      <img src="maps-logo.png" alt="Google Maps logo" style="height:20px;margin-top:8px">
+    </div>
   </footer>
 
+  <!-- Back to top -->
+  <button class="back-to-top" id="backTop" aria-label="Back to top">↑ Top</button>
+
   <script>
-    // Footer year
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+    // Current year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"FindAVet.online",
-    "url":"https://findavet.online/",
-    "logo":"https://findavet.online/Red%20Modern%20Pet%20Veterinary%20Clinic%20Logo_20250829_021620_0000.png",
-    "contactPoint": [{
-      "@type":"ContactPoint",
-      "email":"findavet.online@gmail.com",
-      "contactType":"customer support"
-    }]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Do you provide medical advice?",
-        "acceptedAnswer":{"@type":"Answer","text":"No. We’re a directory-style resource. Always consult a licensed veterinarian for medical care."}
-      },
-      {
-        "@type":"Question",
-        "name":"Why do search results show a Google panel?",
-        "acceptedAnswer":{"@type":"Answer","text":"We use Google’s Programmable Search to surface the most relevant local results quickly, especially during emergencies."}
-      },
-      {
-        "@type":"Question",
-        "name":"How can my clinic be listed?",
-        "acceptedAnswer":{"@type":"Answer","text":"Email us at findavet.online@gmail.com with your clinic information. We’ll follow up with next steps."}
+    // Back-to-top visibility + action
+    (function(){
+      const btn = document.getElementById('backTop');
+      function onScroll(){
+        if(window.scrollY > 400){ btn.classList.add('show'); }
+        else{ btn.classList.remove('show'); }
       }
-    ]
-  }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      btn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+    })();
   </script>
 </body>
 </html>
