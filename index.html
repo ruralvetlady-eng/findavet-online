@@ -1,38 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>FindAVet Online — Emergency & Specialty Vets Near You</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FindAVet.online — Veterinary Emergency Directory</title>
+  <meta name="description" content="Find emergency & specialty veterinary clinics near you. Search by city or ZIP, plus quick guidance for when to visit the ER." />
+  <link rel="canonical" href="https://findavet.online/" />
+  <meta name="theme-color" content="#0b0c10" />
 
-  <!-- Fonts: Headings + Body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Meta -->
-  <meta name="description" content="Nationwide directory for emergency & specialty veterinary care. Search by city or ZIP and get trusted results.">
-  <meta property="og:title" content="FindAVet Online — Emergency & Specialty Vets Near You">
-  <meta property="og:description" content="Search by city or ZIP to find emergency and specialty veterinary care across the U.S.">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="FindAVet.online — Veterinary Emergency Directory">
+  <meta property="og:description" content="Find emergency & specialty veterinary clinics near you. Search by city or ZIP, plus quick guidance for when to visit the ER.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0b0c10">
+  <meta property="og:url" content="https://findavet.online/">
+  <meta property="og:image" content="https://findavet.online/Logo.png">
+  <meta name="twitter:card" content="summary_large_image">
 
   <style>
     :root{
       /* Brand palette */
-      --bg:#0b0c10;      /* page background (slate/ink) */
-      --panel:#0f1218;   /* card top */
-      --panel2:#0c1016;  /* card bottom */
-      --border:#1b2130;
-      --text:#e9edf2;
-      --muted:#b6c0cf;
-      --brand:#2D6CDF;   /* primary blue */
-      --brand2:#58A6FF;  /* secondary blue */
-      --alert:#E63946;   /* ER red */
-
-      --radius:18px;
-      --shadow:0 14px 38px rgba(0,0,0,.32);
-      --ring:0 0 0 3px rgba(45,108,223,.35);
+      --bg:#0b0c10;        /* page background */
+      --panel:#0f1218;     /* card bg */
+      --panel2:#0c1016;    /* alt card */
+      --border:#1b2130;    /* subtle borders */
+      --text:#e9edf2;      /* primary text */
+      --muted:#b6c0cf;     /* secondary text */
+      --brand:#2D6CF6;     /* primary blue */
+      --brand2:#58A6FF;    /* accent blue */
+      --alert:#E63946;     /* ER red */
+      --radius:14px;
+      --shadow:0 12px 34px rgba(0,0,0,.35);
     }
 
     *{box-sizing:border-box}
@@ -40,197 +37,196 @@
     body{
       margin:0;
       color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 50% -10%, #12315a 0%, #0b0c10 55%);
-      font-family:Inter, system-ui, Segoe UI, Arial, sans-serif;
-      line-height:1.45;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      background:radial-gradient(1200px 700px at 50% -10%, #12315a 0%, #0b0c10 55%);
+      font-family:system-ui, Segoe UI, Inter, Arial, sans-serif;
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
       scroll-behavior:smooth;
+      display:flex; flex-direction:column; min-height:100vh;
     }
-    @media (prefers-reduced-motion: reduce) { html,body{scroll-behavior:auto} }
+    a{color:var(--brand2); text-decoration:none}
+    a:hover{opacity:.95}
 
-    a{color:var(--brand2);text-decoration:none}
-    a:focus-visible, button:focus-visible, input:focus-visible { outline:none; box-shadow:var(--ring); border-radius:12px }
-
-    /* Layout helpers */
-    .container{max-width:960px;margin:0 auto;padding:0 20px}
+    /* layout helpers */
+    .container{max-width:960px; margin:0 auto; padding:0 20px}
     .section{padding:28px 0}
-    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:20px 0}
 
-    /* Header */
-    .header{
+    /* header */
+    header{
       position:sticky; top:0; z-index:20;
-      background:rgba(11,12,16,.6); backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--border)
+      background:rgba(11,12,16,.9);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
     }
-    .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand img{height:40px;width:auto;filter:drop-shadow(0 8px 24px rgba(0,0,0,.35))}
-    .wordmark{font-family:Poppins,Inter,sans-serif;font-weight:800;letter-spacing:.2px}
-    .nav{display:flex;gap:16px;font-weight:700}
-    .nav a{opacity:.9} .nav a:hover{opacity:1}
+    .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .brand img{height:40px; width:auto; filter:drop-shadow(0 8px 22px rgba(0,0,0,.35))}
+    .wordmark{font-family:Poppins,Inter,sans-serif; font-weight:800}
+    nav{display:flex; gap:16px; font-weight:700}
+    nav a{opacity:.9} nav a:hover{opacity:1}
 
-    /* Hero */
-    .hero{text-align:center;padding:38px 0 14px}
-    .eyebrow{
-      display:inline-block; padding:6px 12px; border-radius:999px;
-      background:linear-gradient(135deg, rgba(45,108,223,.18), rgba(88,166,255,.18));
-      border:1px solid rgba(27,33,48,.9); color:#cfe1ff; font-weight:700; font-size:12px; letter-spacing:.6px;
-      text-transform:uppercase
-    }
-    .hero h1{
-      margin:10px 0 6px;
-      font-family:Poppins,Inter,sans-serif; font-weight:800;
-      font-size:clamp(28px,5.5vw,40px); letter-spacing:.2px
-    }
-    .subtitle{max-width:720px;margin:8px auto 0;color:var(--muted)}
-
-    /* Card */
+    /* cards */
     .card{
-      background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
       border:1px solid var(--border);
       border-radius:var(--radius);
+      padding:24px;
       box-shadow:var(--shadow);
-      padding:22px;
-      margin:18px 0;
     }
-    .card h2{
-      margin:0 0 10px;
-      font-family:Poppins,Inter,sans-serif; font-weight:700;
-      font-size:clamp(20px,3.4vw,26px)
-    }
+    .card h1,.card h2{margin:0 0 10px}
+    .card p{margin:8px 0 0}
 
-    /* Google CSE polish */
-    .gsc-control-cse, .gsc-control-cse .gsc-table-result{border:0;background:transparent}
-    .gsc-input-box{border-radius:999px !important;border:1px solid #2a3347 !important;background:#0e1116 !important}
-    input.gsc-input, .gsc-input-box input{color:var(--text) !important;height:46px !important}
-    input.gsc-search-button, button.gsc-search-button-v2{
-      background:linear-gradient(135deg,var(--brand),var(--brand2)) !important; color:#081018 !important;
-      border:0 !important; border-radius:999px !important; height:46px !important; padding:0 20px !important;
-      font-weight:800 !important; letter-spacing:.2px
-    }
-    .gsc-webResult.gsc-result{background:transparent;border:1px solid var(--border);border-radius:14px;padding:12px;margin:10px 0}
-    .gs-title, .gs-title *{color:var(--brand2) !important;text-decoration:none !important}
-    .gs-snippet{color:var(--muted) !important}
+    /* lists */
+    ul{margin:12px 0 0; padding-left:20px}
+    li{margin:6px 0}
 
-    /* Lists & buttons */
-    ul{margin:10px 0 0 20px}
-    .btn-danger{
-      display:inline-block; background:linear-gradient(135deg,#c62836,var(--alert));
-      color:#fff; padding:12px 18px; border-radius:12px; font-weight:800; text-decoration:none; border:0
+    /* buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      border-radius:12px; border:1px solid transparent;
+      padding:12px 18px; font-weight:700; cursor:pointer;
+      background:var(--brand); color:#fff;
+      transition:transform .04s ease, filter .2s ease;
     }
-    .btn-danger:hover{filter:brightness(1.05)}
-    .center{text-align:center}
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{background:transparent; border-color:var(--border); color:var(--text)}
+    .btn.er{background:var(--alert)}
+    .btn.er:hover{filter:brightness(.95)}
 
-    /* Footer */
-    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);text-align:center;font-size:14px}
-    .toplink{display:inline-block;margin-top:6px;color:#8fb6ff}
+    /* search card tweaks */
+    .search-tip{color:var(--muted); font-size:.95rem; margin-top:8px}
+
+    /* footer */
+    footer{
+      margin-top:auto;
+      background:#0f1218;
+      border-top:1px solid var(--border);
+      padding:22px 12px;
+      text-align:center;
+      color:var(--text);
+    }
+    .footline{
+      margin:0; font-size:14px;
+      display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;
+    }
+    .footline img{height:20px; vertical-align:middle}
+    .fineprint{color:var(--muted); margin-top:8px; font-size:12px}
+    .contact{margin-top:10px; font-size:14px}
+
+    /* small screens */
+    @media (max-width:560px){
+      .brand img{height:34px}
+      nav{gap:12px; font-size:.95rem}
+      .card{padding:20px}
+    }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="header" role="banner">
-    <div class="container bar">
-      <div class="brand">
-        <img src="Red Modern Pet Veterinary Clinic Logo_20250829_021620_0000.png" alt="FindAVet Online logo">
-        <div class="wordmark">FindAVet Online</div>
-      </div>
-      <nav class="nav" aria-label="Primary">
+
+  <!-- Header -->
+  <header>
+    <div class="bar container">
+      <a class="brand" href="/" aria-label="FindAVet Online home">
+        <!-- Use your uploaded logo file name here -->
+        <img src="Logo.png" alt="FindAVet.online logo" />
+        <span class="wordmark">FindAVet.online</span>
+      </a>
+      <nav>
         <a href="#search">Search</a>
-        <a href="#er">ER Guide</a>
-        <a href="#about">About</a>
+        <a href="#er">When to Visit ER</a>
+        <a href="#poison">Poison Control</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero container">
-    <span class="eyebrow">Nationwide directory</span>
-    <h1>Emergency & Specialty Vets — Fast</h1>
-    <p class="subtitle">Search by city or ZIP to get trusted results. Designed for speed in emergencies and clarity on mobile.</p>
-  </section>
+  <main class="container">
 
-  <div class="divider" aria-hidden="true"></div>
+    <!-- Search -->
+    <section id="search" class="section">
+      <div class="card">
+        <h1>Find Emergency & Specialty Vets Near You</h1>
+        <p class="search-tip">Tip: Enter your city or ZIP code. Results open in a Google panel below.</p>
 
-  <!-- SEARCH -->
-  <section id="search" class="container section" aria-labelledby="search-title">
-    <div class="card">
-      <h2 id="search-title">Find care near you</h2>
-      <p style="color:var(--muted);margin:0 0 12px">Type a city, ZIP, or state. Results appear below (powered by Google).</p>
-      <div class="center" style="margin-top:8px">
-        <!-- Google Custom Search (CSE) -->
+        <!-- Google Programmable Search (your CX id) -->
         <script async src="https://cse.google.com/cse.js?cx=e47182b5ceea24a3d"></script>
         <div class="gcse-search"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ER GUIDE -->
-  <section id="er" class="container section" aria-labelledby="er-title">
-    <div class="card">
-      <h2 id="er-title">When to go to the ER</h2>
-      <p style="color:var(--muted);margin:0 0 8px">(General info only. If you’re unsure — go now.)</p>
-      <ul>
-        <li>Trouble breathing, collapse, unconsciousness</li>
-        <li>Severe bleeding or suspected broken bones</li>
-        <li>Poisoning (chocolate, lilies, xylitol, meds, rodenticides)</li>
-        <li>Persistent vomiting/diarrhea, bloated painful abdomen</li>
-        <li>Seizures, heatstroke, extreme lethargy</li>
-        <li>Urinary blockage signs (straining/no urine), especially male cats</li>
-        <li>Serious eye injuries, snake/spider bites, or trauma</li>
-      </ul>
-      <p class="center" style="margin-top:16px">
-        <a class="btn-danger" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">
-          Need poison control?
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="container section" aria-labelledby="about-title">
-    <div class="card">
-      <h2 id="about-title">About</h2>
-      <p>FindAVet Online helps pet owners quickly locate emergency and specialty veterinary care anywhere in the U.S. Next up: richer filtering (24/7, specialty, exotics) and a clinic submission form.</p>
-      <p><a href="mailto:hello@findavet.online">List your clinic</a> · <a href="mailto:hello@findavet.online">Contact</a></p>
-    </div>
-  </section>
-
-  <!-- ATTRIBUTION -->
-  <section class="container section" aria-labelledby="attr-title">
-    <div class="card">
-      <h2 id="attr-title">Attribution</h2>
-      <p style="color:var(--muted);margin:0">Search results open in Google. Google and Google Maps are trademarks of Google LLC.</p>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:10px">
-        <!-- Optional: upload these; they auto-hide if missing -->
-        <img src="google-logo.png" alt="Google logo" style="height:22px" onerror="this.style.display='none'">
-        <img src="google-maps-logo.png" alt="Google Maps logo" style="height:22px" onerror="this.style.display='none'">
+    <!-- When to go to the ER -->
+    <section id="er" class="section">
+      <div class="card">
+        <h2>When to go to the ER</h2>
+        <ul>
+          <li>Trouble breathing, collapse, or unconsciousness</li>
+          <li>Severe bleeding or suspected broken bones</li>
+          <li>Poison/toxin ingestion (chocolate, meds, lilies, xylitol, etc.)</li>
+          <li>Persistent vomiting/diarrhea or bloated abdomen</li>
+          <li>Seizures, heatstroke, or extreme lethargy</li>
+          <li>Urinary blockage signs (straining/no urine)</li>
+          <li>Serious trauma, bites, or eye injuries</li>
+        </ul>
+        <p class="search-tip">If you’re unsure, call a vet clinic—when in doubt, seek care.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer role="contentinfo">
-    <div class="container center">
-      © <span id="y"></span> FindAVet Online · Not a substitute for professional veterinary advice or care.
-      <br><a class="toplink" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</a>
+    <!-- Poison Control -->
+    <section id="poison" class="section">
+      <div class="card" style="text-align:center">
+        <h2>Need Poison Control?</h2>
+        <p class="search-tip">ASPCA Animal Poison Control Center (fees may apply).</p>
+        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:8px">
+          <a class="btn er" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">Open ASPCA Poison Control</a>
+          <a class="btn secondary" href="tel:+18884264435" aria-label="Call ASPCA Poison Control 888-426-4435">Call 888-426-4435</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="section">
+      <div class="card">
+        <h2>Disclaimer</h2>
+        <p class="search-tip">
+          FindAVet.online is a directory-style resource. We do not provide veterinary care or guarantee clinic availability.
+          Always contact a veterinarian for medical advice about your pet.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footline">
+      Your search powered by <span style="color:var(--brand2); font-weight:700">Google</span>
+      <!-- Use your uploaded PNG name here; if you placed it in /assets, change the src accordingly -->
+      <img src="maps-logo.png" alt="Google Maps logo" onerror="this.style.display='none'">
+    </p>
+    <div class="contact">
+      📩 Contact: <a href="mailto:findavet.online@gmail.com">findavet.online@gmail.com</a>
     </div>
+    <div class="fineprint">
+      Google and Google Maps are trademarks of Google LLC.
+    </div>
+    <div class="fineprint" id="yearline">© <span id="yr"></span> FindAVet Online</div>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Current year in footer
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
 
-  <!-- JSON-LD (optional but nice for SEO) -->
+  <!-- JSON-LD: basic organization info for richer search appearance -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"FindAVet Online",
-    "url":"https://findavet.online/",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://findavet.online/?q={search_term_string}",
-      "query-input":"required name=search_term_string"
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FindAVet.online",
+    "url": "https://findavet.online/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.google.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
   }
   </script>
