@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta property="og:title" content="FindAVet Online — Emergency & Specialty Vets Near You">
+<meta property="og:description" content="Search by city or ZIP to find emergency and specialty veterinary care across the U.S.">
+<meta property="og:image" content="https://findavet.online/Red Modern Pet Veterinary Clinic Logo_20250829_021620_0000.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b0c10">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FindAVet Online — Emergency & Specialty Vets Near You</title>
@@ -12,10 +17,22 @@
   <link rel="icon" type="image/png" href="favicon.png">
 
   <style>
-    :root{
-      --bg:#0b0c10; --panel:#0f1218; --panel2:#0c1016; --border:#1b2130;
-      --text:#e9edf2; --muted:#b6c0cf; --brand:#2D6CDF; --brand2:#58A6FF; --alert:#E63946;
-      --radius:16px; --shadow:0 12px 30px rgba(0,0,0,.28);
+  /* === FindAVet polish === */
+  .fav-container { max-width:1100px; margin:0 auto; padding:0 20px; }
+  .fav-search-wrap { text-align:center; margin: 24px auto; padding: 18px; }
+  /* Google CSE skin */
+  .gsc-control-cse, .gsc-control-cse .gsc-table-result { border:0; background:transparent; }
+  .gsc-input-box { border-radius:999px !important; border:1px solid #2a3347 !important; background:#0e1116 !important; }
+  input.gsc-input, .gsc-input-box input { color:#e9edf2 !important; height:44px !important; }
+  input.gsc-search-button, button.gsc-search-button-v2 {
+    background:linear-gradient(135deg,#2D6CDF,#58A6FF) !important;
+    color:#081018 !important; border:0 !important; border-radius:999px !important;
+    height:44px !important; padding:0 18px !important; font-weight:800 !important;
+  }
+  .gsc-webResult.gsc-result { background:transparent; border:1px solid #1b2130; border-radius:14px; padding:12px; margin:10px 0; }
+  .gs-title, .gs-title * { color:#58A6FF !important; text-decoration:none !important; }
+  .gs-snippet { color:#b6c0cf !important; }
+  </style>
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -92,6 +109,14 @@
     <h1 style="margin:0;font-size:clamp(26px,5vw,38px);letter-spacing:.2px">Emergency & Specialty Vets — Fast</h1>
     <p class="subtitle">Search by city or ZIP to open directions in Google Maps. Nationwide coverage, mobile-friendly, and expanding daily.</p>
   </section>
+  <p style="text-align:center; margin:14px 0 24px;">
+  <a href="https://www.aspca.org/pet-care/animal-poison-control"
+     target="_blank" rel="noopener"
+     style="display:inline-block; background:linear-gradient(135deg,#c62836,#E63946);
+            color:#fff; padding:12px 18px; border-radius:12px; font-weight:800;">
+    Need poison control?
+  </a>
+  </p>
 
   <main class="container grid">
     <!-- Search + ER -->
@@ -148,6 +173,18 @@
   <footer>
     © <span id="y"></span> FindAVet Online · Not a substitute for professional veterinary advice or care.
   </footer>
+  <section class="fav-container" style="margin:18px auto 28px;">
+  <div style="background:linear-gradient(180deg,#0f1218,#0c1016); border:1px solid #1b2130; border-radius:16px; padding:16px;">
+    <h3 style="margin:0 0 10px; font-size:18px;">Attribution</h3>
+    <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap">
+      <img src="google-logo.png" alt="Google logo" style="height:22px" onerror="this.style.display='none'">
+      <img src="google-maps-logo.png" alt="Google Maps logo" style="height:22px" onerror="this.style.display='none'">
+    </div>
+    <small style="color:#b6c0cf; display:block; margin-top:8px;">
+      Search results open in Google. Google and Google Maps are trademarks of Google LLC.
+    </small>
+  </div>
+  </section>
 
   <script>
     // species chip toggle
