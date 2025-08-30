@@ -1,209 +1,238 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta property="og:title" content="FindAVet Online — Emergency & Specialty Vets Near You">
-<meta property="og:description" content="Search by city or ZIP to find emergency and specialty veterinary care across the U.S.">
-<meta property="og:image" content="https://findavet.online/Red Modern Pet Veterinary Clinic Logo_20250829_021620_0000.png">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0c10">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>FindAVet Online — Emergency & Specialty Vets Near You</title>
+
+  <!-- Fonts: Headings + Body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <meta name="description" content="Nationwide directory for emergency & specialty veterinary care. Search by city or ZIP and get directions instantly.">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Meta -->
+  <meta name="description" content="Nationwide directory for emergency & specialty veterinary care. Search by city or ZIP and get trusted results.">
+  <meta property="og:title" content="FindAVet Online — Emergency & Specialty Vets Near You">
+  <meta property="og:description" content="Search by city or ZIP to find emergency and specialty veterinary care across the U.S.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0b0c10">
 
   <style>
-  /* === FindAVet polish === */
-  .fav-container { max-width:1100px; margin:0 auto; padding:0 20px; }
-  .fav-search-wrap { text-align:center; margin: 24px auto; padding: 18px; }
-  /* Google CSE skin */
-  .gsc-control-cse, .gsc-control-cse .gsc-table-result { border:0; background:transparent; }
-  .gsc-input-box { border-radius:999px !important; border:1px solid #2a3347 !important; background:#0e1116 !important; }
-  input.gsc-input, .gsc-input-box input { color:#e9edf2 !important; height:44px !important; }
-  input.gsc-search-button, button.gsc-search-button-v2 {
-    background:linear-gradient(135deg,#2D6CDF,#58A6FF) !important;
-    color:#081018 !important; border:0 !important; border-radius:999px !important;
-    height:44px !important; padding:0 18px !important; font-weight:800 !important;
-  }
-  .gsc-webResult.gsc-result { background:transparent; border:1px solid #1b2130; border-radius:14px; padding:12px; margin:10px 0; }
-  .gs-title, .gs-title * { color:#58A6FF !important; text-decoration:none !important; }
-  .gs-snippet { color:#b6c0cf !important; }
-  </style>
+    :root{
+      /* Brand palette */
+      --bg:#0b0c10;      /* page background (slate/ink) */
+      --panel:#0f1218;   /* card top */
+      --panel2:#0c1016;  /* card bottom */
+      --border:#1b2130;
+      --text:#e9edf2;
+      --muted:#b6c0cf;
+      --brand:#2D6CDF;   /* primary blue */
+      --brand2:#58A6FF;  /* secondary blue */
+      --alert:#E63946;   /* ER red */
+
+      --radius:18px;
+      --shadow:0 14px 38px rgba(0,0,0,.32);
+      --ring:0 0 0 3px rgba(45,108,223,.35);
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:
-      radial-gradient(1200px 700px at 50% -10%,#12315a 0%,#0b0c10 55%);color:var(--text)}
-    a{color:var(--brand2);text-decoration:none}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 50% -10%, #12315a 0%, #0b0c10 55%);
+      font-family:Inter, system-ui, Segoe UI, Arial, sans-serif;
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+    }
+    @media (prefers-reduced-motion: reduce) { html,body{scroll-behavior:auto} }
 
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    a{color:var(--brand2);text-decoration:none}
+    a:focus-visible, button:focus-visible, input:focus-visible { outline:none; box-shadow:var(--ring); border-radius:12px }
+
+    /* Layout helpers */
+    .container{max-width:960px;margin:0 auto;padding:0 20px}
+    .section{padding:28px 0}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:20px 0}
+
     /* Header */
-    <!-- Google Custom Search -->
-<div style="text-align:center; margin: 30px 0;">
-  <script async src="https://cse.google.com/cse.js?cx=<script async src="https://cse.google.com/cse.js?cx=e47182b5ceea24a3d">
-</script>
-<div class="gcse-search"></div>"></script>
-  <div class="gcse-search"></div>
-</div>
-    .header{position:sticky;top:0;z-index:10;background:rgba(11,12,16,.65);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .header{
+      position:sticky; top:0; z-index:20;
+      background:rgba(11,12,16,.6); backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border)
+    }
     .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:42px;width:auto}
-    .brand .title{font-weight:800;letter-spacing:.2px}
-    .nav{display:flex;gap:18px;font-weight:600}
-    .nav a{opacity:.9}
-    .nav a:hover{opacity:1}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:40px;width:auto;filter:drop-shadow(0 8px 24px rgba(0,0,0,.35))}
+    .wordmark{font-family:Poppins,Inter,sans-serif;font-weight:800;letter-spacing:.2px}
+    .nav{display:flex;gap:16px;font-weight:700}
+    .nav a{opacity:.9} .nav a:hover{opacity:1}
 
     /* Hero */
-    .hero{padding:36px 0 14px;text-align:center}
-    .subtitle{max-width:760px;margin:10px auto 0;color:var(--muted);line-height:1.6}
+    .hero{text-align:center;padding:38px 0 14px}
+    .eyebrow{
+      display:inline-block; padding:6px 12px; border-radius:999px;
+      background:linear-gradient(135deg, rgba(45,108,223,.18), rgba(88,166,255,.18));
+      border:1px solid rgba(27,33,48,.9); color:#cfe1ff; font-weight:700; font-size:12px; letter-spacing:.6px;
+      text-transform:uppercase
+    }
+    .hero h1{
+      margin:10px 0 6px;
+      font-family:Poppins,Inter,sans-serif; font-weight:800;
+      font-size:clamp(28px,5.5vw,40px); letter-spacing:.2px
+    }
+    .subtitle{max-width:720px;margin:8px auto 0;color:var(--muted)}
 
-    /* Grid */
-    .grid{display:grid;gap:22px;margin:20px 0 34px}
-    @media(min-width:960px){.grid{grid-template-columns:1.2fr .8fr}}
+    /* Card */
+    .card{
+      background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+      margin:18px 0;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-family:Poppins,Inter,sans-serif; font-weight:700;
+      font-size:clamp(20px,3.4vw,26px)
+    }
 
-    /* Cards */
-    .card{background:linear-gradient(180deg,var(--panel) 0%, var(--panel2) 100%);
-      border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
-    h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,26px)}
+    /* Google CSE polish */
+    .gsc-control-cse, .gsc-control-cse .gsc-table-result{border:0;background:transparent}
+    .gsc-input-box{border-radius:999px !important;border:1px solid #2a3347 !important;background:#0e1116 !important}
+    input.gsc-input, .gsc-input-box input{color:var(--text) !important;height:46px !important}
+    input.gsc-search-button, button.gsc-search-button-v2{
+      background:linear-gradient(135deg,var(--brand),var(--brand2)) !important; color:#081018 !important;
+      border:0 !important; border-radius:999px !important; height:46px !important; padding:0 20px !important;
+      font-weight:800 !important; letter-spacing:.2px
+    }
+    .gsc-webResult.gsc-result{background:transparent;border:1px solid var(--border);border-radius:14px;padding:12px;margin:10px 0}
+    .gs-title, .gs-title *{color:var(--brand2) !important;text-decoration:none !important}
+    .gs-snippet{color:var(--muted) !important}
 
-    /* Search */
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
-    .chip{border:1px solid #2a3347;background:#0e1116;color:var(--text);padding:10px 12px;border-radius:999px;font-weight:700}
-    .chip.active{background:linear-gradient(135deg,var(--brand),var(--brand2));border-color:transparent;color:#081018}
-    .searchrow{display:flex;gap:10px;flex-wrap:wrap}
-    input[type="text"]{flex:1;min-width:220px;padding:14px 12px;border-radius:12px;border:1px solid #2a3347;background:#0e1116;color:var(--text)}
-    button{padding:14px 16px;border:0;border-radius:12px;font-weight:800;letter-spacing:.2px;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0a0f16}
-    .hint{color:var(--muted);font-size:14px;margin-top:8px}
-
-    /* ER box */
-    ul{margin:10px 0 0 20px;line-height:1.6}
+    /* Lists & buttons */
+    ul{margin:10px 0 0 20px}
+    .btn-danger{
+      display:inline-block; background:linear-gradient(135deg,#c62836,var(--alert));
+      color:#fff; padding:12px 18px; border-radius:12px; font-weight:800; text-decoration:none; border:0
+    }
+    .btn-danger:hover{filter:brightness(1.05)}
+    .center{text-align:center}
 
     /* Footer */
-    footer{border-top:1px solid var(--border);padding:20px 0;color:var(--muted);text-align:center}
+    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);text-align:center;font-size:14px}
+    .toplink{display:inline-block;margin-top:6px;color:#8fb6ff}
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
+  <!-- HEADER -->
+  <header class="header" role="banner">
     <div class="container bar">
       <div class="brand">
         <img src="Red Modern Pet Veterinary Clinic Logo_20250829_021620_0000.png" alt="FindAVet Online logo">
-        <div class="title">FindAVet Online</div>
+        <div class="wordmark">FindAVet Online</div>
       </div>
       <nav class="nav" aria-label="Primary">
-        <a href="#search">Find Care</a>
+        <a href="#search">Search</a>
         <a href="#er">ER Guide</a>
-        <a href="mailto:hello@findavet.online">List Your Clinic</a>
+        <a href="#about">About</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero container">
-    <h1 style="margin:0;font-size:clamp(26px,5vw,38px);letter-spacing:.2px">Emergency & Specialty Vets — Fast</h1>
-    <p class="subtitle">Search by city or ZIP to open directions in Google Maps. Nationwide coverage, mobile-friendly, and expanding daily.</p>
+    <span class="eyebrow">Nationwide directory</span>
+    <h1>Emergency & Specialty Vets — Fast</h1>
+    <p class="subtitle">Search by city or ZIP to get trusted results. Designed for speed in emergencies and clarity on mobile.</p>
   </section>
-  <p style="text-align:center; margin:14px 0 24px;">
-  <a href="https://www.aspca.org/pet-care/animal-poison-control"
-     target="_blank" rel="noopener"
-     style="display:inline-block; background:linear-gradient(135deg,#c62836,#E63946);
-            color:#fff; padding:12px 18px; border-radius:12px; font-weight:800;">
-    Need poison control?
-  </a>
-  </p>
 
-  <main class="container grid">
-    <!-- Search + ER -->
-    <section id="search" class="card">
-      <h2>Find care near you</h2>
+  <div class="divider" aria-hidden="true"></div>
 
-      <div class="chips" id="species">
-        <span class="chip active" data-q="">All</span>
-        <span class="chip" data-q=" dog">Dog</span>
-        <span class="chip" data-q=" cat">Cat</span>
-        <span class="chip" data-q=" bird avian">Bird</span>
-        <span class="chip" data-q=" reptile exotics">Reptile</span>
-        <span class="chip" data-q=" rabbit guinea pig small mammal">Small Mammal</span>
-        <span class="chip" data-q=" equine horse">Horse</span>
+  <!-- SEARCH -->
+  <section id="search" class="container section" aria-labelledby="search-title">
+    <div class="card">
+      <h2 id="search-title">Find care near you</h2>
+      <p style="color:var(--muted);margin:0 0 12px">Type a city, ZIP, or state. Results appear below (powered by Google).</p>
+      <div class="center" style="margin-top:8px">
+        <!-- Google Custom Search (CSE) -->
+        <script async src="https://cse.google.com/cse.js?cx=e47182b5ceea24a3d"></script>
+        <div class="gcse-search"></div>
       </div>
-
-      <div class="searchrow">
-        <input id="q" type="text" placeholder="e.g. 30309 or Boise, ID" aria-label="City or ZIP">
-        <button onclick="go()">Search</button>
-      </div>
-      <div class="hint">Opens Google Maps with “emergency veterinarian” + your selected species.</div>
-
-      <div id="er" class="card" style="margin-top:16px">
-        <h2 style="display:flex;align-items:center;gap:8px;margin-bottom:6px">When to go to the ER</h2>
-        <p class="hint" style="margin:0">(General info only. If you’re unsure—go now.)</p>
-        <ul>
-          <li>Trouble breathing, collapse, unconsciousness</li>
-          <li>Severe bleeding or suspected broken bones</li>
-          <li>Poisoning (chocolate, lilies, xylitol, meds, rodenticides)</li>
-          <li>Persistent vomiting/diarrhea, bloated painful abdomen</li>
-          <li>Seizures, heatstroke, extreme lethargy</li>
-          <li>Urinary blockage signs (straining/no urine), esp. male cats</li>
-          <li>Serious eye injuries, snake/spider bites, or trauma</li>
-        </ul>
-        <p style="margin-top:12px">
-          <a class="chip" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">🚑 ASPCA Animal Poison Control</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- Right column -->
-    <aside class="card">
-      <h2>About</h2>
-      <p>FindAVet Online helps pet owners locate qualified emergency and specialty veterinarians anywhere in the U.S. In the next release: built-in results with filters (24/7, specialties, exotics) and clinic submissions.</p>
-      <p><a href="mailto:hello@findavet.online">List your clinic</a> · <a href="mailto:hello@findavet.online">Contact</a></p>
-
-      <div class="card" style="margin-top:14px">
-        <h2>Share</h2>
-        <p class="hint" style="margin:0">Send a friend our site: <strong>findavet.online</strong></p>
-      </div>
-    </aside>
-  </main>
-
-  <footer>
-    © <span id="y"></span> FindAVet Online · Not a substitute for professional veterinary advice or care.
-  </footer>
-  <section class="fav-container" style="margin:18px auto 28px;">
-  <div style="background:linear-gradient(180deg,#0f1218,#0c1016); border:1px solid #1b2130; border-radius:16px; padding:16px;">
-    <h3 style="margin:0 0 10px; font-size:18px;">Attribution</h3>
-    <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap">
-      <img src="google-logo.png" alt="Google logo" style="height:22px" onerror="this.style.display='none'">
-      <img src="google-maps-logo.png" alt="Google Maps logo" style="height:22px" onerror="this.style.display='none'">
     </div>
-    <small style="color:#b6c0cf; display:block; margin-top:8px;">
-      Search results open in Google. Google and Google Maps are trademarks of Google LLC.
-    </small>
-  </div>
   </section>
+
+  <!-- ER GUIDE -->
+  <section id="er" class="container section" aria-labelledby="er-title">
+    <div class="card">
+      <h2 id="er-title">When to go to the ER</h2>
+      <p style="color:var(--muted);margin:0 0 8px">(General info only. If you’re unsure — go now.)</p>
+      <ul>
+        <li>Trouble breathing, collapse, unconsciousness</li>
+        <li>Severe bleeding or suspected broken bones</li>
+        <li>Poisoning (chocolate, lilies, xylitol, meds, rodenticides)</li>
+        <li>Persistent vomiting/diarrhea, bloated painful abdomen</li>
+        <li>Seizures, heatstroke, extreme lethargy</li>
+        <li>Urinary blockage signs (straining/no urine), especially male cats</li>
+        <li>Serious eye injuries, snake/spider bites, or trauma</li>
+      </ul>
+      <p class="center" style="margin-top:16px">
+        <a class="btn-danger" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">
+          Need poison control?
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="container section" aria-labelledby="about-title">
+    <div class="card">
+      <h2 id="about-title">About</h2>
+      <p>FindAVet Online helps pet owners quickly locate emergency and specialty veterinary care anywhere in the U.S. Next up: richer filtering (24/7, specialty, exotics) and a clinic submission form.</p>
+      <p><a href="mailto:hello@findavet.online">List your clinic</a> · <a href="mailto:hello@findavet.online">Contact</a></p>
+    </div>
+  </section>
+
+  <!-- ATTRIBUTION -->
+  <section class="container section" aria-labelledby="attr-title">
+    <div class="card">
+      <h2 id="attr-title">Attribution</h2>
+      <p style="color:var(--muted);margin:0">Search results open in Google. Google and Google Maps are trademarks of Google LLC.</p>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:10px">
+        <!-- Optional: upload these; they auto-hide if missing -->
+        <img src="google-logo.png" alt="Google logo" style="height:22px" onerror="this.style.display='none'">
+        <img src="google-maps-logo.png" alt="Google Maps logo" style="height:22px" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="container center">
+      © <span id="y"></span> FindAVet Online · Not a substitute for professional veterinary advice or care.
+      <br><a class="toplink" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</a>
+    </div>
+  </footer>
 
   <script>
-    // species chip toggle
-    let speciesAddon = "";
-    const chips = document.querySelectorAll(".chip");
-    chips.forEach(ch => ch.addEventListener("click", () => {
-      chips.forEach(c=>c.classList.remove("active"));
-      ch.classList.add("active");
-      speciesAddon = ch.getAttribute("data-q") || "";
-    }));
-
-    // search builder
-    function go(){
-      const place = document.getElementById('q').value.trim();
-      if(!place) { document.getElementById('q').focus(); return; }
-      const term = ['emergency veterinarian', speciesAddon, place].join(' ').trim();
-      location.href = 'https://www.google.com/maps/search/' + encodeURIComponent(term);
-    }
     document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JSON-LD (optional but nice for SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"FindAVet Online",
+    "url":"https://findavet.online/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://findavet.online/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
   </script>
 </body>
 </html>
