@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FindAVet.online — Emergency, Specialty & Low-Cost Vet Care</title>
-  <meta name="description" content="Search emergency, specialty, and low-cost veterinary care near you. Quick links for species, rescues, poison control, microchip lookup, payments, and more." />
+  <meta name="description" content="Search emergency, specialty, and low-cost veterinary care near you. Quick links for rescues, poison control, microchip lookup, payments, and pet supplies." />
   <meta name="theme-color" content="#0b0c10" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -74,6 +74,32 @@
     /* Search block + big buttons */
     .search-wrap{padding:16px; background:#0d1421; border:1px solid var(--border); border-radius:14px}
     .powered{margin-top:10px; font-size:12px; color:#9bb0cc}
+
+    /* Google CSE visual fixes (prevent overlap) */
+    .gsc-control-cse, .gsc-control-cse .gsc-table-result{background:transparent; border:0}
+    .gsc-search-box-tools .gsc-search-box { margin-bottom:0 !important; }
+    .gsc-input-box{
+      border:1px solid var(--border) !important;
+      background:#0f1826 !important;
+      border-radius:12px !important;
+      min-height:50px !important;
+      display:flex !important; align-items:center !important;
+    }
+    .gsib_a{padding:8px 10px !important}
+    .gsib_b{display:none !important} /* hide mic icon to avoid overlap */
+    input.gsc-input{
+      background:transparent !important; color:#fff !important;
+      height:48px !important; line-height:48px !important;
+      padding:0 12px !important; font-size:16px !important;
+      width:100% !important;
+    }
+    button.gsc-search-button-v2, input.gsc-search-button{
+      height:48px !important; min-width:100px !important;
+      border-radius:12px !important; border:0 !important;
+      background:linear-gradient(135deg,var(--brand),var(--brand2)) !important;
+      color:#071019 !important; font-weight:800 !important;
+    }
+
     .grid{
       display:grid; gap:14px; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
       margin-top:18px;
@@ -91,6 +117,7 @@
     .logos{display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-top:14px}
     .logos img{height:36px; width:auto; object-fit:contain; background:#fff; border-radius:8px; padding:6px}
     .note{color:#9bb0cc; font-size:.95rem}
+
     footer{padding:40px 0 60px; color:#92a8c6; text-align:center; border-top:1px solid var(--border)}
     .fine{font-size:12px}
   </style>
@@ -101,8 +128,7 @@
   <header>
     <div class="container bar">
       <a class="brand" href="#search" aria-label="FindAVet.online home">
-        <!-- Your site brand logo -->
-        <img src="logo.png" alt="FindAVet.online logo" onerror="this.style.display='none'">
+        <img src="logo.png" alt="FindAVet.online logo">
         <span>FindAVet.online</span>
       </a>
 
@@ -112,10 +138,10 @@
         <a href="#search">Search</a>
         <a href="#lowcost">Low-Cost</a>
         <a href="#rescues">Rescues</a>
-        <a href="#species">Species</a>
         <a href="#poison">Poison</a>
         <a href="#microchip">Microchip</a>
         <a href="#payments">Payments</a>
+        <a href="#supplies">Supplies</a>
         <a href="#heartworm">Heartworm</a>
         <a href="#about">About</a>
         <a class="cta" href="#contact">Contact</a>
@@ -142,8 +168,6 @@
             <button class="btn q" data-q="low cost veterinary clinic near me"><i class="fa-solid fa-dollar-sign"></i>Low-Cost Clinic</button>
             <button class="btn q" data-q="spay neuter clinic near me"><i class="fa-solid fa-scissors"></i>Spay/Neuter</button>
             <button class="btn q" data-q="animal rescue near me"><i class="fa-solid fa-paw"></i>Rescues</button>
-            <button class="btn q" data-q="emergency vet for dogs near me"><i class="fa-solid fa-dog"></i>Dog</button>
-            <button class="btn q" data-q="emergency vet for cats near me"><i class="fa-solid fa-cat"></i>Cat</button>
           </div>
         </div>
       </div>
@@ -179,23 +203,6 @@
       </div>
     </section>
 
-    <!-- Species -->
-    <section id="species">
-      <div class="container">
-        <h2>Search by Species</h2>
-        <div class="card">
-          <div class="grid">
-            <button class="btn q" data-q="emergency vet for dogs near me">Dogs</button>
-            <button class="btn q" data-q="emergency vet for cats near me">Cats</button>
-            <button class="btn q" data-q="avian veterinarian near me">Birds</button>
-            <button class="btn q" data-q="reptile veterinarian near me">Reptiles</button>
-            <button class="btn q" data-q="small mammal veterinarian near me">Small Mammals</button>
-            <button class="btn q" data-q="equine emergency veterinarian near me">Horses</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Poison Control -->
     <section id="poison">
       <div class="container">
@@ -203,11 +210,10 @@
         <div class="card">
           <p class="lead">ASPCA Animal Poison Control: <strong>888-426-4435</strong></p>
           <div class="grid">
-            <a class="btn" href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener"><i class="fa-solid fa-skull-crossbones"></i>ASPCA Info</a>
-            <button class="btn q" data-q="vet near me toxin ingestion"><i class="fa-solid fa-syringe"></i>ER for Toxins</button>
+            <a class="btn" href="tel:+18884264435"><i class="fa-solid fa-phone"></i>Call Poison Control</a>
           </div>
           <div class="logos">
-            <img src="American_Society_for_the_Prevention_of_Cruelty_to_Animals_(logo).svg.png" alt="ASPCA" onerror="this.style.display='none'">
+            <img src="American_Society_for_the_Prevention_of_Cruelty_to_Animals_(logo).svg.png" alt="ASPCA">
             <span class="note">Links provided for convenience; ASPCA sets its own fees.</span>
           </div>
         </div>
@@ -223,7 +229,7 @@
             <a class="btn" href="https://www.petmicrochiplookup.org/" target="_blank" rel="noopener"><i class="fa-solid fa-barcode"></i>AAHA Microchip Lookup</a>
           </div>
           <div class="logos">
-            <img src="American_Animal_Hospital_Association_(AAHA)_corporate_logo (1).jpg" alt="AAHA" onerror="this.style.display='none'">
+            <img src="American_Animal_Hospital_Association_(AAHA)_corporate_logo (1).jpg" alt="AAHA">
           </div>
         </div>
       </div>
@@ -238,7 +244,18 @@
           <div class="grid">
             <a class="btn" href="https://www.carecredit.com/vetmed/" target="_blank" rel="noopener"><i class="fa-regular fa-credit-card"></i>CareCredit</a>
             <a class="btn" href="https://scratchpay.com/" target="_blank" rel="noopener"><i class="fa-solid fa-money-bill"></i>Scratchpay</a>
-            <a class="btn" href="https://www.chewy.com/" target="_blank" rel="noopener"><i class="fa-solid fa-bone"></i>Chewy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supplies -->
+    <section id="supplies">
+      <div class="container">
+        <h2>Pet Supplies</h2>
+        <div class="card">
+          <div class="grid">
+            <a class="btn" href="https://www.chewy.com/" target="_blank" rel="noopener"><i class="fa-solid fa-bone"></i>Chewy — Food & Supplies</a>
           </div>
         </div>
       </div>
@@ -252,11 +269,9 @@
           <p class="lead">Mosquitoes transmit heartworm disease. Prevention is far easier than treatment.</p>
           <div class="grid">
             <a class="btn" href="https://www.heartwormsociety.org/pet-owner-resources/heartworm-basics" target="_blank" rel="noopener"><i class="fa-solid fa-heart-circle-exclamation"></i>American Heartworm Society</a>
-            <button class="btn q" data-q="vet near me heartworm prevention"><i class="fa-solid fa-stethoscope"></i>Find Prevention</button>
           </div>
           <div class="logos">
-            <!-- Heartworm Society logo used ONLY here -->
-            <img src="heartworm-logo.png" alt="American Heartworm Society" onerror="this.style.display='none'">
+            <img src="heartworm-logo.png" alt="American Heartworm Society">
           </div>
         </div>
       </div>
@@ -296,11 +311,11 @@
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Mobile menu toggle
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('header nav');
-    toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('header nav').classList.toggle('active');
+    });
 
-    // Wire quick buttons to run searches IN-PAGE via CSE
+    // Wire quick buttons to run searches IN-PAGE via CSE (no auto-scroll)
     function hookButtons() {
       const input = document.querySelector('input.gsc-input');
       const form  = document.querySelector('form.gsc-search-box');
@@ -311,7 +326,6 @@
           const q = btn.getAttribute('data-q') || btn.textContent.trim();
           input.value = q;
           form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-          document.getElementById('search')?.scrollIntoView({ behavior:'smooth' });
         });
       });
       return true;
