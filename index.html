@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google CSE (official styling) -->
   <script async src="https://cse.google.com/cse.js?cx=e47182b5ceea24a3d"></script>
 
   <style>
@@ -75,7 +77,7 @@
     .desc ul{margin:8px 0 0 1.1rem}
     .desc li{margin:6px 0}
 
-    /* Search + buttons */
+    /* Search + buttons (we do NOT override Google CSE styles) */
     .search-wrap{padding:16px; background:#0d1421; border:1px solid var(--border); border-radius:14px}
     .powered{margin-top:10px; font-size:12px; color:#9bb0cc}
     .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); margin-top:14px}
@@ -87,31 +89,6 @@
     }
     .btn i{color:var(--brand2)}
     .btn:hover{background:#142036; transform:translateY(-1px)}
-
-    /* CSE input fixes */
-    .gsc-control-cse, .gsc-control-cse .gsc-table-result{background:transparent; border:0}
-    .gsc-search-box-tools .gsc-search-box { margin-bottom:0 !important; }
-    .gsc-input-box{
-      border:1px solid var(--border) !important;
-      background:#0f1826 !important;
-      border-radius:12px !important;
-      min-height:50px !important;
-      display:flex !important; align-items:center !important;
-    }
-    .gsib_a{padding:8px 10px !important}
-    .gsib_b{display:none !important} /* hide mic to prevent overlap */
-    input.gsc-input{
-      background:transparent !important; color:#fff !important;
-      height:48px !important; line-height:48px !important;
-      padding:0 12px !important; font-size:16px !important;
-      width:100% !important;
-    }
-    button.gsc-search-button-v2, input.gsc-search-button{
-      height:48px !important; min-width:100px !important;
-      border-radius:12px !important; border:0 !important;
-      background:linear-gradient(135deg,var(--brand),var(--brand2)) !important;
-      color:#071019 !important; font-weight:800 !important;
-    }
 
     /* Logos */
     .logos{display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-top:12px}
@@ -158,6 +135,7 @@
         <p class="lead">Type your city or ZIP, then use the quick buttons to target the kind of help you need.</p>
 
         <div class="card search-wrap">
+          <!-- Official Google CSE widget -->
           <div class="gcse-search"></div>
           <div class="powered">Your search is powered by Google.</div>
 
