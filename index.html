@@ -76,7 +76,7 @@
   </style>
 
   <!-- Google Programmable Search (official look) -->
-  <script async src="https://cse.google.com/cse.js?cx=e47182b5ceea24a3d"></script>
+  
 </head>
 <body>
   <!-- Header -->
@@ -109,9 +109,35 @@
     <h2>Find Emergency & Specialty Vets</h2>
     <p class="lead">Enter your ZIP code or city to begin:</p>
 
-    <!-- Google Search -->
-    <div class="gcse-search"></div>
+    <!-- Google Maps Search -->
+<form id="maps-form" class="zip-form" onsubmit="return openMapsSearch()" aria-label="Find vets by ZIP or city">
+  <input
+    id="maps-q"
+    type="text"
+    inputmode="search"
+    placeholder="Enter ZIP or city (or try 'emergency vet Dallas')"
+    required
+    aria-label="ZIP, city, or search phrase"
+  />
+  <button type="submit" class="btn">Search</button>
+</form>
 
+<small class="muted">Opens Google Maps results in a new tab.</small>
+
+<script>
+  function openMapsSearch() {
+    const raw = document.getElementById('maps-q').value.trim();
+    if (!raw) return false;
+
+    // If user already typed a vet-related phrase, use it. Otherwise prepend.
+    const hasVet = /\b(vet|veterinarian|veterinary|animal\s+hospital|emergency)\b/i.test(raw);
+    const q = hasVet ? raw : `veterinarian near ${raw}`;
+
+    const url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+    window.open(url, '_blank', 'noopener'); // open in new tab
+    return false; // prevent reload
+  }
+</script>
     <!-- Branding -->
     <div class="maps-badge" style="margin-top:15px;display:flex;align-items:center;gap:10px;">
       <img src="/maps-logo.png" alt="Google Maps icon" style="height:24px;">
