@@ -3,61 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FindAVet.online — Nationwide Veterinary Directory Search</title>
-  <meta name="description" content="Find veterinary care near you. Search by city or ZIP code now" />
+  <title>FindAVet.online — Nationwide Veterinary Directory Search </title>
+  <meta name="description" content="Find Veterinary care near you. Search by your city or ZIP code now" />
   <meta name="theme-color" content="#0b0c10" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/logo.png?v=8" />
 
   <style>
     :root{
-      /* Brand palette */
-      --bg:#0b0c10;    /* page background (slate/ink) */
-      --panel:#0f1218; /* card top */
-      --panel2:#0c1016;/* card inner */
-      --border:#1b2130;
-      --text:#e9edf2;
-      --muted:#b6c0cf;
-      --brand:#2D6CDF; /* primary blue */
-      --brand2:#58A6FF;/* secondary blue */
-      --alert:#E63946; /* ER red */
-
-      --radius:18px;
-      --shadow:0 14px 38px rgba(0,0,0,.28);
-      --ring:0 0 0 3px rgba(45,108,223,.35);
+      --bg:#0b0c10; --panel:#0f1218; --panel2:#0c1016; --border:#1b2130;
+      --text:#e9edf2; --muted:#b6c0cf; --brand:#2D6CDF; --brand2:#58A6FF;
+      --radius:18px; --shadow:0 14px 38px rgba(0,0,0,.28);
     }
-
-    *,*:before,*:after{box-sizing:border-box}
+    *,*::before,*::after{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;color:var(--text);
-      background: radial-gradient(1200px 700px at 50% 10%, #12315a 0%, #0b0c10 55%) fixed, var(--bg);
+      background:radial-gradient(1200px 700px at 50% 10%, #12315a 0%, #0b0c10 55%) fixed, var(--bg);
       font-family:Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
       -webkit-font-smoothing:antialiased; scroll-behavior:smooth;
     }
-
     a{color:var(--brand2);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:960px;margin:0 auto;padding:0 20px}
+    .container{max-width:980px;margin:0 auto;padding:0 20px}
     .section{padding:36px 0}
-    .card{
-      background:linear-gradient(180deg,var(--panel),var(--panel2));
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      margin:40px 0;
-    }
+    .card{background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow)}
     .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:40px 0}
 
     /* Header */
-    header{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.9);backdrop-filter:blur(10px)}
-    header{border-bottom:1px solid var(--border)}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.9);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border)}
     .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
     .brand{display:flex;align-items:center;gap:10px;min-width:0}
     .brand img{height:40px;width:auto;display:block}
-    .wordmark{font-weight:700;letter-spacing:.4px;white-space:nowrap}
+    .wordmark{font-weight:800;letter-spacing:.4px;white-space:nowrap}
     nav{display:flex;flex-wrap:wrap;gap:18px;font-weight:700}
-    .cta{margin-left:auto;background:var(--brand);color:#fff;border-radius:12px;padding:10px 16px}
-    @media (max-width:760px){.wordmark{display:none}.cta{margin-left:0}}
+    nav a{opacity:.92} nav a:hover{opacity:1}
+    .cta{margin-left:auto;background:var(--brand);color:#fff;border-radius:12px;padding:10px 16px;font-weight:800}
+    @media (max-width:760px){.wordmark{display:none} nav{display:none}.cta{margin-left:0}}
 
     /* Hero */
     .hero{padding:42px 0 22px}
@@ -68,36 +53,14 @@
 
     /* Search */
     .search-card{padding:18px}
-    .search-card .block{display:flex;flex-direction:column;gap:14px}
-    .search-card h2{margin:0 0 8px}
-    .search-row{display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap}
-    .brandline{display:flex;align-items:center;gap:10px;color:#b6c0cf;font-size:.9rem}
-    .maps-badge img{height:24px;width:auto}
-    .card.block{border:1px solid var(--border);padding:14px 16px;border-radius:12px;color:var(--text);font-weight:600}
-
-    .btn{font-weight:600;color:#fff;background:#0b56c9;font-size:.82rem}
+    .search-row{display:flex;flex-direction:column;gap:14px}
+    .maps-badge{display:flex;align-items:center;gap:8px;color:#a8b3c3;font-size:.9rem}
+    .maps-badge img{height:18px;width:auto;display:block}
+    .quick-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+    .btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;
+      background:#111826;border:1px solid var(--border);padding:14px 16px;border-radius:14px;color:var(--text);font-weight:800}
     .btn:hover{background:#131b2a}
     .btn .sub{font-weight:600;color:#9fb0c9;font-size:.82rem}
-
-    /* Maps search form */
-    .zip-form {
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:8px;
-    }
-    .zip-form input{
-      flex:1 1 260px; min-width:0;
-      height:44px; padding:10px 12px;
-      color:var(--text); background:var(--panel2);
-      border:1px solid var(--border); border-radius:10px;
-    }
-    .zip-form .btn{height:44px;padding:0 18px;border-radius:10px;background:var(--brand)}
-    @media (max-width:480px){
-      .zip-form input{flex-basis:100%}
-      .zip-form .btn{width:100%}
-    }
 
     /* Blocks */
     .block{padding:20px}
@@ -111,20 +74,23 @@
     .footnav{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
     .footnav a{color:#b7c6da}
   </style>
+
+  <!-- Google Programmable Search (official look) -->
+  
 </head>
 <body>
-
   <!-- Header -->
   <header>
     <div class="container bar">
       <a class="brand" href="#top" aria-label="FindAVet.online home">
+        <!-- MAIN SITE LOGO -->
         <img src="/logo.png?v=8" alt="FindAVet.online logo" />
         <span class="wordmark">FindAVet.online</span>
       </a>
       <nav aria-label="Main">
         <a href="#search">Search</a><a href="#lowcost">Low-Cost</a><a href="#rescues">Rescues</a>
         <a href="#microchip">Microchip</a><a href="#poison">Poison</a><a href="#payments">Payments</a>
-        <a href="#about">About</a>
+        <a href="#shop">Shop</a><a href="#about">About</a>
       </nav>
       <a class="cta" href="#contact">Contact</a>
     </div>
@@ -137,39 +103,61 @@
       <h1>Find emergency, specialty & low-cost veterinary care — fast.</h1>
       <p class="lead">Search by city or ZIP, or use any of the quick buttons to jump straight to what you need.</p>
     </section>
+<!-- Search -->
+<section id="search" class="container section">
+  <div class="card search-card">
+    <h2>Find Emergency & Specialty Vets</h2>
+    <p class="lead">Enter your ZIP code or city to begin:</p>
 
-    <!-- Search -->
-    <section id="search" class="container section">
-      <div class="card search-card">
-        <div class="block">
-          <h2>Find Emergency & Specialty Vets</h2>
-          <p class="lead">Enter your ZIP code or city to begin:</p>
+    <!-- Google Maps Search -->
+<form id="maps-form" class="zip-form" onsubmit="return openMapsSearch()" aria-label="Find vets by ZIP or city">
+  <input
+    id="maps-q"
+    type="text"
+    inputmode="search"
+    placeholder="Enter ZIP or city (or try 'emergency vet Dallas')"
+    required
+    aria-label="ZIP, city, or search phrase"
+  />
+  <button type="submit" class="btn">Search</button>
+</form>
 
-          <!-- ✅ Google Maps Search (single, official result) -->
-          <form id="maps-form" class="zip-form" onsubmit="return openMapsSearch()" aria-label="Vet search">
-            <input id="maps-q" type="text" inputmode="search"
-                   placeholder="Enter ZIP or city (or try 'emergency vet Dallas')" required />
-            <button type="submit" class="btn">Search</button>
-          </form>
+<small class="muted">Opens Google Maps results in a new tab.</small>
 
-          <div class="brandline">
-            <img src="/maps-logo.png" alt="Google Maps icon" />
-            <span>Search results are powered by Google</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<script>
+  function openMapsSearch() {
+    const raw = document.getElementById('maps-q').value.trim();
+    if (!raw) return false;
+
+    // If user already typed a vet-related phrase, use it. Otherwise prepend.
+    const hasVet = /\b(vet|veterinarian|veterinary|animal\s+hospital|emergency)\b/i.test(raw);
+    const q = hasVet ? raw : `veterinarian near ${raw}`;
+
+    const url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+    window.open(url, '_blank', 'noopener'); // open in new tab
+    return false; // prevent reload
+  }
+</script>
+    <!-- Branding -->
+    <div class="maps-badge" style="margin-top:15px;display:flex;align-items:center;gap:10px;">
+      <img src="/maps-logo.png" alt="Google Maps icon" style="height:24px;">
+      <span style="color:#b6c0cf; font-size:14px;">Search results are powered by Google</span>
+    </div>
+  </div>
+</section>
 
     <!-- Low Cost -->
     <section id="lowcost" class="container section">
       <div class="card block">
         <h3>Low-cost clinics & community care</h3>
         <p>Search for humane societies, university outreach, municipal clinics, and non-profits that offer vaccines, wellness, and surgery at reduced cost.</p>
-        <div class="brandline"><img src="/maps-logo.png" alt="Google Maps" /><small>Tip: add your city / ZIP to narrow to your area.</small></div>
-        <div class="divider"></div>
+        <div class="brandline">
+          <img src="/maps-logo.png?v=8" alt="Google Maps" />
+          <small>Tip: add your city / ZIP to narrow to your area.</small>
+        </div>
         <div class="quick-grid" style="margin-top:12px">
-          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/low+cost+vet+clinic+near+me">Search low-cost vets</a>
-          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/spay+neuter+clinic+near+me">Spay &amp; neuter clinics</a>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=low+cost+vet+clinic+near+me">Find low-cost clinics</a>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=spay+neuter+clinic+near+me">Find spay &amp; neuter</a>
         </div>
       </div>
     </section>
@@ -178,56 +166,70 @@
     <section id="rescues" class="container section">
       <div class="card block">
         <h3>Rescues & shelters</h3>
-        <p>Many rescues publish vetted clinic lists and sometimes sponsor treatment funds. Start local to find current resources.</p>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/animal+rescue+near+me">Find rescues near me</a>
-      </div>
-    </section>
-
-    <!-- Microchip -->
-    <section id="microchip" class="container section">
-      <div class="card block">
-        <h3>Need your pet’s microchip number?</h3>
-        <p>Search the AAHA Universal Pet Microchip Lookup tool to see the registry associated with your pet’s chip.</p>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.petmicrochiplookup.org/">AAHA Microchip Lookup</a>
-        <div class="brandline"><img src="/aaha-logo.png" alt="AAHA" /><span>American Animal Hospital Association</span></div>
+        <p>Many rescues publish vetted clinic lists and sometimes sponsor treatment funds. Start local to find current help.</p>
+        <div class="quick-grid" style="margin-top:12px">
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=animal+rescue+near+me">Search rescues</a>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=animal+shelter+near+me">Search shelters</a>
+        </div>
       </div>
     </section>
 
     <!-- Poison -->
     <section id="poison" class="container section">
       <div class="card block">
-        <h3>Need Poison Control?</h3>
-        <p>If your pet may have ingested something toxic, call immediately.</p>
-        <a class="btn" href="tel:+18884264911">Call ASPCA Poison Control (888) 426-4911</a>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.aspca.org/pet-care/animal-poison-control">Visit ASPCA Poison Control</a>
-        <div class="brandline"><img src="/aspca-logo.png" alt="ASPCA" /><span>Poison control resources & toxic plant lists</span></div>
+        <h3>Poison control</h3>
+        <p>If your pet may have ingested something toxic, call immediately for guidance.</p>
+        <div class="brandline">
+          <img src="/aspca-logo.png?v=8" alt="ASPCA" />
+          <small>24/7 hotline; a consultation fee may apply.</small>
+        </div>
+        <div class="quick-grid" style="margin-top:12px">
+          <a class="btn" href="tel:+18884265275">Call Poison Control <span class="sub">ASPCA • (888) 426-4275</span></a>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.aspca.org/pet-care/animal-poison-control">ASPCA info site <span class="sub">toxins &amp; first steps</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Microchip -->
+    <section id="microchip" class="container section">
+      <div class="card block">
+        <h3>Microchip lookup</h3>
+        <p>Not sure which registry your pet’s chip is on? Use the AAHA universal lookup to find the registrar and update your info.</p>
+        <div class="brandline">
+          <div class="brandline">
+  <img src="/aaha-logo.png?v=9" alt="AAHA logo" style="height:22px;width:auto;display:block" />
+  <small>Links out to participating registries.</small>
+</div>
+        <div class="quick-grid" style="margin-top:12px">
+          <a class="btn" target="_blank" rel="noopener" href="https://www.petmicrochiplookup.org/">Open AAHA lookup</a>
+        </div>
       </div>
     </section>
 
     <!-- Payments -->
     <section id="payments" class="container section">
       <div class="card block">
-        <h3>Short on funds? Payment options that may help</h3>
-        <p>Apply online and confirm acceptance with your clinic before your visit.</p>
-        <div class="quick-grid" style="display:flex;flex-wrap:wrap;gap:12px">
-          <a class="btn" target="_blank" rel="noopener" href="https://www.carecredit.com/vetmed/">CareCredit</a>
-          <a class="btn" target="_blank" rel="noopener" href="https://scratchpay.com/">Scratchpay</a>
-          <a class="btn" target="_blank" rel="noopener" href="https://chewy.com/">Chewy (food &amp; meds)</a>
-        </div>
-        <div class="brandline">
-          <img src="/chewy-logo.png" alt="Chewy logo" />
-          <span>Order food, meds, and supplies delivered to your home.</span>
-        </div>
+        <h3>Short on funds? Payment options</h3>
+        <p>Some clinics accept patient-financing services. Always confirm acceptance with the hospital <em>before</em> your visit.</p>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)">
+          <li><a target="_blank" rel="noopener" href="https://www.carecredit.com/vetmed/">CareCredit</a> — revolving line of credit for vet bills.</li>
+          <li><a target="_blank" rel="noopener" href="https://scratchpay.com/">Scratchpay</a> — installment plans; not a credit card.</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Heartworm info -->
-    <section id="heartworm" class="container section">
+    <!-- Shop -->
+    <section id="shop" class="container section">
       <div class="card block">
-        <h3>Why does my pet need heartworm prevention?</h3>
-        <p>Heartworm disease is serious and can be fatal. Year-round prevention is the safest, most affordable approach.</p>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.heartwormsociety.org/pet-owner-resources/heartworm-basics">Learn more at the American Heartworm Society</a>
-        <div class="brandline"><img src="/heartworm-logo.png" alt="American Heartworm Society" /><span>Trusted, veterinarian-authored guidance</span></div>
+        <h3>Order food & supplies</h3>
+        <p>Have prescriptions? Request your vet’s approval when you check out.</p>
+        <div class="brandline">
+          <img src="/chewy-logo.png?v=8" alt="Chewy" />
+          <small>Fast shipping; pharmacy items require vet authorization.</small>
+        </div>
+        <div class="quick-grid" style="margin-top:12px">
+          <a class="btn" target="_blank" rel="noopener" href="https://www.chewy.com/">Shop Chewy</a>
+        </div>
       </div>
     </section>
 
@@ -235,7 +237,7 @@
     <section id="about" class="container section">
       <div class="card block">
         <h3>About FindAVet.online</h3>
-        <p>We’re a simple, mobile-first directory that helps you quickly locate emergency, specialty, and low-cost veterinary care using Google’s powerful local search.</p>
+        <p>FindAVet.online is a simple directory that helps pet families quickly locate emergency, specialty, and budget-friendly veterinary care across the U.S. Results use Google search so you can rely on fresh, local listings.</p>
       </div>
     </section>
 
@@ -244,30 +246,27 @@
       <div class="card block">
         <h3>Contact</h3>
         <p>Email: <a href="mailto:findavet.online@gmail.com">findavet.online@gmail.com</a></p>
-        <p>Ads & partnerships: <a href="/ads.html">View ad guidelines</a></p>
+        <p><a href="privacy.html">Privacy</a> • <a href="ads.html">Ads &amp; disclosures</a></p>
       </div>
     </section>
   </main>
 
   <footer class="container">
-    <div class="divider"></div>
-    <div class="footnav">
-      <a href="#privacy">Privacy</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <p style="margin-top:8px">&copy; 2025 FindAVet.online</p>
+    <div class="divider">
+      <div class="brandline">
+  <img src="/maps-logo.png?v=9" alt="Google Maps" />
+  <small>Search powered by Google. Logos belong to their respective owners.</small>
+      </div>
+    <nav class="footnav" aria-label="Footer">
+      <a href="#search">Search</a><a href="#lowcost">Low-Cost</a><a href="#rescues">Rescues</a>
+      <a href="#microchip">Microchip</a><a href="#poison">Poison</a><a href="#payments">Payments</a>
+      <a href="#shop">Shop</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+    <div style="margin-top:10px">© <span id="yr"></span> FindAVet.online</div>
   </footer>
 
-  <!-- Only the Maps search logic stays -->
   <script>
-    function openMapsSearch(){
-      const q = document.getElementById('maps-q').value.trim();
-      if(!q) return false;
-      const url = "https://www.google.com/maps/search/veterinarian+near+" + encodeURIComponent(q);
-      window.open(url, "_blank");
-      return false;
-    }
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
