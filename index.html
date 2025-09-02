@@ -105,33 +105,55 @@
     </section>
 
     <!-- Search -->
-    <section id="search" class="container section">
-      <div class="card search-card">
-        <div class="search-row">
-          <div class="gcse-search"></div>
-          <div class="brandline">
-          </div>
-          <div class="maps-badge">
-            <img src="/maps-logo.png?v=8" alt="Google Maps icon" />
-            <span>Your search results are powered by Google.</span>
-          </div>
-          <div class="divider" style="margin:18px 0"></div>
+<section id="search" class="container section">
+  <div class="card search-card">
+    <h2>Find Emergency & Specialty Vets</h2>
+    <p>Enter your ZIP code or city to begin, then refine with quick options.</p>
 
-          <!-- Quick buttons open Google results in a new tab -->
-          <div class="quick-grid" aria-label="Quick search categories">
-            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=veterinary+emergency+near+me">
-              Emergency <span class="sub">24/7 &amp; after-hours</span></a>
-            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=veterinary+specialist+near+me">
-              Specialty <span class="sub">Cardio • Neuro • Oncology</span></a>
-            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=low+cost+vet+clinic+near+me">
-              Low-Cost <span class="sub">Non-profit &amp; community</span></a>
-            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=low+cost+spay+and+neuter+near+me">
-              Spay &amp; Neuter <span class="sub">Affordable programs</span></a>
-            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=animal+rescue+near+me">
-              Rescues <span class="sub">Shelters &amp; foster groups</span></a>
-          </div>
-        </div>
-      </div>
+    <!-- ZIP Search -->
+    <form id="zip-search-form" onsubmit="return runZipSearch()">
+      <input type="text" id="zip-input" placeholder="Enter ZIP Code" required>
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- Quick buttons -->
+    <div class="quick-buttons">
+      <button onclick="runRefinement('Emergency vet near me')">Emergency Vet</button>
+      <button onclick="runRefinement('Specialty vet near me')">Specialty Vet</button>
+      <button onclick="runRefinement('Low cost vet near me')">Low-Cost Vet</button>
+      <button onclick="runRefinement('Veterinarian near me')">General Vet</button>
+    </div>
+
+    <!-- Google Search Results -->
+    <div class="gcse-searchresults-only"></div>
+
+    <!-- Google Branding -->
+    <div class="maps-badge">
+      <img src="/maps-logo.png" alt="Google Maps icon" />
+      <span>Your search is powered by Google.</span>
+    </div>
+  </div>
+</section>
+
+<!-- Google Search Engine Script -->
+<script async src="https://cse.google.com/cse.js?cx=e47182b5ceea24a3d"></script>
+<script>
+  // Run search by ZIP
+  function runZipSearch() {
+    const zip = document.getElementById('zip-input').value;
+    if (zip) {
+      google.search.cse.element.getElement('searchresults-only0')
+        .execute("veterinarian near " + zip);
+    }
+    return false;
+  }
+
+  // Run refinement buttons
+  function runRefinement(query) {
+    google.search.cse.element.getElement('searchresults-only0')
+      .execute(query);
+  }
+</script>
     </section>
 
     <!-- Low Cost -->
