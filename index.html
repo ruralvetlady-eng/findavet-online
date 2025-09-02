@@ -74,9 +74,33 @@
     .footnav{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
     .footnav a{color:#b7c6da}
   </style>
-
-  <!-- Google Programmable Search (official look) -->
-  
+  /* Maps search form */
+.zip-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 8px;
+}
+.zip-form input {
+  flex: 1 1 260px;
+  min-width: 0;
+  height: 44px;
+  padding: 10px 12px;
+  color: var(--text);
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.zip-form .btn {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+}
+@media (max-width: 480px) {
+  .zip-form input { flex-basis: 100%; }
+  .zip-form .btn { width: 100%; }
+}
 </head>
 <body>
   <!-- Header -->
@@ -110,15 +134,38 @@
     <p class="lead">Enter your ZIP code or city to begin:</p>
 
     <!-- Google Maps Search -->
+<!-- Google Maps Search -->
 <form id="maps-form" class="zip-form" onsubmit="return openMapsSearch()" aria-label="Find vets by ZIP or city">
   <input
     id="maps-q"
-    type="text"
+    type="search"
     inputmode="search"
     placeholder="Enter ZIP or city (or try 'emergency vet Dallas')"
-    required
     aria-label="ZIP, city, or search phrase"
+    required
   />
+  <button type="submit" class="btn">Search</button>
+</form>
+
+<div class="brandline" style="margin-top:14px; display:flex; align-items:center; gap:10px;">
+  <img src="/maps-logo.png?v=8" alt="Google Maps icon" style="height:22px; width:auto;" />
+  <span class="muted">Search results are powered by Google</span>
+</div>
+
+<script>
+  function openMapsSearch() {
+    const raw = document.getElementById('maps-q').value.trim();
+    if (!raw) return false;
+
+    // If they don’t type “vet” or “animal hospital,” force it into the query
+    const vetMatch = /\b(vet|veterinarian|veterinary|animal\s+hospital|emergency)\b/i.test(raw);
+    const q = vetMatch ? raw : `veterinarian near ${raw}`;
+
+    const url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+    window.open(url, '_blank', 'noopener');
+    return false;
+  }
+</script>
   <button type="submit" class="btn">Search</button>
 </form>
 
