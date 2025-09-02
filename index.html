@@ -106,61 +106,38 @@
 
     <!-- Search -->
 <section id="search" class="container section">
-  <div class="card">
-    <h2>Find Emergency, Specialty & Low-Cost Veterinary Care</h2>
-    <p class="lead">Enter your city or ZIP code below to find veterinary clinics, hospitals, and rescues near you.</p>
+  <div class="card search-card">
+    <h2>Find Emergency & Specialty Vets</h2>
+    <p>Enter your ZIP code or city to begin:</p>
 
-    <!-- Google Search -->
-    <div class="gcse-search"></div>
+    <!-- ZIP form -->
+    <form id="zip-form" onsubmit="return runZipSearch(event)">
+      <input type="text" id="zip-input" placeholder="Enter ZIP or city" required />
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- Results container -->
+    <div class="gcse-searchresults-only" data-gname="vet"></div>
 
     <!-- Branding -->
     <div class="maps-badge" style="margin-top:15px; display:flex; align-items:center; gap:10px;">
-      <img src="/maps-logo.png" alt="Google Maps icon" style="height:24px;">
+      <img src="/maps-logo.png?v=8" alt="Google Maps icon" style="height:24px;">
       <span style="color:#b6c0cf; font-size:14px;">Search results are powered by Google</span>
     </div>
   </div>
 </section>
 
-<!-- Google Search Engine Script -->
+<!-- Google CSE -->
 <script async src="https://cse.google.com/cse.js?cx=e47182b5ceea24a3d"></script>
-
-<style>
-/* Make Google search box match dark theme */
-.gsc-control-cse {
-  background: #0f1218 !important;
-  border: 1px solid #1b2130 !important;
-  border-radius: 10px !important;
-  padding: 12px !important;
-}
-
-input.gsc-input,
-.gsc-input-box {
-  background: #0c1016 !important;
-  color: #e9edf2 !important;
-  border-radius: 6px !important;
-}
-
-.gsc-search-button input.gsc-search-button-v2 {
-  background: #2d6cff !important;
-  border: none !important;
-  border-radius: 6px !important;
-  padding: 6px 12px !important;
-  color: white !important;
-  font-weight: 600 !important;
-}
-
-.gsc-result-info, .gsc-orderby-label {
-  color: #b6c0cf !important;
-}
-
-.gs-title, .gs-snippet {
-  color: #e9edf2 !important;
-}
-
-.gs-visibleUrl {
-  color: #58a6ff !important;
-}
-</style>
+<script>
+  function runZipSearch(e) {
+    if (e) e.preventDefault();
+    const zip = document.getElementById('zip-input').value.trim();
+    if (!zip) return false;
+    const q = "veterinarian near " + zip;
+    google.search.cse.element.getElement('vet').execute(q);
+    return false;
+  }
 </script>
     </section>
 
