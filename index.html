@@ -209,28 +209,54 @@
   <!-- your Payments content -->
 </section>
 
-<!-- ====== Pet Insurance (Simple) ====== -->
+<!-- ====== Pet Insurance (FindAVet.online – Top 6, Clean) ====== -->
 <section id="insurance">
   <h2>Pet Insurance</h2>
-  <p>Pet insurance can help with the cost of unexpected accidents and illnesses. Most plans allow you to visit any licensed veterinarian, and you’ll be reimbursed after submitting a claim.</p>
+  <p>Pet insurance can help with the cost of unexpected accidents and illnesses. Most plans let you visit any licensed veterinarian—you pay the clinic, then submit a claim for reimbursement.</p>
 
-  <p>There are many providers, and coverage varies. Common features include:</p>
-  <ul>
-    <li>Accident & illness coverage</li>
-    <li>Customizable deductibles and reimbursement options</li>
-    <li>Optional wellness add-ons for preventive care</li>
-  </ul>
+  <div class="ins-grid">
+    <a href="https://www.theswiftest.com/pet-insurance/" target="_blank" rel="noopener noreferrer nofollow">The Swiftest</a>
+    <a href="https://spotpetins.com/" target="_blank" rel="noopener noreferrer">Spot</a>
+    <a href="https://www.trupanion.com/" target="_blank" rel="noopener noreferrer">Trupanion</a>
+    <a href="https://www.embracepetinsurance.com/" target="_blank" rel="noopener noreferrer">Embrace</a>
+    <a href="https://www.healthypaws.com/" target="_blank" rel="noopener noreferrer">Healthy Paws</a>
+    <a href="https://www.nationwide.com/personal/insurance/pet/" target="_blank" rel="noopener noreferrer">Nationwide</a>
+  </div>
 
-  <p><em>Note: This page is for educational purposes only. If we add affiliate links in the future, they will be disclosed clearly.</em></p>
+  <p class="disclosure"><strong>Note:</strong> This page is for education only. If affiliate links are added later, they’ll be clearly disclosed.</p>
 </section>
 
 <style>
+  /* Pet Insurance – matches site’s clean style */
   #insurance { padding: 12px 0; }
   #insurance h2 { margin: 0 0 .5rem; font-size: 1.35rem; }
   #insurance p { margin: .3rem 0 .75rem; }
-  #insurance ul { margin: 0 0 1rem 1.2rem; }
-  #insurance li { margin-bottom: .35rem; }
-  #insurance em { color: #555; font-size: .9rem; }
+  #insurance .disclosure { font-size: .9rem; color: #777; }
+  .ins-grid {
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: .6rem 0 1rem;
+  }
+  .ins-grid a {
+    display: inline-block;
+    text-align: center;
+    padding: .6rem .9rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid #0b6cff;
+    background: #0b6cff;
+    color: #fff;
+    font-weight: 600;
+  }
+  .ins-grid a:hover { filter: brightness(.95); }
+  /* Make The Swiftest stand out as the comparison option */
+  .ins-grid a:first-child {
+    background: transparent; color: #0b6cff;
+  }
+  .ins-grid a:first-child:hover {
+    background: rgba(11,108,255,.08);
+  }
 </style>
 <!-- ====== /Pet Insurance ====== -->
     
