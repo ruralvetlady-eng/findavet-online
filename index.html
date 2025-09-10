@@ -27,6 +27,11 @@
     }
     a{color:var(--brand2);text-decoration:none}
     a:hover{text-decoration:underline}
+    nav a.active {
+  color: var(--brand); /* your primary blue */
+  font-weight: 700;    /* bold to stand out */
+  text-decoration: underline;
+    }
     .container{max-width:980px;margin:0 auto;padding:0 20px}
     .section{padding:36px 0}
     .card{background:linear-gradient(180deg,var(--panel),var(--panel2));
@@ -90,7 +95,7 @@
       </a>
       <nav aria-label="Main">
         <a href="#search">Search</a><a href="#lowcost">Low-Cost</a><a href="#rescues">Rescues</a>
-        <a href="#microchip">Microchip</a><a href="#poison">Poison</a><a href="#payments">Payments</a>
+        <a href="#microchip">Microchip</a><a href="#poison">Poison</a><a href="#payments">Payments</a><a href="#insurance">Insurance</a>
         <a href="#shop">Shop</a><a href="#about">About</a>
       </nav>
       <a class="cta" href="#contact">Contact</a>
@@ -323,4 +328,33 @@
     document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
 </body>
+  <script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+<!-- ✅ New script to highlight active nav link -->
+<script>
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const top = section.offsetTop - 80; // adjust if header height differs
+      if (scrollY >= top) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
 </html>
