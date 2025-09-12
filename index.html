@@ -245,18 +245,35 @@
   <!-- your Payments content -->
 </section>
 
-<section id="pet-insurance" class="na-insurance-panel">
-  <div class="na-insurance-card">
-    <h2>Pet Insurance Resources</h2>
-    <p>We’re working on bringing you trusted pet insurance partners soon. 
-    Check back here for options to help cover unexpected vet bills.</p>
-  </div>
+    <!-- REPLACEMENT: Pet Insurance placeholder (dark card, high contrast) -->
+<section id="pet-insurance" class="na-card" aria-labelledby="pet-insurance-title">
+  <h2 id="pet-insurance-title">Pet Insurance Resources</h2>
+  <p class="na-sub">
+    We’re adding trusted partners soon. For now, here are smart steps many pet parents use:
+  </p>
+  <ul class="na-list">
+    <li>Compare plans to understand deductibles, caps, and waiting periods</li>
+    <li>Ask your clinic which insurers they work with</li>
+    <li>Keep a small emergency fund for unexpected vet bills</li>
+  </ul>
 </section>
 
 <style>
-  .na-insurance-card {
-    border: 1px solid #e6e6e6; border-radius: 12px; padding: 1.25rem;
-    background:#fafafa; text-align:center; font-size:1rem;
+  /* Card layout to match your other dark tiles */
+  .na-card{
+    margin:1rem 0; padding:1.25rem 1.25rem 1rem;
+    border-radius:16px; background:#111; color:#eee;
+    border:1px solid #2a2a2a; box-shadow:0 2px 10px rgba(0,0,0,.25);
+  }
+  .na-card h2{ margin:0 0 .35rem; font-size:1.25rem; line-height:1.2; }
+  .na-card .na-sub{ margin:0 0 .75rem; color:#cfcfcf; }
+  .na-card .na-list{ margin:.25rem 0 0 1.1rem; padding:0; }
+  .na-card .na-list li{ margin:.4rem 0; }
+  
+  /* Light mode fallback (if someone views in light theme) */
+  @media (prefers-color-scheme: light){
+    .na-card{ background:#ffffff; color:#111; border-color:#e6e6e6; box-shadow:0 1px 8px rgba(0,0,0,.06); }
+    .na-card .na-sub{ color:#555; }
   }
 </style>
     
@@ -266,7 +283,7 @@
         <h3>Short on funds? Payment options</h3>
         <p>Most clinics accept credit and financing services. Confirm with the Clinic you are going to that this option is available.<em>before</em> your visit.</p>
         <ul style="margin:8px 0 0 18px;color:var(--muted)">
-          <li><a target="_blank" rel="noopener" href="https://www.carecredit.com/vetmed/">CareCredit</a> — revolving line of credit for vet bills.</li>
+          <li><a target="_blank" rel="noopener" href="https://www.carecredit.com/vetmed/">CareCredit</a> — revolving line of t bills.</li>
           <li><a target="_blank" rel="noopener" href="https://scratchpay.com/">Scratchpay</a> — installment plans; not a credit card.</li>
         </ul>
       </div>
