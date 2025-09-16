@@ -255,62 +255,69 @@
     <section id="payments">
   <!-- your Payments content -->
 </section>
-<section id="patient-information" class="bg-slate-900 rounded-3xl p-6">
-  <h2 class="text-xl font-bold mb-2">Patient Information</h2>
-  <p class="mb-4">Quick access to trusted veterinary resources from leading organizations.</p>
-  <ul class="space-y-3 list-disc list-inside">
+
+    <section id="patient-information" aria-labelledby="pi-title" class="pi-pill">
+  <h2 id="pi-title">Patient Information</h2>
+  <p class="pi-sub">Quick access to trusted veterinary resources from leading organizations.</p>
+
+  <ul class="pi-list">
     <li>
-      <a href="https://www.petpoisonhelpline.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline">
-        Pet Poison Helpline
-      </a>
-      <div class="text-sm opacity-80">24/7 toxicology help line; guidance on what to do and when to seek ER care.</div>
+      <a href="https://www.petpoisonhelpline.com/" target="_blank" rel="noopener noreferrer">Pet Poison Helpline</a>
+      <span>24/7 toxicology help line; what to do and when to seek ER care.</span>
     </li>
     <li>
-      <a href="https://www.aaha.org/for-pet-parents/resources-for-your-pet/" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline">
-        AAHA – Resources for Pet Parents
-      </a>
-      <div class="text-sm opacity-80">Owner-friendly articles from AAHA on preventive care, wellness, and safety.</div>
+      <a href="https://www.aaha.org/for-pet-parents/resources-for-your-pet/" target="_blank" rel="noopener noreferrer">AAHA – Resources for Pet Parents</a>
+      <span>Owner-friendly wellness, safety, and preventive care articles.</span>
     </li>
     <li>
-      <a href="https://www.aaha.org/resources/2022-aaha-canine-vaccination-guidelines/" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline">
-        AAHA Canine Vaccination Guidelines
-      </a>
-      <div class="text-sm opacity-80">Official canine vaccine recommendations; intervals and lifestyle notes.</div>
+      <a href="https://www.aaha.org/resources/2022-aaha-canine-vaccination-guidelines/" target="_blank" rel="noopener noreferrer">AAHA Canine Vaccination Guidelines</a>
+      <span>Official canine vaccine recommendations; intervals + lifestyle notes.</span>
     </li>
     <li>
-      <a href="https://catvets.com/resource/aaha-aafp-feline-vaccination-guidelines/" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline">
-        AAFP/AAHA Feline Vaccination Guidelines
-      </a>
-      <div class="text-sm opacity-80">Official feline vaccine recommendations; core vs non-core explained.</div>
+      <a href="https://catvets.com/resource/aaha-aafp-feline-vaccination-guidelines/" target="_blank" rel="noopener noreferrer">AAFP/AAHA Feline Vaccination Guidelines</a>
+      <span>Official feline vaccine recommendations; core vs non-core explained.</span>
     </li>
     <li>
-      <a href="https://www.avma.org/resources-tools/pet-owners" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline">
-        AVMA Pet Owner Resources
-      </a>
-      <div class="text-sm opacity-80">Broad pet-owner guides from the American Veterinary Medical Association.</div>
+      <a href="https://www.avma.org/resources-tools/pet-owners" target="_blank" rel="noopener noreferrer">AVMA Pet Owner Resources</a>
+      <span>Broad pet-owner guides from the AVMA.</span>
     </li>
     <li>
-      <a href="https://www.fda.gov/animal-veterinary" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline">
-        FDA Center for Veterinary Medicine
-      </a>
-      <div class="text-sm opacity-80">Drug/device info and safety alerts (including recalls) for pets.</div>
+      <a href="https://www.fda.gov/animal-veterinary" target="_blank" rel="noopener noreferrer">FDA Center for Veterinary Medicine</a>
+      <span>Drug/device info and safety alerts (including recalls) for pets.</span>
     </li>
     <li>
-      <a href="https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline">
-        CDC – Bringing Pets into the U.S.
-      </a>
-      <div class="text-sm opacity-80">Travel and entry requirements for pets, including rabies-related rules.</div>
+      <a href="https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html" target="_blank" rel="noopener noreferrer">CDC – Bringing Pets into the U.S.</a>
+      <span>Travel & entry requirements for pets; rabies-related rules.</span>
     </li>
   </ul>
 </section>
-    
+
 <style>
-  /* Tiny, non-opinionated helpers so the list aligns like your other cards.
-     Delete if your global styles already do this. */
-  #patient-information .pi-links{list-style: disc; padding-left: 1.25rem; margin: .5rem 0 0;}
-  #patient-information .pi-links li{margin: .65rem 0;}
-  #patient-information .pi-links a{text-decoration: underline; text-underline-offset: 3px;}
-  #patient-information .pi-links small{display:block; opacity:.8; margin:.15rem 0 0; line-height:1.35;}
+  /* Pill card look to match your other sections */
+  .pi-pill{
+    /* spacing so it doesn’t stick to neighbors */
+    margin: 1.25rem 0 1.5rem;
+    padding: 1.25rem 1rem;
+    /* dark card bg with subtle border & big radius */
+    background: rgba(12, 20, 36, 0.9);             /* dark navy */
+    border: 1px solid rgba(255,255,255,0.08);      /* faint border */
+    border-radius: 22px;                            /* “pill” corners */
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.04) inset,        /* soft top highlight */
+      0 10px 24px rgba(0,0,0,0.25);                /* depth */
+  }
+  /* Typography inside the pill inherits your site’s fonts/colors */
+  .pi-pill h2{ margin:0 0 .4rem; font-weight:800; font-size:1.25rem; line-height:1.2 }
+  .pi-pill .pi-sub{ margin:0 0 .8rem; opacity:.9 }
+  .pi-pill .pi-list{ list-style:disc; padding-left:1.2rem; margin:0 }
+  .pi-pill .pi-list li{ margin:.7rem 0 }
+  .pi-pill .pi-list a{ text-decoration:underline; text-underline-offset:3px }
+  .pi-pill .pi-list span{ display:block; opacity:.88; font-size:.95rem; line-height:1.35; margin:.15rem 0 0 }
+  /* Mobile tighten */
+  @media (max-width: 480px){
+    .pi-pill{ padding:1rem .9rem; border-radius:18px }
+    .pi-pill h2{ font-size:1.1rem }
+  }
 </style>
     <!-- REPLACEMENT: Pet Insurance placeholder (dark card, high contrast) -->
 <section id="pet-insurance" class="na-card" aria-labelledby="pet-insurance-title">
