@@ -235,7 +235,79 @@
         </div>
       </div>
     </section>
+<!-- === Place this directly BELOW your Pet Insurance section === -->
+<section id="patient-info" class="pi-feature">
+  <script>
+    /* ---- Update these if your internal URLs differ ---- */
+    const PI_LINKS = {
+      findAVet: "/find-a-vet",         
+      insurance: "/pet-insurance",     
+      emergency: "/emergency-vets",    
+      resources: "/resources"          
+    };
+  </script>
 
+  <div class="pi-inner">
+    <h1 class="pi-title">Patient Information Links</h1>
+    <p class="pi-lead">Quick access to trusted veterinary resources and helpful tools.</p>
+
+    <div class="pi-flex">
+      <!-- External Resources -->
+      <article class="pi-card">
+        <h2>Trusted Veterinary Resources</h2>
+        <ul class="pi-list">
+          <li><a href="https://www.petpoisonhelpline.com" target="_blank" rel="noopener">Pet Poison Helpline</a></li>
+          <li><a href="https://www.aaha.org/your-pet" target="_blank" rel="noopener">AAHA Healthy Pet</a></li>
+          <li><a href="https://www.aaha.org/aaha-guidelines/vaccination-canine-configuration/vaccination-canine/" target="_blank" rel="noopener">AAHA Canine Vaccination Guidelines</a></li>
+          <li><a href="https://catvets.com/guidelines/practice-guidelines/feline-vaccination-guidelines" target="_blank" rel="noopener">AAFP Feline Vaccination Guidelines</a></li>
+          <li><a href="https://www.avma.org/resources/pet-owners" target="_blank" rel="noopener">AVMA Pet Owner Resources</a></li>
+          <li><a href="https://www.fda.gov/animal-veterinary" target="_blank" rel="noopener">FDA Veterinary Medicine (Recalls & Safety)</a></li>
+          <li><a href="https://www.cdc.gov/importation/bringing-an-animal-into-the-united-states/pets.html" target="_blank" rel="noopener">CDC Pet Travel & Vaccinations</a></li>
+        </ul>
+      </article>
+
+      <!-- Internal Tools -->
+      <article class="pi-card">
+        <h2>Helpful Tools on Our Site</h2>
+        <ul class="pi-list" id="pi-internal-links"></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- === Styles for homepage feature === -->
+<style>
+  #patient-info.pi-feature{padding:3rem 1rem;margin:2rem 0;background:inherit}
+  #patient-info .pi-inner{max-width:1200px;margin:0 auto}
+  #patient-info .pi-title{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;margin:0 0 .5rem}
+  #patient-info .pi-lead{opacity:.85;font-size:1.05rem;margin:0 0 2rem}
+  #patient-info .pi-flex{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+  #patient-info .pi-card{background:inherit;border:1px solid currentColor;border-color:color-mix(in srgb, currentColor 20%, transparent);border-radius:14px;padding:1.25rem;box-shadow:0 6px 18px color-mix(in srgb, currentColor 12%, transparent)}
+  #patient-info .pi-card h2{font-size:1.2rem;margin:0 0 1rem}
+  #patient-info .pi-list{list-style:none;margin:0;padding:0}
+  #patient-info .pi-list li{margin:.6rem 0}
+  #patient-info a{text-decoration:underline;text-underline-offset:3px}
+</style>
+
+<script>
+  // Internal links auto-generated from config
+  (function(){
+    const ul=document.getElementById('pi-internal-links');
+    if(!ul) return;
+    const items=[
+      {href: PI_LINKS.findAVet, label:"Find a Vet (Nationwide Search)"},
+      {href: PI_LINKS.insurance, label:"Pet Insurance Options"},
+      {href: PI_LINKS.emergency, label:"Emergency Vets Near You"},
+      {href: PI_LINKS.resources, label:"Resource Library"}
+    ];
+    items.forEach(i=>{
+      const li=document.createElement('li');
+      const a=document.createElement('a');
+      a.href=i.href;a.textContent=i.label;
+      li.appendChild(a);ul.appendChild(li);
+    });
+  })();
+</script>
     <!-- Microchip -->
     <section id="microchip" class="container section">
       <div class="card block">
