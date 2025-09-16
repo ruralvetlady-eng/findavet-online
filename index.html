@@ -236,21 +236,7 @@
       </div>
     </section>
 
-    <section id="patient-information" class="home-block">
-  <div class="card">
-    <h2 class="card-title">Patient Information</h2>
-    <p class="card-subtitle">Quick access to trusted veterinary resources from leading organizations.</p>
-    <ul class="card-links">
-      <li><a href="https://www.petpoisonhelpline.com/" target="_blank" rel="noopener noreferrer">Pet Poison Helpline</a></li>
-      <li><a href="https://www.aaha.org/for-pet-parents/resources-for-your-pet/" target="_blank" rel="noopener noreferrer">AAHA – Resources for Pet Parents</a></li>
-      <li><a href="https://www.aaha.org/resources/2022-aaha-canine-vaccination-guidelines/" target="_blank" rel="noopener noreferrer">AAHA Canine Vaccination Guidelines</a></li>
-      <li><a href="https://catvets.com/resource/aaha-aafp-feline-vaccination-guidelines/" target="_blank" rel="noopener noreferrer">AAFP/AAHA Feline Vaccination Guidelines</a></li>
-      <li><a href="https://www.avma.org/resources-tools/pet-owners" target="_blank" rel="noopener noreferrer">AVMA Pet Owner Resources</a></li>
-      <li><a href="https://www.fda.gov/animal-veterinary" target="_blank" rel="noopener noreferrer">FDA Center for Veterinary Medicine</a></li>
-      <li><a href="https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html" target="_blank" rel="noopener noreferrer">CDC – Bringing Pets into the U.S.</a></li>
-    </ul>
-  </div>
-    </section>
+    
     
     <!-- Microchip -->
     <section id="microchip" class="container section">
@@ -272,6 +258,72 @@
   <!-- your Payments content -->
 </section>
 
+    <section id="patient-information" aria-labelledby="patient-information-title">
+  <div class="CARD-WRAPPER">
+    <h2 id="patient-information-title">Patient Information</h2>
+    <p>Quick access to trusted veterinary resources from leading organizations.</p>
+
+    <ul class="pi-links">
+      <li>
+        <a href="https://www.petpoisonhelpline.com/" target="_blank" rel="noopener noreferrer">
+          Pet Poison Helpline
+        </a>
+        <small>24/7 toxicology help line; guidance on what to do and when to seek ER care.</small>
+      </li>
+
+      <li>
+        <a href="https://www.aaha.org/for-pet-parents/resources-for-your-pet/" target="_blank" rel="noopener noreferrer">
+          AAHA – Resources for Pet Parents
+        </a>
+        <small>Owner-friendly articles from AAHA on preventive care, wellness, and safety.</small>
+      </li>
+
+      <li>
+        <a href="https://www.aaha.org/resources/2022-aaha-canine-vaccination-guidelines/" target="_blank" rel="noopener noreferrer">
+          AAHA Canine Vaccination Guidelines
+        </a>
+        <small>Official canine vaccine recommendations; intervals and lifestyle notes.</small>
+      </li>
+
+      <li>
+        <a href="https://catvets.com/resource/aaha-aafp-feline-vaccination-guidelines/" target="_blank" rel="noopener noreferrer">
+          AAFP/AAHA Feline Vaccination Guidelines
+        </a>
+        <small>Official feline vaccine recommendations; core vs non-core explained.</small>
+      </li>
+
+      <li>
+        <a href="https://www.avma.org/resources-tools/pet-owners" target="_blank" rel="noopener noreferrer">
+          AVMA Pet Owner Resources
+        </a>
+        <small>Broad pet-owner guides from the American Veterinary Medical Association.</small>
+      </li>
+
+      <li>
+        <a href="https://www.fda.gov/animal-veterinary" target="_blank" rel="noopener noreferrer">
+          FDA Center for Veterinary Medicine
+        </a>
+        <small>Drug/device info and safety alerts (including recalls) for pets.</small>
+      </li>
+
+      <li>
+        <a href="https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html" target="_blank" rel="noopener noreferrer">
+          CDC – Bringing Pets into the U.S.
+        </a>
+        <small>Travel and entry requirements for pets, including rabies-related rules.</small>
+      </li>
+    </ul>
+  </div>
+</section>
+    
+<style>
+  /* Tiny, non-opinionated helpers so the list aligns like your other cards.
+     Delete if your global styles already do this. */
+  #patient-information .pi-links{list-style: disc; padding-left: 1.25rem; margin: .5rem 0 0;}
+  #patient-information .pi-links li{margin: .65rem 0;}
+  #patient-information .pi-links a{text-decoration: underline; text-underline-offset: 3px;}
+  #patient-information .pi-links small{display:block; opacity:.8; margin:.15rem 0 0; line-height:1.35;}
+</style>
     <!-- REPLACEMENT: Pet Insurance placeholder (dark card, high contrast) -->
 <section id="pet-insurance" class="na-card" aria-labelledby="pet-insurance-title">
   <h2 id="pet-insurance-title">Pet Insurance Resources</h2>
