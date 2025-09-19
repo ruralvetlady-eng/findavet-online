@@ -4,67 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Global Veterinary Directory | FindAVet.online</title>
-  <meta name="description" content="Choose your country to find veterinary associations, emergency clinics, and pet law resources." />
-  <!-- Optional: AdSense loader (one copy per page is fine) -->
+  <meta name="description" content="Welcome, worldwide visitors. Choose your country to find veterinary associations, emergency clinics, and pet law resources." />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <!-- keep only one AdSense loader per page (optional) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7512776885465237" crossorigin="anonymous"></script>
   <style>
-    body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:#0b0b0c;color:#f6f6f6}
-    .wrap{max-width:720px;margin:0 auto;padding:24px}
-    h1{font-size:1.8rem;margin-bottom:10px}
-    p{color:#bdbdbd}
-    select,button{padding:10px;margin-top:10px;border-radius:8px;border:1px solid #333;background:#121214;color:#f6f6f6}
+    :root{
+      --bg:#0b0b0c; --card:#121214; --ink:#f6f6f6; --muted:#bdbdbd; --line:#222;
+      --accent:#89d4ff; --pill:#17171a;
+      --radius:14px;
+    }
+    html,body{background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;margin:0}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:880px;margin:0 auto;padding:24px}
+
+    .hero{
+      background:linear-gradient(180deg,#141416, #0f0f11);
+      border:1px solid var(--line); border-radius:20px; padding:24px; margin-bottom:18px;
+      box-shadow:0 0 0 1px rgba(255,255,255,.02) inset;
+    }
+    .hero h1{margin:0 0 6px 0;font-size:1.9rem}
+    .tagline{color:var(--muted);margin:0}
+    .note{margin-top:10px; font-size:.95rem; color:var(--muted)}
+
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-top:16px}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    label{display:block;margin-bottom:8px;font-weight:600}
+    select,button{
+      padding:12px 14px;border-radius:999px;border:1px solid var(--line);background:var(--pill);color:var(--ink);
+    }
+    select{min-width:260px}
     button{cursor:pointer}
-    .btn{display:inline-block;margin:6px 4px;padding:10px 14px;border-radius:8px;background:#17171a;border:1px solid #2a2a2a;color:#f6f6f6;text-decoration:none}
-    .btn:hover{background:#1f1f22}
-    .card{margin-top:18px;padding:16px;background:#121214;border:1px solid #222;border-radius:12px}
-    .small{font-size:.9rem;color:#bdbdbd}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:999px;background:var(--pill);
+      border:1px solid var(--line); color:var(--ink); text-decoration:none
+    }
+    .btn:hover{background:#1e1e21}
+    .small{font-size:.92rem;color:var(--muted)}
+    h2{font-size:1.2rem;margin:18px 0 6px 0}
+    .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Global Veterinary Directory 🌍</h1>
-    <p>Select your country to open quick resource links.</p>
+
+    <section class="hero">
+      <h1>Welcome, global pet owners 🌍</h1>
+      <p class="tagline">Find official vet associations, emergency clinics, and basic pet-law info for your country.</p>
+      <p class="note">This page creates quick, country-specific searches. Always verify resources locally.</p>
+    </section>
 
     <div class="card">
-      <label for="country">Country:</label><br>
-      <select id="country">
-        <option value="">-- Select --</option>
-        <option>United States</option>
-        <option>United Kingdom</option>
-        <option>Canada</option>
-        <option>Australia</option>
-        <option>New Zealand</option>
-        <option>India</option>
-        <option>Ireland</option>
-        <option>South Africa</option>
-        <option>Germany</option>
-        <option>France</option>
-        <option>Spain</option>
-        <option>Italy</option>
-        <option>Brazil</option>
-        <option>Mexico</option>
-        <option>Japan</option>
-        <option>Singapore</option>
-        <option>Philippines</option>
-        <option>United Arab Emirates</option>
-        <option>Saudi Arabia</option>
-        <option>Kenya</option>
-        <option>Nigeria</option>
-        <option>Argentina</option>
-      </select>
-      <br>
-      <button onclick="findResources()">Find Resources</button>
+      <label for="country">Choose your country</label>
+      <div class="row">
+        <select id="country" aria-label="Select your country">
+          <option value="">— Select a country —</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Canada</option>
+          <option>Australia</option>
+          <option>New Zealand</option>
+          <option>Ireland</option>
+          <option>Germany</option>
+          <option>France</option>
+          <option>Spain</option>
+          <option>Italy</option>
+          <option>Netherlands</option>
+          <option>Sweden</option>
+          <option>Norway</option>
+          <option>Denmark</option>
+          <option>Finland</option>
+          <option>Poland</option>
+          <option>Czechia</option>
+          <option>Portugal</option>
+          <option>Greece</option>
+          <option>Turkey</option>
+          <option>Brazil</option>
+          <option>Mexico</option>
+          <option>Argentina</option>
+          <option>Chile</option>
+          <option>Colombia</option>
+          <option>Peru</option>
+          <option>Japan</option>
+          <option>South Korea</option>
+          <option>Singapore</option>
+          <option>Philippines</option>
+          <option>India</option>
+          <option>United Arab Emirates</option>
+          <option>Saudi Arabia</option>
+          <option>South Africa</option>
+          <option>Nigeria</option>
+          <option>Kenya</option>
+          <option>Egypt</option>
+        </select>
+        <button onclick="findResources()">Show resources</button>
+      </div>
+
+      <div id="results" style="display:none;">
+        <h2 id="countryTitle">Resources</h2>
+        <div class="links">
+          <a id="assoc" class="btn" target="_blank" rel="noopener">Veterinary Association</a>
+          <a id="emerg" class="btn" target="_blank" rel="noopener">Emergency Clinics</a>
+          <a id="laws"  class="btn" target="_blank" rel="noopener">Pet Laws & Regulations</a>
+        </div>
+        <p class="small" style="margin-top:8px">Opens country-specific results in a new tab.</p>
+      </div>
     </div>
 
-    <div id="results" class="card" style="display:none;">
-      <h2>Resources for <span id="selCountry"></span></h2>
-      <a id="assoc" class="btn" target="_blank" rel="noopener">Veterinary Association</a>
-      <a id="emerg" class="btn" target="_blank" rel="noopener">Emergency Clinics</a>
-      <a id="laws"  class="btn" target="_blank" rel="noopener">Pet Laws & Regulations</a>
-      <p class="small">Opens country-specific searches in a new tab.</p>
-    </div>
-
-    <p class="small" style="margin-top:20px">Disclaimer: Quick links only; verify resources locally. Not a substitute for veterinary advice.</p>
+    <p class="small" style="margin-top:18px">Disclaimer: Quick links for convenience; not a substitute for professional veterinary advice. In emergencies, contact a licensed veterinarian immediately.</p>
   </div>
 
   <script>
@@ -73,16 +121,14 @@
       if(!c){ alert("Please select a country."); return; }
       showResources(c);
     }
-
     function showResources(c){
-      document.getElementById('selCountry').textContent = c;
+      document.getElementById('countryTitle').textContent = `Resources for ${c}`;
       document.getElementById('assoc').href = "https://www.google.com/search?q=veterinary+association+"+encodeURIComponent(c);
       document.getElementById('emerg').href = "https://www.google.com/search?q=24/7+emergency+animal+hospital+"+encodeURIComponent(c);
       document.getElementById('laws').href  = "https://www.google.com/search?q=pet+ownership+laws+"+encodeURIComponent(c);
       document.getElementById('results').style.display = "block";
     }
-
-    // Auto-select if ?country= is present
+    // Auto-select via ?country= param from homepage
     window.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
       const c = params.get("country");
