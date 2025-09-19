@@ -4,62 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Global Veterinary Directory | FindAVet.online</title>
-  <meta name="description" content="Welcome, worldwide visitors. Choose your country to find veterinary associations, emergency clinics, and pet law resources." />
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <!-- keep only one AdSense loader per page (optional) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7512776885465237" crossorigin="anonymous"></script>
+  <meta name="description" content="Welcome, worldwide visitors. Choose your country to find veterinary associations, emergency clinics, and pet law resources. Select your language." />
+
+  <!-- Accent + dark theme to match your site -->
   <style>
     :root{
-      --bg:#0b0b0c; --card:#121214; --ink:#f6f6f6; --muted:#bdbdbd; --line:#222;
-      --accent:#89d4ff; --pill:#17171a;
+      --bg:#0b0b0c;        /* page background */
+      --card:#121214;      /* cards */
+      --ink:#f6f6f6;       /* main text */
+      --muted:#bdbdbd;     /* secondary text */
+      --line:#222;         /* borders */
+      --pill:#17171a;      /* pill bg */
+      --accent:#89d4ff;    /* <<< your blue accent; change if needed */
       --radius:14px;
     }
-    html,body{background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;margin:0}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:880px;margin:0 auto;padding:24px}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:20px}
 
-    .hero{
-      background:linear-gradient(180deg,#141416, #0f0f11);
-      border:1px solid var(--line); border-radius:20px; padding:24px; margin-bottom:18px;
-      box-shadow:0 0 0 1px rgba(255,255,255,.02) inset;
+    /* Header with logo + language */
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      background:linear-gradient(180deg,#141416,#0f0f11);
+      border:1px solid var(--line); border-radius:18px; padding:12px 16px; gap:12px;
     }
-    .hero h1{margin:0 0 6px 0;font-size:1.9rem}
-    .tagline{color:var(--muted);margin:0}
-    .note{margin-top:10px; font-size:.95rem; color:var(--muted)}
-
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-top:16px}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    label{display:block;margin-bottom:8px;font-weight:600}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:36px;width:auto;display:block;filter:drop-shadow(0 0 0 rgba(0,0,0,0.2))}
+    .brand .title{font-weight:700;letter-spacing:.2px}
+    .brand .title span{color:var(--accent)}
+    .controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
     select,button{
-      padding:12px 14px;border-radius:999px;border:1px solid var(--line);background:var(--pill);color:var(--ink);
+      padding:10px 14px;border-radius:999px;border:1px solid var(--line);
+      background:var(--pill);color:var(--ink)
     }
-    select{min-width:260px}
     button{cursor:pointer}
+    label{font-weight:600;display:block;margin:0 0 8px 0}
+
+    /* Hero */
+    .hero{margin:18px 0 10px 0}
+    .hero h1{margin:10px 0 4px 0;font-size:1.85rem}
+    .tagline{color:var(--muted);margin:0 0 4px 0}
+    .note{color:var(--muted);font-size:.95rem}
+
+    /* Card + buttons */
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-top:14px}
+    .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
     .btn{
       display:inline-block;padding:10px 14px;border-radius:999px;background:var(--pill);
       border:1px solid var(--line); color:var(--ink); text-decoration:none
     }
     .btn:hover{background:#1e1e21}
     .small{font-size:.92rem;color:var(--muted)}
-    h2{font-size:1.2rem;margin:18px 0 6px 0}
-    .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
   </style>
+
+  <!-- (Optional) AdSense loader if you place ads on this page -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7512776885465237" crossorigin="anonymous"></script> -->
 </head>
 <body>
   <div class="wrap">
 
+    <!-- Top bar: logo + language selector -->
+    <div class="topbar">
+      <a class="brand" href="/index.html" aria-label="Go to homepage">
+        <!-- Replace the src with your real logo path -->
+        <img src="/assets/logo.svg" alt="FindAVet.online logo" />
+        <div class="title">FindA<span>Vet</span>.online</div>
+      </a>
+
+      <!-- Language selector (Google Translate widget) -->
+      <div class="controls">
+        <div id="google_translate_element" aria-label="Select language"></div>
+      </div>
+    </div>
+
+    <!-- Welcome -->
     <section class="hero">
-      <h1>Welcome, global pet owners 🌍</h1>
-      <p class="tagline">Find official vet associations, emergency clinics, and basic pet-law info for your country.</p>
-      <p class="note">This page creates quick, country-specific searches. Always verify resources locally.</p>
+      <h1>Global Veterinary Directory 🌍</h1>
+      <p class="tagline">Choose your country to open official associations, emergency clinics, and pet-law resources.</p>
+      <p class="note">These are quick country-specific searches. Please verify resources locally.</p>
     </section>
 
+    <!-- Country picker -->
     <div class="card">
-      <label for="country">Choose your country</label>
-      <div class="row">
+      <label for="country">Country</label>
+      <div class="controls" style="gap:12px;flex-wrap:wrap">
         <select id="country" aria-label="Select your country">
           <option value="">— Select a country —</option>
+          <!-- Feel free to expand this list; kept concise for clarity -->
           <option>United States</option>
           <option>United Kingdom</option>
           <option>Canada</option>
@@ -76,7 +108,6 @@
           <option>Denmark</option>
           <option>Finland</option>
           <option>Poland</option>
-          <option>Czechia</option>
           <option>Portugal</option>
           <option>Greece</option>
           <option>Turkey</option>
@@ -101,8 +132,8 @@
         <button onclick="findResources()">Show resources</button>
       </div>
 
-      <div id="results" style="display:none;">
-        <h2 id="countryTitle">Resources</h2>
+      <div id="results" style="display:none;margin-top:10px">
+        <h2 id="countryTitle" style="margin:6px 0 4px 0;font-size:1.2rem">Resources</h2>
         <div class="links">
           <a id="assoc" class="btn" target="_blank" rel="noopener">Veterinary Association</a>
           <a id="emerg" class="btn" target="_blank" rel="noopener">Emergency Clinics</a>
@@ -112,9 +143,10 @@
       </div>
     </div>
 
-    <p class="small" style="margin-top:18px">Disclaimer: Quick links for convenience; not a substitute for professional veterinary advice. In emergencies, contact a licensed veterinarian immediately.</p>
+    <p class="small" style="margin-top:16px">Disclaimer: Quick links for convenience; not a substitute for veterinary advice. In emergencies, contact a licensed veterinarian immediately.</p>
   </div>
 
+  <!-- Country logic -->
   <script>
     function findResources(){
       const c = document.getElementById('country').value;
@@ -139,5 +171,21 @@
       }
     });
   </script>
+
+  <!-- Google Translate inline widget -->
+  <script type="text/javascript">
+    function googleTranslateElementInit(){
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'ar,bg,ca,cs,da,de,el,en,es,et,fa,fi,fr,he,hi,hr,hu,id,it,ja,ko,lt,lv,ms,nl,no,pl,pt,ro,ru,sk,sl,sr,sv,th,tr,uk,ur,vi,zh-CN,zh-TW',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        },
+        'google_translate_element'
+      );
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
