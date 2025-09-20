@@ -1,37 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <!-- Event snippet for Page view conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-17549148106/e-RCCMvT9pwbEMr_irBB'});
-</script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7512776885465237"
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7512776885465237"
      crossorigin="anonymous"></script>
-
-  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — consolidated GA4 + Ads -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JWE4CHK6V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
 
-  gtag('config', 'G-5JWE4CHK6V');
-</script>
-  <meta name='impact-site-verification' value='97b81dc6-20df-4e54-b8ea-012d6e68fc99'>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FindAVet.online — Nationwide Veterinary Directory Search </title>
-  <meta name="description" content="Find Veterinary care near you. Search by your city or ZIP code now" />
-  <meta name="theme-color" content="#0b0c10" />
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17549148106"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  // Configure GA4 + Google Ads
+  gtag('config', 'G-5JWE4CHK6V');     // GA4
+  gtag('config', 'AW-17549148106');   // Ads
 
-  gtag('config', 'AW-17549148106');
+  // Conversion event (keep if this page should count as a conversion)
+  gtag('event', 'conversion', { 'send_to': 'AW-17549148106/e-RCCMvT9pwbEMr_irBB' });
 </script>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/logo.png?v=8" />
@@ -175,19 +156,6 @@
 
 <small class="muted">Opens Google Maps results in a new tab.</small>
 
-<script>
-  function openMapsSearch() {
-    const raw = document.getElementById('maps-q').value.trim();
-    if (!raw) return false;
-
-    // If user already typed a vet-related phrase, use it. Otherwise prepend.
-    const hasVet = /\b(vet|veterinarian|veterinary|animal\s+hospital|emergency)\b/i.test(raw);
-    const q = hasVet ? raw : `veterinarian near ${raw}`;
-
-    const url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
-    window.open(url, '_blank', 'noopener'); // open in new tab
-    return false; // prevent reload
-  }
 </script>
     <!-- Branding -->
     <div class="maps-badge" style="margin-top:15px;display:flex;align-items:center;gap:10px;">
@@ -414,12 +382,7 @@
     </nav>
     <div style="margin-top:10px">© <span id="yr"></span> FindAVet.online</div>
   </footer>
-
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
-</body>
-  <script>
+<script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 
@@ -445,7 +408,6 @@
     });
   });
 </script>
-
 </body>
 </html>
-</html>
+
