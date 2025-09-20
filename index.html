@@ -344,6 +344,40 @@ footer{padding:28px 0 42px;color:#95a4bb}
     .na-card{ background:#ffffff; color:#111; border-color:#e6e6e6; box-shadow:0 1px 8px rgba(0,0,0,.06); }
     .na-card .na-sub{ color:#555; }
   }
+     /* ==== Footer polish overrides ==== */
+.site-footer { padding: 18px 0 30px; }
+
+.footer-top{
+  display:flex; align-items:center; justify-content:center;
+  gap:10px; flex-wrap:wrap; text-align:center;
+}
+.footer-brand{ display:flex; align-items:center; gap:8px; font-size:.92rem }
+.footer-brand .sep{ opacity:.5 }
+.tagline{ opacity:.9 }
+
+.powered-note{ display:flex; align-items:center; gap:8px; color:#a8b3c3 }
+.powered-note img{ height:16px; width:auto; display:block }  /* desktop */
+.powered-note small{ line-height:1.35 }
+
+/* Link rows */
+.foot-links, .foot-policies{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:10px 18px; margin-top:10px;
+}
+.foot-links a, .foot-policies a{
+  color:#b7c6da; text-decoration:none; font-weight:700; opacity:.95
+}
+.foot-links a:hover, .foot-policies a:hover{ opacity:1; text-decoration:underline }
+
+/* Mobile tweaks */
+@media (max-width:760px){
+  .footer-top{ gap:6px }
+  .footer-brand{ font-size:.86rem }
+  .powered-note img{ height:14px }      /* smaller badge on phones */
+  .powered-note, .footer-brand{ justify-content:center; text-align:center }
+  .foot-links, .foot-policies{ gap:8px 14px; margin-top:8px }
+  .foot-links a, .foot-policies a{ display:block; text-align:center }
+}
 </style>
     
     <!-- Payments -->
@@ -415,7 +449,6 @@ footer{padding:28px 0 42px;color:#95a4bb}
         <img src="/maps-logo.png?v=9" alt="Google Maps" />
         <small>Search powered by Google. Logos belong to their respective owners.</small>
       </div>
-    </div>
 
     <!-- Site navigation -->
     <nav class="foot-links" aria-label="Site">
