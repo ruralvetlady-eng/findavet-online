@@ -378,23 +378,6 @@ pre, code { white-space: pre-wrap; word-break: break-word; }
     </section>
   </main>
 
-  <footer class="container">
-    <div class="divider">
-      <div class="brandline">
-  <img src="/maps-logo.png?v=9" alt="Google Maps" />
-  <small>Search powered by Google. Logos belong to their respective owners.</small>
-      </div>
-    <nav class="footnav" aria-label="Footer">
-      <a href="#search">Search</a><a href="#lowcost">Low-Cost</a><a href="#rescues">Rescues</a>
-      <a href="#microchip">Microchip</a><a href="#poison">Poison</a><a href="#payments">Payments</a>
-      <a href="#shop">Shop</a><a href="#about">About</a><a href="#contact">Contact</a>
-    </nav>
-    <div style="margin-top:10px">© <span id="yr"></span> FindAVet.online</div>
-  </footer>
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
-
 <!-- ✅ New script to highlight active nav link -->
 <script>
   const sections = document.querySelectorAll("section[id]");
@@ -417,6 +400,40 @@ pre, code { white-space: pre-wrap; word-break: break-word; }
     });
   });
 </script>
+     <footer class="site-footer" role="contentinfo">
+  <div class="container footer-wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        © <span id="year"></span> FindAVet.online
+        <span class="sep">•</span>
+        <span class="tagline">Simple, trusted vet resources</span>
+      </div>
+      <div class="powered-note">
+        <img src="/maps-logo.png?v=9" alt="Google Maps" />
+        <small>Search powered by Google. Logos belong to their respective owners.</small>
+      </div>
+    </div>
+
+    <nav class="foot-links" aria-label="Site">
+      <a href="#search">Search</a>
+      <a href="#lowcost">Low-Cost</a>
+      <a href="#rescues">Rescues</a>
+      <a href="#microchip">Microchip</a>
+      <a href="#poison">Poison</a>
+      <a href="#payments">Payments</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <nav class="foot-policies" aria-label="Policies">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/ads.html">Ads &amp; Disclosures</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+     </footer>
 </body>
 </html>
 
