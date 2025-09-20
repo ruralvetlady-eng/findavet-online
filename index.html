@@ -390,7 +390,7 @@ pre, code { white-space: pre-wrap; word-break: break-word; }
     });
   });
 </script>
-     <footer class="site-footer" role="contentinfo">
+<footer class="site-footer" role="contentinfo">
   <div class="container footer-wrap">
     <div class="footer-top">
       <div class="footer-brand">
@@ -402,6 +402,8 @@ pre, code { white-space: pre-wrap; word-break: break-word; }
         <img src="/maps-logo.png?v=9" alt="Google Maps" />
         <small>Search powered by Google. Logos belong to their respective owners.</small>
       </div>
+    </div>
+
     <!-- Site navigation -->
     <nav class="foot-links" aria-label="Site">
       <a href="#search">Search</a>
@@ -413,13 +415,20 @@ pre, code { white-space: pre-wrap; word-break: break-word; }
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+    </nav>
+
     <!-- Policy/legal links -->
     <nav class="foot-policies" aria-label="Policies">
       <a href="/privacy.html">Privacy</a>
       <a href="/ads.html">Ads &amp; Disclosures</a>
+      <a href="mailto:findavet.online@gmail.com">Email</a>
     </nav>
-    </div>
-    </footer>
-    </body>
-    </html>
+</footer>
+
+<script>
+  // auto-insert the current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
 
