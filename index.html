@@ -85,7 +85,7 @@ pre, code { white-space: pre-wrap; word-break: break-word; }
     nav{display:flex;flex-wrap:wrap;gap:18px;font-weight:700}
     nav a{opacity:.92} nav a:hover{opacity:1}
     .cta{margin-left:auto;background:var(--brand);color:#fff;border-radius:12px;padding:10px 16px;font-weight:800}
-    @media (max-width:760px){.wordmark{display:none} nav{display:none}.cta{margin-left:0}}
+    @media (max-width:760px){.wordmark{display:none} header nav{display:none}.cta{margin-left:0}}
 
     /* Hero */
     .hero{padding:42px 0 22px}
@@ -112,10 +112,23 @@ pre, code { white-space: pre-wrap; word-break: break-word; }
     .brandline{display:flex;align-items:center;gap:12px;margin:8px 0 0}
     .brandline img{height:22px;width:auto;display:block}
 
-    /* Footer */
-    footer{padding:28px 0 42px;color:#95a4bb}
-    .footnav{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
-    .footnav a{color:#b7c6da}
+       /* Footer */
+footer{padding:28px 0 42px;color:#95a4bb}
+.footnav{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+.footnav a{color:#b7c6da}
+
+/* Footer mobile adjustments */
+@media (max-width:760px){
+  .footnav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .footnav a {
+    display: block;
+    text-align: center;
+  }
+}
   </style>
 
   <!-- Google Programmable Search (official look) -->
