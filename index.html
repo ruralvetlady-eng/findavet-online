@@ -1,3 +1,5 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover" />
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7512776885465237"
      crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) — consolidated GA4 + Ads -->
@@ -43,6 +45,13 @@
     .card{background:linear-gradient(180deg,var(--panel),var(--panel2));
       border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow)}
     .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:40px 0}
+       /* Mobile shrink-to-fit guards */
+html { overflow-x: hidden; }
+body { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+.container { max-width: 980px; width: 100%; }
+img, video, iframe { max-width: 100%; height: auto; display: block; }
+nav, .footnav { flex-wrap: wrap; }
+pre, code { white-space: pre-wrap; word-break: break-word; }
     /* Insurance button – Swiftest only */
 .ins-grid {
   display: grid;
