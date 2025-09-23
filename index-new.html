@@ -8,262 +8,143 @@
   <link rel="icon" href="assets/favicon.png" type="image/png" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Theme styles -->
+  <!-- Theme -->
   <style>
     :root{
-      --brand-start:#ef4444; /* red-500 */
-      --brand-mid:#dc2626;   /* red-600 */
-      --brand-end:#0f172a;   /* slate-900 */
-      --ink:#0f172a;         
-      --muted:#64748b;       
+      --brand-1:#ef4444; --brand-2:#b91c1c;
+      --ink:#0f172a; --muted:#6b7280;
+      --border:#e5e7eb; --bg:#f8fafc;
     }
-    body{ font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji"; }
+    body{ font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink); }
     .display{ font-family:"Playfair Display",serif; }
-    .brand-gradient{ background-image: linear-gradient(135deg, var(--brand-start), var(--brand-mid) 45%, var(--brand-end)); }
-    .brand-text{ background: linear-gradient(135deg, var(--brand-start), var(--brand-mid)); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .card{ background: radial-gradient(100% 100% at 0% 0%, rgba(239,68,68,.06) 0%, rgba(15,23,42,.05) 60%, rgba(15,23,42,.02) 100%), #fff; }
-    .ring-soft{ box-shadow: 0 1px 0 rgba(2,6,23,.04), 0 1px 3px rgba(2,6,23,.08); }
-    .btn-primary{ background: linear-gradient(135deg, var(--brand-start), var(--brand-mid)); color:#fff; }
+    .brand-grad{ background:linear-gradient(135deg,var(--brand-1),var(--brand-2) 40%, #111827 100%); }
+    .brand-text{ background:linear-gradient(135deg,var(--brand-1),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .card{ background:#fff; border:1px solid var(--border); border-radius:1.25rem; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+    .card:hover{ box-shadow:0 6px 20px rgba(0,0,0,.08); transition:.25s ease; }
+    .pill{ background:rgba(239,68,68,.1); color:#7f1d1d; border:1px solid rgba(239,68,68,.2); }
+    .btn-primary{ background:linear-gradient(135deg,var(--brand-1),var(--brand-2)); color:#fff; }
     .btn-primary:hover{ filter:brightness(1.05); }
-    .pill{ background: rgba(239,68,68,.1); color:#7f1d1d; }
+    .section{ padding:3.5rem 0; }
+    @media (min-width:768px){ .section{ padding:4.5rem 0; } }
+    .section-title{ font-size:1.6rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#111827; }
+    .divider{ height:1px; background:var(--border); }
   </style>
-
-  <meta name="theme-color" content="#ef4444" />
-  <meta property="og:title" content="FindAVet.online — Global Vet Directory & Guides" />
-  <meta property="og:description" content="Search vets worldwide and get evergreen, practical pet-care guides." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://findavet.online/" />
-  <meta property="og:image" content="assets/logo-findavet.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Organization + Site schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "FindAVet.online",
-    "url": "https://findavet.online/",
-    "logo": "https://findavet.online/assets/logo-findavet.png",
-    "sameAs": []
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"FindAVet.online",
-    "url":"https://findavet.online/",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://findavet.online/directory/global.html?q={search_term_string}",
-      "query-input":"required name=search_term_string"
-    }
-  }
-  </script>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
-  <!-- Promo bar -->
-  <div class="brand-gradient text-white">
+<body class="antialiased">
+
+  <!-- Top bar -->
+  <div class="brand-grad text-white">
     <div class="mx-auto max-w-7xl px-4 py-2 text-center text-sm">
       Helping pet parents find trusted care — anywhere in the world.
     </div>
   </div>
 
   <!-- Header -->
-  <header class="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/90 backdrop-blur">
+  <header class="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
         <img src="assets/logo-findavet.png" alt="FindAVet.online logo" class="h-10 w-10" />
-        <span class="font-extrabold tracking-tight text-slate-900">
-          FIND<span class="brand-text">AVET</span>.ONLINE
-        </span>
+        <span class="text-xl md:text-2xl font-extrabold">FIND<span class="brand-text">AVET</span>.ONLINE</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a class="hover:text-slate-900 text-slate-600" href="directory/usa.html">USA</a>
-        <a class="hover:text-slate-900 text-slate-600" href="directory/global.html">Global</a>
-        <a class="hover:text-slate-900 text-slate-600" href="#guides">Guides</a>
-        <a class="hover:text-slate-900 text-slate-600" href="#faq">FAQ</a>
-        <a class="hover:text-slate-900 text-slate-600" href="about.html">About</a>
-        <a class="hover:text-slate-900 text-slate-600" href="contact.html">Contact</a>
+      <nav class="hidden md:flex items-center gap-7 text-sm">
+        <a href="directory-usa.html" class="hover:text-black text-gray-600">USA</a>
+        <a href="directory-global.html" class="hover:text-black text-gray-600">Global</a>
+        <a href="#guides" class="hover:text-black text-gray-600">Guides</a>
+        <a href="#faq" class="hover:text-black text-gray-600">FAQ</a>
+        <a href="about.html" class="hover:text-black text-gray-600">About</a>
+        <a href="contact.html" class="hover:text-black text-gray-600">Contact</a>
       </nav>
-      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-slate-200" aria-label="Open Menu">☰</button>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-gray-200">☰</button>
     </div>
-    <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white md:hidden">
+    <div id="mobileMenu" class="hidden border-t border-gray-200 bg-white md:hidden">
       <div class="mx-auto max-w-7xl px-4 py-3 grid gap-2 text-sm">
-        <a class="py-1" href="directory/usa.html">USA</a>
-        <a class="py-1" href="directory/global.html">Global</a>
-        <a class="py-1" href="#guides">Guides</a>
-        <a class="py-1" href="#faq">FAQ</a>
-        <a class="py-1" href="about.html">About</a>
-        <a class="py-1" href="contact.html">Contact</a>
+        <a href="directory-usa.html" class="py-1">USA</a>
+        <a href="directory-global.html" class="py-1">Global</a>
+        <a href="#guides" class="py-1">Guides</a>
+        <a href="#faq" class="py-1">FAQ</a>
+        <a href="about.html" class="py-1">About</a>
+        <a href="contact.html" class="py-1">Contact</a>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 brand-gradient opacity-10"></div>
-    <div class="relative mx-auto max-w-7xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+  <section class="section">
+    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <span class="pill inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold">Fast · Friendly · Evergreen</span>
-        <h1 class="display mt-4 text-4xl md:text-6xl font-bold tracking-tight text-slate-900">
-          Find a <span class="brand-text">Trusted Veterinarian</span> — Fast.
-        </h1>
-        <p class="mt-4 text-slate-600 text-lg">
-          Search vets worldwide and prepare for your visit with checklists, questions to ask,
-          and emergency basics you can rely on.
-        </p>
+        <span class="pill px-3 py-1 text-xs font-semibold rounded-full">Fast · Friendly · Evergreen</span>
+        <h1 class="display mt-4 text-4xl md:text-6xl font-bold">Find a <span class="brand-text">Trusted Veterinarian</span> — Fast.</h1>
+        <p class="mt-4 text-gray-600 text-lg">Search vets worldwide and prepare for your visit with checklists, questions to ask, and emergency basics.</p>
 
-        <form action="directory/global.html" method="get" class="mt-6 flex items-stretch gap-2">
-          <label for="q" class="sr-only">Search vets, clinics, or cities</label>
-          <input id="q" name="q" type="text" placeholder="Search vets, clinics, or cities…"
-            class="w-full rounded-xl border border-slate-300 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-red-500" />
+        <form action="directory-global.html" method="get" class="mt-6 flex gap-2">
+          <input id="q" name="q" type="text" placeholder="Search vets, clinics, or cities…" class="w-full rounded-xl border px-4 py-3 focus:ring-2 focus:ring-red-500" />
           <button class="btn-primary rounded-xl px-5 py-3 font-semibold">Search</button>
         </form>
-
-        <div class="mt-4 flex flex-wrap gap-3 text-sm">
-          <a href="directory/usa.html" class="underline-offset-2 hover:underline text-red-600">Browse USA</a>
-          <span class="text-slate-400">•</span>
-          <a href="directory/global.html" class="underline-offset-2 hover:underline text-red-600">Browse Global</a>
-          <span class="text-slate-400">•</span>
-          <a href="#guides" class="underline-offset-2 hover:underline text-red-600">Evergreen Guides</a>
+      </div>
+      <div>
+        <div class="aspect-[4/3] rounded-3xl card overflow-hidden">
+          <img src="assets/hero-dog-cat.webp" alt="Dog and cat with vet" class="h-full w-full object-cover" />
         </div>
-      </div>
-
-      <div class="relative">
-        <div class="aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200 card">
-          <img src="assets/hero-dog-cat.webp" alt="Happy dog and cat with a veterinarian" class="h-full w-full object-cover" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Value props -->
-  <section class="py-10 md:py-14">
-    <div class="mx-auto max-w-7xl px-4 grid gap-4 md:grid-cols-3">
-      <div class="rounded-2xl card p-6 ring-soft">
-        <h3 class="font-semibold text-slate-900">Global coverage</h3>
-        <p class="mt-1 text-slate-600">Browse USA & international resources to locate licensed veterinary care wherever you are.</p>
-      </div>
-      <div class="rounded-2xl card p-6 ring-soft">
-        <h3 class="font-semibold text-slate-900">Evergreen guides</h3>
-        <p class="mt-1 text-slate-600">Checklists, questions to ask, and preparation tips that don’t go out of date.</p>
-      </div>
-      <div class="rounded-2xl card p-6 ring-soft">
-        <h3 class="font-semibold text-slate-900">Fast & accessible</h3>
-        <p class="mt-1 text-slate-600">Lightweight, mobile-first pages with clear navigation and readable typography.</p>
       </div>
     </div>
   </section>
 
   <!-- Directories -->
-  <section class="py-10 md:py-14 bg-white" id="directories">
+  <section class="section bg-white" id="directories">
     <div class="mx-auto max-w-7xl px-4">
-      <div class="flex items-end justify-between gap-4">
-        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Find a Veterinarian</h2>
-        <a href="directory/global.html" class="text-sm font-semibold text-red-600 hover:underline">See all regions →</a>
-      </div>
+      <h2 class="section-title">Find a Veterinarian</h2>
       <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <a href="directory/usa.html" class="group block rounded-2xl border border-slate-200 card p-6 ring-soft hover:shadow-md">
-          <div class="flex items-start justify-between">
-            <div>
-              <h3 class="text-lg font-semibold text-slate-900">United States</h3>
-              <p class="mt-1 text-slate-600 text-sm">State-by-state portals to find local clinics, emergency hospitals, and specialty care.</p>
-            </div>
-            <span class="text-red-600">→</span>
-          </div>
-          <ul class="mt-4 text-sm text-slate-600 list-disc pl-5 space-y-1">
-            <li>Emergency & after-hours options</li>
-            <li>Low-cost & nonprofit clinics</li>
-            <li>Specialists (dermatology, oncology, orthopedics)</li>
-          </ul>
+        <a href="directory-usa.html" class="card p-6">
+          <h3 class="text-lg font-semibold">United States</h3>
+          <p class="mt-1 text-sm text-gray-600">State-by-state portals for local clinics, ER hospitals, and specialists.</p>
         </a>
-        <a href="directory/global.html" class="group block rounded-2xl border border-slate-200 card p-6 ring-soft hover:shadow-md">
-          <div class="flex items-start justify-between">
-            <div>
-              <h3 class="text-lg font-semibold text-slate-900">Worldwide</h3>
-              <p class="mt-1 text-slate-600 text-sm">Country pages with official vet associations and emergency resources where available.</p>
-            </div>
-            <span class="text-red-600">→</span>
-          </div>
-          <ul class="mt-4 text-sm text-slate-600 list-disc pl-5 space-y-1">
-            <li>National vet registries & associations</li>
-            <li>Emergency lines & animal poison control</li>
-            <li>Travel & vaccination considerations</li>
-          </ul>
+        <a href="directory-global.html" class="card p-6">
+          <h3 class="text-lg font-semibold">Worldwide</h3>
+          <p class="mt-1 text-sm text-gray-600">Country pages with official associations and emergency resources.</p>
         </a>
       </div>
     </div>
   </section>
 
   <!-- Guides -->
-  <section class="py-10 md:py-14" id="guides">
+  <section class="section" id="guides">
     <div class="mx-auto max-w-7xl px-4">
-      <div class="flex items-end justify-between gap-4">
-        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Evergreen Guides</h2>
-        <a href="articles/" class="text-sm font-semibold text-red-600 hover:underline">View all articles →</a>
-      </div>
+      <h2 class="section-title">Evergreen Guides</h2>
       <div class="mt-6 grid gap-6 md:grid-cols-3">
-        <a href="articles/choosing-a-vet.html" class="block rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-md">
-          <h3 class="font-semibold text-slate-900">How to Choose the Right Vet</h3>
-          <p class="mt-2 text-sm text-slate-600">What to look for, questions to ask, and how to compare clinics.</p>
-          <span class="mt-3 inline-block text-red-600 text-sm font-semibold">Read guide →</span>
+        <a href="articles/choosing-a-vet.html" class="card p-6 hover:shadow-lg">
+          <h3 class="font-semibold">How to Choose the Right Vet</h3>
+          <p class="mt-2 text-sm text-gray-600">What to look for, questions to ask, and how to compare clinics.</p>
         </a>
-        <a href="articles/first-visit-checklist.html" class="block rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-md">
-          <h3 class="font-semibold text-slate-900">First Visit Checklist</h3>
-          <p class="mt-2 text-sm text-slate-600">Records, meds, behavior notes, and key questions to save time.</p>
-          <span class="mt-3 inline-block text-red-600 text-sm font-semibold">Read guide →</span>
+        <a href="articles/first-visit-checklist.html" class="card p-6 hover:shadow-lg">
+          <h3 class="font-semibold">First Visit Checklist</h3>
+          <p class="mt-2 text-sm text-gray-600">Records, meds, behavior notes, and key questions to save time.</p>
         </a>
-        <a href="articles/emergency-care-basics.html" class="block rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 hover:shadow-md">
-          <h3 class="font-semibold text-slate-900">Emergency Care Basics</h3>
-          <p class="mt-2 text-sm text-slate-600">How to spot an emergency, what to do en route, and what to expect.</p>
-          <span class="mt-3 inline-block text-red-600 text-sm font-semibold">Read guide →</span>
+        <a href="articles/emergency-care-basics.html" class="card p-6 hover:shadow-lg">
+          <h3 class="font-semibold">Emergency Care Basics</h3>
+          <p class="mt-2 text-sm text-gray-600">How to spot an emergency and what to expect at the ER.</p>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Extras -->
-  <section class="py-10 md:py-14 bg-white">
-    <div class="mx-auto max-w-7xl px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Helpful Extras</h2>
-      <div class="mt-6 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-slate-200 card p-6 ring-soft">
-          <h3 class="font-semibold text-slate-900">Questions to Ask Your Vet</h3>
-          <ul class="mt-3 space-y-2 text-sm text-slate-700 list-disc pl-5">
-            <li>What’s the diagnosis and confidence level?</li>
-            <li>Best-case, likely, and worst-case outcomes?</li>
-            <li>Costs today vs. costs if we wait?</li>
-            <li>Home-care steps and red-flag signs?</li>
-          </ul>
-        </div>
-        <div class="rounded-2xl border border-slate-200 card p-6 ring-soft">
-          <h3 class="font-semibold text-slate-900">Bring-Along Checklist</h3>
-          <ul class="mt-3 space-y-2 text-sm text-slate-700 list-disc pl-5">
-            <li>ID, microchip #, recent photos</li>
-            <li>Medical records & meds list</li>
-            <li>Food, treats, comfort item</li>
-            <li>Carrier/leash & payment method</li>
-          </ul>
-        </div>
-        <div class="rounded-2xl border border-slate-200 card p-6 ring-soft">
-          <h3 class="font-semibold text-slate-900">When to Seek ER Care</h3>
-          <p class="mt-3 text-sm text-slate-700">Trouble breathing, collapse, seizures, toxin ingestion, bloat, inability to urinate/defecate, severe pain, or eye injuries.</p>
-          <p class="mt-3 text-xs text-slate-500">This site is educational and not a substitute for an in-person exam. If in doubt, call a veterinarian or emergency hospital.</p>
-        </div>
-      </div>
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-6 text-xs text-gray-500 flex flex-wrap items-center justify-between">
+      <span>© <span id="year"></span> FindAVet.online. All rights reserved.</span>
+      <a href="sitemap.xml" class="hover:underline">Sitemap</a>
     </div>
-  </section>
+  </footer>
 
-  <!-- FAQ -->
-  <section id="faq" class="py-10 md:py-14 bg-white">
-    <div class="mx-auto max-w-3xl px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Frequently Asked Questions</h2>
-      <div class="mt-6 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
-        <details class="group p-5" open>
-          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-slate-900">Is FindAV
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(menuBtn) menuBtn.addEventListener('click',()=>mobileMenu.classList.toggle('hidden'));
+  </script>
+</body>
+</html>
