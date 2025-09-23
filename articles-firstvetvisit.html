@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Visit Checklist — FindAVet.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="What to bring to your pet's first vet visit: records, medications, behavior notes, and key questions." />
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+  <header class="w-full border-b border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2"><img src="/assets/logo.svg" class="h-8 w-8" alt="FindAVet.online"/><span class="font-semibold">FindAVet.online</span></a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="text-slate-600 hover:text-slate-900" href="/directory/usa.html">USA</a>
+        <a class="text-slate-600 hover:text-slate-900" href="/directory/global.html">Global</a>
+        <a class="text-slate-600 hover:text-slate-900" href="/about.html">About</a>
+        <a class="text-slate-600 hover:text-slate-900" href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-bold text-slate-900">First Visit Checklist</h1>
+    <p class="mt-3 text-slate-700">A little prep makes your appointment smoother and more productive. Use this checklist to save time and ensure nothing gets missed.</p>
+
+    <h2 class="mt-6 text-2xl font-semibold text-slate-900">Bring</h2>
+    <ul class="mt-2 list-disc pl-6 text-slate-700">
+      <li>Medical records, prior lab results, and vaccination history</li>
+      <li>Current medications/supplements and doses</li>
+      <li>Photos/videos of symptoms (limping, coughing, skin issues)</li>
+      <li>Food/treat labels or ingredient lists if discussing diet</li>
+      <li>Carrier/leash, recent photo, microchip number</li>
+    </ul>
+
+    <h2 class="mt-6 text-2xl font-semibold text-slate-900">Share</h2>
+    <ul class="mt-2 list-disc pl-6 text-slate-700">
+      <li>Timeline of symptoms: when they began, what helps or worsens</li>
+      <li>Behavior changes, appetite, energy, bathroom habits</li>
+      <li>Any toxin exposure concerns (chocolate, meds, plants, cleaners)</li>
+      <li>Travel history, boarding, new pets, or environmental changes</li>
+    </ul>
+
+    <h2 class="mt-6 text-2xl font-semibold text-slate-900">Ask</h2>
+    <ul class="mt-2 list-disc pl-6 text-slate-700">
+      <li>Top two or three likely diagnoses and how to confirm them</li>
+      <li>What to monitor at home and red flags to recheck sooner</li>
+      <li>Estimate for today vs. estimate if we wait</li>
+      <li>Whether pet insurance can help with this visit</li>
+    </ul>
+
+    <p class="mt-8 text-xs text-slate-500">Educational only; not medical advice.</p>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-6 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-4">
+      <span>© <span id="year"></span> FindAVet.online</span>
+      <a class="hover:underline" href="/privacy.html">Privacy</a>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
