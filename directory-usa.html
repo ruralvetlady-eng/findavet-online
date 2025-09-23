@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USA Directory — FindAVet.online</title>
+  <meta name="description" content="Find U.S. veterinarians by state: emergency hospitals, low-cost clinics, and specialists." />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+  <header class="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/90 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/assets/logo.svg" alt="FindAVet.online" class="h-8 w-8" />
+        <span class="font-semibold tracking-tight text-slate-900">FindAVet.online</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-slate-900 text-slate-600" href="/directory/usa.html">USA</a>
+        <a class="hover:text-slate-900 text-slate-600" href="/directory/global.html">Global</a>
+        <a class="hover:text-slate-900 text-slate-600" href="/about.html">About</a>
+        <a class="hover:text-slate-900 text-slate-600" href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 py-10">
+    <h1 class="text-3xl md:text-4xl font-bold text-slate-900">United States Veterinary Directory</h1>
+    <p class="mt-3 text-slate-700 max-w-3xl">Use these state pages to locate emergency hospitals, after-hours options, low-cost/nonprofit clinics, and board-certified specialists. Start by choosing your state.</p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <!-- State grid (alphabetical) -->
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/al.html"><span class="font-semibold text-slate-900">Alabama</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/ak.html"><span class="font-semibold text-slate-900">Alaska</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/az.html"><span class="font-semibold text-slate-900">Arizona</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/ar.html"><span class="font-semibold text-slate-900">Arkansas</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/ca.html"><span class="font-semibold text-slate-900">California</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/co.html"><span class="font-semibold text-slate-900">Colorado</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/ct.html"><span class="font-semibold text-slate-900">Connecticut</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/de.html"><span class="font-semibold text-slate-900">Delaware</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/fl.html"><span class="font-semibold text-slate-900">Florida</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <a class="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow md:text-sm" href="/directory/usa/ga.html"><span class="font-semibold text-slate-900">Georgia</span><div class="mt-1 text-slate-600 text-xs">Resources & emergency</div></a>
+      <!-- (continue this pattern for all 50 states; you can paste the rest from earlier ZIP) -->
+    </div>
+
+    <section class="mt-12">
+      <h2 class="text-xl font-semibold text-slate-900">What you’ll find on state pages</h2>
+      <ul class="mt-3 list-disc pl-6 text-slate-700">
+        <li>Emergency & after-hours hospitals (where available)</li>
+        <li>Official state veterinary association or board</li>
+        <li>Low-cost/nonprofit care resources</li>
+        <li>Specialist finders (ACVS, ACVIM, etc.)</li>
+      </ul>
+      <p class="mt-3 text-xs text-slate-500">Info is educational; verify details with each provider. In an emergency, call a vet hospital immediately.</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-6 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-4">
+      <span>© <span id="year"></span> FindAVet.online. All rights reserved.</span>
+      <a class="hover:underline" href="/privacy.html">Privacy</a>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
