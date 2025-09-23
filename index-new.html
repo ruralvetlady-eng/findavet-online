@@ -8,54 +8,43 @@
   <link rel="icon" href="assets/favicon.png" type="image/png" />
   <meta name="theme-color" content="#b91c1c" />
 
-  <!-- Fonts: Bold brand + professional body -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind (CDN) -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Design tokens -->
+  <!-- Theme -->
   <style>
     :root{
-      --brand-1:#ef4444; /* red-500 */
-      --brand-2:#b91c1c; /* red-700 */
-      --brand-3:#111827; /* near black */
-      --ink:#0b1220;     /* deep ink */
-      --muted:#7c8698;   /* cool gray */
-      --border:#1f2937;  /* dark border for bold feel */
-      --bg:#0b0f17;      /* page background (deep) */
+      --brand-1:#ef4444; --brand-2:#b91c1c; --brand-3:#111827;
+      --ink:#0b1220; --muted:#7c8698; --bg:#0b0f17;
     }
     body{
-      background: radial-gradient(1200px 800px at 10% -10%, rgba(185,28,28,.25), transparent 60%),
-                  radial-gradient(1000px 700px at 90% 10%, rgba(239,68,68,.18), transparent 60%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 800px at 10% -10%, rgba(185,28,28,.25), transparent 60%),
+        radial-gradient(1000px 700px at 90% 10%, rgba(239,68,68,.18), transparent 60%),
+        var(--bg);
       color:#e5e7eb;
-      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
-    .brand{ font-family:"Montserrat Alternates", system-ui, -apple-system, Segoe UI, Roboto, Arial }
-    .display{ font-family:"Montserrat Alternates", system-ui, -apple-system, Segoe UI, Roboto, Arial }
+    .brand, .display { font-family:"Urbanist", system-ui, -apple-system, Segoe UI, Roboto, Arial }
     .brand-grad{ background:linear-gradient(135deg,var(--brand-1),var(--brand-2) 50%, var(--brand-3)) }
-    .brand-text{ background:linear-gradient(135deg,#ff6b6b,#ef4444 40%,#b91c1c 70%,#ffffff 98%); -webkit-background-clip:text; background-clip:text; color:transparent }
+    .brand-text{ background:linear-gradient(135deg,#ff6b6b,#ef4444 40%,#b91c1c 75%,#ffffff 98%); -webkit-background-clip:text; background-clip:text; color:transparent }
     .glass{ backdrop-filter: blur(10px); background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.1) }
     .card{ background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.12); border-radius:1.25rem; box-shadow:0 10px 30px rgba(0,0,0,.35) }
-    .card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,.45); transition:.3s ease }
+    .card:hover{ transform:translateY(-3px); box-shadow:0 18px 40px rgba(0,0,0,.45); transition:.28s ease }
     .btn-primary{ background:linear-gradient(135deg,#ff6b6b,#b91c1c); color:#fff; border-radius:.9rem; box-shadow:0 12px 24px rgba(239,68,68,.25) }
     .btn-primary:hover{ filter:brightness(1.07) }
     .btn-ghost{ background:transparent; border:1px solid rgba(255,255,255,.18); color:#fff; border-radius:.9rem }
     .section{ padding:4rem 0 } @media (min-width:1024px){ .section{ padding:5rem 0 } }
-    .section-title{ font-family:"Montserrat Alternates"; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#fff }
+    .section-title{ font-family:"Urbanist"; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#fff }
     .link-red{ color:#fca5a5 } .link-red:hover{ color:#fff; text-decoration:underline }
     .divider{ height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent) }
-
-    /* Subtle pawprint pattern in hero */
-    .paw-bg:before{
-      content:""; position:absolute; inset:-60px -60px auto auto; width:540px; height:540px; opacity:.06; pointer-events:none;
+    .paw-bg:before{ content:""; position:absolute; inset:-60px -60px auto auto; width:540px; height:540px; opacity:.06; pointer-events:none;
       background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="540" height="540" viewBox="0 0 200 200" fill="%23ffffff"><g opacity="0.7"><circle cx="50" cy="60" r="14"/><circle cx="30" cy="80" r="10"/><circle cx="70" cy="80" r="10"/><circle cx="52" cy="95" r="8"/><path d="M45 115c0-11 9-20 20-20s20 9 20 20-9 18-20 18-20-7-20-18z"/></g></svg>');
-      background-repeat:repeat; background-size:200px 200px; transform:rotate(-12deg);
-    }
-
-    /* Footer */
+      background-repeat:repeat; background-size:200px 200px; transform:rotate(-12deg); }
     .footer-grad{ background:linear-gradient(180deg,rgba(185,28,28,.35) 0%, rgba(185,28,28,.6) 40%, #0b0f17 100%) }
   </style>
 
@@ -107,14 +96,11 @@
         <a href="#faq" class="hover:text-white">FAQ</a>
         <a href="about.html" class="hover:text-white">About</a>
         <a href="contact.html" class="hover:text-white">Contact</a>
-
-        <!-- Language selector -->
         <div id="gt-container" class="hidden md:block glass rounded-lg px-2 py-1">
           <div id="google_translate_element" aria-label="Language selector"></div>
         </div>
       </nav>
 
-      <!-- Mobile menu button -->
       <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/15 text-white" aria-label="Open Menu">☰</button>
     </div>
 
@@ -138,7 +124,7 @@
   <section class="section relative">
     <div class="absolute inset-0 pointer-events-none opacity-60 paw-bg"></div>
 
-    <div class="relative mx-auto max-w-7xl px-4 grid lg:grid-cols-[1.05fr,1fr] gap-10 items-center">
+    <div class="relative mx-auto max-w-7xl px-4 grid lg:grid-cols-[1.1fr,0.9fr] gap-10 items-center">
       <div>
         <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide glass">
           <span class="inline-block h-2 w-2 rounded-full bg-red-500"></span> Fast • Friendly • Evergreen
@@ -169,36 +155,27 @@
         </div>
       </div>
 
-      <!-- Hero visual (animated shapes) -->
-      <div class="relative">
-        <div class="card overflow-hidden rounded-3xl aspect-[4/3]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="h-full w-full">
+      <!-- Hero visual: smaller, centered badge -->
+      <div class="relative flex justify-center items-center">
+        <div class="card overflow-hidden rounded-2xl p-4 w-[320px] h-[240px] flex justify-center items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" class="h-full w-full">
             <defs>
               <linearGradient id="gradA" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#1f2937"/>
                 <stop offset="1" stop-color="#0b0f17"/>
               </linearGradient>
-              <linearGradient id="gradB" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ef4444"/>
-                <stop offset="1" stop-color="#b91c1c"/>
-              </linearGradient>
             </defs>
-            <rect width="640" height="480" rx="28" fill="url(#gradA)"/>
-            <g opacity=".18">
-              <circle cx="120" cy="120" r="90" fill="url(#gradB)"/>
-              <circle cx="530" cy="90" r="70" fill="url(#gradB)"/>
-              <circle cx="520" cy="360" r="110" fill="url(#gradB)"/>
-            </g>
-            <!-- ECG line -->
-            <path d="M60 250 H170 l20 -25 l20 50 l25 -90 l25 120 l18 -30 h120"
-                  stroke="#ef4444" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- Heart + paw -->
-            <g transform="translate(370,200)">
-              <path d="M60 20c-14-30-54-28-60 5c-6-33-46-35-60-5c-18 39 60 85 60 85s78-46 60-85z" fill="#ef4444" stroke="#ffffff20" stroke-width="2"/>
-              <circle cx="5" cy="-10" r="10" fill="#fff"/>
-              <circle cx="25" cy="-20" r="12" fill="#fff"/>
-              <circle cx="45" cy="-8" r="10" fill="#fff"/>
-              <circle cx="28" cy="12" r="12" fill="#fff"/>
+            <rect width="320" height="240" rx="20" fill="url(#gradA)"/>
+            <path d="M20 130 H100 l15 -20 l15 40 l20 -70 l20 90 l14 -25 h90"
+                  stroke="#ef4444" stroke-width="5" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <g transform="translate(200,90)">
+              <path d="M45 15c-11-24-42-22-47 4c-5-26-36-28-47-4c-14 32 47 68 47 68s61-36 47-68z"
+                    fill="#ef4444" stroke="#ffffff20" stroke-width="2"/>
+              <circle cx="5" cy="-8" r="8" fill="#fff"/>
+              <circle cx="20" cy="-15" r="10" fill="#fff"/>
+              <circle cx="35" cy="-6" r="8" fill="#fff"/>
+              <circle cx="22" cy="8" r="10" fill="#fff"/>
             </g>
           </svg>
         </div>
@@ -212,7 +189,6 @@
       <div class="card p-6">
         <div class="flex items-center gap-3">
           <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-red-600/20 text-red-300">
-            <!-- globe icon -->
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg>
           </span>
           <h3 class="brand text-white text-lg font-bold">Global Coverage</h3>
@@ -222,7 +198,6 @@
       <div class="card p-6">
         <div class="flex items-center gap-3">
           <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-red-600/20 text-red-300">
-            <!-- checklist -->
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h7"/></svg>
           </span>
           <h3 class="brand text-white text-lg font-bold">Evergreen Guides</h3>
@@ -232,7 +207,6 @@
       <div class="card p-6">
         <div class="flex items-center gap-3">
           <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-red-600/20 text-red-300">
-            <!-- bolt -->
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
           </span>
           <h3 class="brand text-white text-lg font-bold">Fast & Accessible</h3>
@@ -350,7 +324,6 @@
         </div>
         <p class="mt-3 text-sm/6 text-white/85">A fast, friendly way to find licensed veterinary care and prepare for your visit with timeless, practical guides.</p>
         <div class="mt-4 flex gap-3">
-          <!-- Social placeholders -->
           <a aria-label="Twitter" class="p-2 rounded-lg border border-white/15 hover:bg-white/10" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.26 4.26 0 0 0 1.87-2.35 8.49 8.49 0 0 1-2.7 1.03 4.24 4.24 0 0 0-7.22 3.87 12 12 0 0 1-8.72-4.42 4.23 4.23 0 0 0 1.31 5.66 4.18 4.18 0 0 1-1.92-.53v.05a4.24 4.24 0 0 0 3.4 4.15 4.2 4.2 0 0 1-1.91.07 4.25 4.25 0 0 0 3.96 2.95A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21.5c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.35-.01-.53A8.34 8.34 0 0 0 22.46 6z"/></svg></a>
           <a aria-label="Facebook" class="p-2 rounded-lg border border-white/15 hover:bg-white/10" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.3V12h2.3V9.7c0-2.3 1.37-3.6 3.47-3.6.7 0 1.42.12 1.42.12v2.5h-.8c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.9h-2.34v7A10 10 0 0 0 22 12z"/></svg></a>
         </div>
