@@ -8,56 +8,64 @@
   <link rel="icon" href="assets/favicon.png" type="image/png" />
   <meta name="theme-color" content="#b91c1c" />
 
-  <!-- Fonts (clean UI + elegant headings) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <!-- Fonts: Bold brand + professional body -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CDN (no build step needed) -->
+  <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Design tokens / theme -->
+  <!-- Design tokens -->
   <style>
     :root{
       --brand-1:#ef4444; /* red-500 */
       --brand-2:#b91c1c; /* red-700 */
-      --ink:#0f172a;     /* slate-900 */
-      --muted:#6b7280;   /* gray-500 */
-      --border:#e5e7eb;  /* gray-200 */
-      --bg:#f8fafc;      /* slate-50 */
+      --brand-3:#111827; /* near black */
+      --ink:#0b1220;     /* deep ink */
+      --muted:#7c8698;   /* cool gray */
+      --border:#1f2937;  /* dark border for bold feel */
+      --bg:#0b0f17;      /* page background (deep) */
     }
-    html,body{height:100%}
     body{
-      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";
-      background:var(--bg); color:var(--ink);
-      text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(185,28,28,.25), transparent 60%),
+                  radial-gradient(1000px 700px at 90% 10%, rgba(239,68,68,.18), transparent 60%),
+                  var(--bg);
+      color:#e5e7eb;
+      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
-    .display{ font-family:"Playfair Display",serif; letter-spacing:-.4px }
-    .brand-grad{ background:linear-gradient(135deg,var(--brand-1),var(--brand-2)) }
-    .brand-text{ background:linear-gradient(135deg,var(--brand-1),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent }
-    .card{ background:#fff; border:1px solid var(--border); border-radius:1.25rem; box-shadow:0 1px 2px rgba(0,0,0,.04) }
-    .card:hover{ box-shadow:0 6px 20px rgba(0,0,0,.08); transition:.25s ease }
-    .pill{ background:rgba(239,68,68,.1); color:#7f1d1d; border:1px solid rgba(239,68,68,.2) }
-    .btn-primary{ background:linear-gradient(135deg,var(--brand-1),var(--brand-2)); color:#fff }
-    .btn-primary:hover{ filter:brightness(1.05) }
-    .section{ padding:3.5rem 0 }
-    @media (min-width:768px){ .section{ padding:4.5rem 0 } }
-    .section-title{ font-size:1.6rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#111827 }
-    .link-red{ color:#ef4444 } .link-red:hover{ text-decoration:underline }
-    /* Footer gradient */
-    .footer-grad{ background:linear-gradient(180deg,#7f1d1d 0%, #b91c1c 40%, #111827 100%) }
-    /* Light restyle for Google Translate container so it blends in */
-    #gt-container, #gt-container-mobile{
-      border:1px solid var(--border); border-radius:.75rem; padding:.25rem .5rem; background:#fff;
-      box-shadow:0 1px 0 rgba(2,6,23,.04)
+    .brand{ font-family:"Montserrat Alternates", system-ui, -apple-system, Segoe UI, Roboto, Arial }
+    .display{ font-family:"Montserrat Alternates", system-ui, -apple-system, Segoe UI, Roboto, Arial }
+    .brand-grad{ background:linear-gradient(135deg,var(--brand-1),var(--brand-2) 50%, var(--brand-3)) }
+    .brand-text{ background:linear-gradient(135deg,#ff6b6b,#ef4444 40%,#b91c1c 70%,#ffffff 98%); -webkit-background-clip:text; background-clip:text; color:transparent }
+    .glass{ backdrop-filter: blur(10px); background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.1) }
+    .card{ background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.12); border-radius:1.25rem; box-shadow:0 10px 30px rgba(0,0,0,.35) }
+    .card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,.45); transition:.3s ease }
+    .btn-primary{ background:linear-gradient(135deg,#ff6b6b,#b91c1c); color:#fff; border-radius:.9rem; box-shadow:0 12px 24px rgba(239,68,68,.25) }
+    .btn-primary:hover{ filter:brightness(1.07) }
+    .btn-ghost{ background:transparent; border:1px solid rgba(255,255,255,.18); color:#fff; border-radius:.9rem }
+    .section{ padding:4rem 0 } @media (min-width:1024px){ .section{ padding:5rem 0 } }
+    .section-title{ font-family:"Montserrat Alternates"; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#fff }
+    .link-red{ color:#fca5a5 } .link-red:hover{ color:#fff; text-decoration:underline }
+    .divider{ height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent) }
+
+    /* Subtle pawprint pattern in hero */
+    .paw-bg:before{
+      content:""; position:absolute; inset:-60px -60px auto auto; width:540px; height:540px; opacity:.06; pointer-events:none;
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="540" height="540" viewBox="0 0 200 200" fill="%23ffffff"><g opacity="0.7"><circle cx="50" cy="60" r="14"/><circle cx="30" cy="80" r="10"/><circle cx="70" cy="80" r="10"/><circle cx="52" cy="95" r="8"/><path d="M45 115c0-11 9-20 20-20s20 9 20 20-9 18-20 18-20-7-20-18z"/></g></svg>');
+      background-repeat:repeat; background-size:200px 200px; transform:rotate(-12deg);
     }
+
+    /* Footer */
+    .footer-grad{ background:linear-gradient(180deg,rgba(185,28,28,.35) 0%, rgba(185,28,28,.6) 40%, #0b0f17 100%) }
   </style>
 
   <!-- Open Graph -->
   <meta property="og:title" content="FindAVet.online — Global Vet Directory & Guides" />
-  <meta property="og:description" content="Search vets worldwide and get evergreen, practical pet-care guides." />
+  <meta property="og:description" content="Search vets worldwide and get evergreen pet-care guides." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/logo-findavet.png" />
 
-  <!-- JSON-LD: Organization, WebSite (SearchAction), FAQ -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Organization","name":"FindAVet.online","url":"https://findavet.online/","logo":"https://findavet.online/assets/logo-findavet.png"}
   </script>
@@ -66,108 +74,132 @@
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Is FindAVet a veterinary clinic?","acceptedAnswer":{"@type":"Answer","text":"No. We are a directory and resource site to help locate licensed veterinary care and prepare for visits."}},
+    {"@type":"Question","name":"Is FindAVet a veterinary clinic?","acceptedAnswer":{"@type":"Answer","text":"No. We are a directory and guide hub to help you locate licensed veterinary care and prepare for visits."}},
     {"@type":"Question","name":"Is the information medical advice?","acceptedAnswer":{"@type":"Answer","text":"No. Content is educational only and not a substitute for a physical exam or diagnosis."}},
     {"@type":"Question","name":"Do you list emergency hospitals?","acceptedAnswer":{"@type":"Answer","text":"Yes—our USA and Global pages prioritize emergency resources and official associations where available."}}
   ]}
   </script>
 </head>
-<body class="antialiased">
+<body>
 
-  <!-- Promo -->
+  <!-- Announcement strip -->
   <div class="brand-grad text-white">
-    <div class="mx-auto max-w-7xl px-4 py-2 text-center text-sm">Helping pet parents find trusted care — anywhere in the world.</div>
+    <div class="mx-auto max-w-7xl px-4 py-2 text-center text-sm tracking-wide">
+      Helping pet parents find trusted care — anywhere in the world.
+    </div>
   </div>
 
   <!-- Header -->
-  <header class="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#0c111b]/80 backdrop-blur-md">
     <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-3">
       <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/logo-findavet.png" alt="FindAVet.online logo" class="h-10 w-10" />
-        <span class="text-xl md:text-2xl font-extrabold">FIND<span class="brand-text">AVET</span>.ONLINE</span>
+        <img src="assets/logo-findavet.png" alt="FindAVet.online" class="h-10 w-10" />
+        <span class="brand text-2xl md:text-[28px] font-extrabold tracking-wide">
+          FIND<span class="brand-text">AVET</span>.ONLINE
+        </span>
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-7 text-sm">
-        <a href="directory-usa.html" class="hover:text-black text-gray-600">USA</a>
-        <a href="directory-global.html" class="hover:text-black text-gray-600">Global</a>
-        <a href="#guides" class="hover:text-black text-gray-600">Guides</a>
-        <a href="#faq" class="hover:text-black text-gray-600">FAQ</a>
-        <a href="about.html" class="hover:text-black text-gray-600">About</a>
-        <a href="contact.html" class="hover:text-black text-gray-600">Contact</a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-gray-300">
+        <a href="directory-usa.html" class="hover:text-white">USA</a>
+        <a href="directory-global.html" class="hover:text-white">Global</a>
+        <a href="#guides" class="hover:text-white">Guides</a>
+        <a href="#faq" class="hover:text-white">FAQ</a>
+        <a href="about.html" class="hover:text-white">About</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
 
-        <!-- Desktop language selector (Google Translate) -->
-        <div id="gt-container" class="hidden md:block">
+        <!-- Language selector -->
+        <div id="gt-container" class="hidden md:block glass rounded-lg px-2 py-1">
           <div id="google_translate_element" aria-label="Language selector"></div>
         </div>
       </nav>
 
       <!-- Mobile menu button -->
-      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-gray-200" aria-label="Open Menu">☰</button>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/15 text-white" aria-label="Open Menu">☰</button>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden border-t border-gray-200 bg-white md:hidden">
-      <div class="mx-auto max-w-7xl px-4 py-3 grid gap-2 text-sm">
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-[#0c111b] md:hidden">
+      <div class="mx-auto max-w-7xl px-4 py-3 grid gap-2 text-sm text-gray-200">
         <a href="directory-usa.html" class="py-1">USA</a>
         <a href="directory-global.html" class="py-1">Global</a>
         <a href="#guides" class="py-1">Guides</a>
         <a href="#faq" class="py-1">FAQ</a>
         <a href="about.html" class="py-1">About</a>
         <a href="contact.html" class="py-1">Contact</a>
-
-        <!-- Mobile language selector -->
-        <div id="gt-container-mobile" class="mt-3">
+        <div id="gt-container-mobile" class="mt-3 glass rounded-lg px-2 py-1">
           <div id="google_translate_element_mobile" aria-label="Language selector (mobile)"></div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="section relative overflow-hidden">
-    <div class="absolute inset-0 brand-grad opacity-10"></div>
-    <div class="relative mx-auto max-w-7xl px-4 grid md:grid-cols-[1.05fr,1fr] gap-10 items-center">
+  <!-- HERO -->
+  <section class="section relative">
+    <div class="absolute inset-0 pointer-events-none opacity-60 paw-bg"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 grid lg:grid-cols-[1.05fr,1fr] gap-10 items-center">
       <div>
-        <span class="pill inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold">Fast · Friendly · Evergreen</span>
-        <h1 class="display mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide glass">
+          <span class="inline-block h-2 w-2 rounded-full bg-red-500"></span> Fast • Friendly • Evergreen
+        </span>
+
+        <h1 class="display mt-5 text-5xl md:text-6xl leading-[1.05] font-black">
           Find a <span class="brand-text">Trusted Veterinarian</span> — Fast.
         </h1>
-        <p class="mt-4 text-gray-600 text-lg max-w-xl">
+
+        <p class="mt-4 text-lg text-gray-300/90 max-w-xl">
           Search vets worldwide and prepare for your visit with checklists, questions to ask, and emergency basics you can rely on.
         </p>
 
-        <!-- Search -->
-        <form action="directory-global.html" method="get" class="mt-6 flex items-stretch gap-2" role="search" aria-label="Global directory search">
+        <form action="directory-global.html" method="get" class="mt-7 flex items-stretch gap-3" role="search" aria-label="Global directory search">
           <label for="q" class="sr-only">Search vets, clinics, or cities</label>
           <input id="q" name="q" type="text" placeholder="Search vets, clinics, or cities…"
-            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-red-500" />
-          <button class="btn-primary rounded-xl px-5 py-3 font-semibold" type="submit">Search</button>
+            class="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-base text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500" />
+          <button class="btn-primary px-5 py-3 font-semibold" type="submit">Search</button>
+          <a href="directory-usa.html" class="btn-ghost px-4 py-3 font-semibold">Browse USA</a>
         </form>
 
-        <!-- Quick links -->
         <div class="mt-4 flex flex-wrap gap-3 text-sm">
-          <a href="directory-usa.html" class="link-red">Browse USA</a><span class="text-gray-400">•</span>
-          <a href="directory-global.html" class="link-red">Browse Global</a><span class="text-gray-400">•</span>
-          <a href="#guides" class="link-red">Evergreen Guides</a>
+          <a href="directory-usa.html" class="link-red">Emergency options</a>
+          <span class="text-white/30">•</span>
+          <a href="directory-global.html" class="link-red">Official associations</a>
+          <span class="text-white/30">•</span>
+          <a href="#guides" class="link-red">Visit prep guides</a>
         </div>
       </div>
 
-      <!-- Hero SVG fallback illustration (no image file needed) -->
+      <!-- Hero visual (animated shapes) -->
       <div class="relative">
-        <div class="w-full overflow-hidden rounded-3xl card aspect-[4/3]">
+        <div class="card overflow-hidden rounded-3xl aspect-[4/3]">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="h-full w-full">
             <defs>
-              <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0" stop-color="#fee2e2"/>
-                <stop offset="1" stop-color="#eef2ff"/>
+              <linearGradient id="gradA" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#1f2937"/>
+                <stop offset="1" stop-color="#0b0f17"/>
+              </linearGradient>
+              <linearGradient id="gradB" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ef4444"/>
+                <stop offset="1" stop-color="#b91c1c"/>
               </linearGradient>
             </defs>
-            <rect width="640" height="480" rx="24" fill="url(#g)"/>
-            <path d="M80 360c50-120 160-120 210 0s160 120 210 0" fill="none" stroke="#b91c1c" stroke-width="14" stroke-linecap="round"/>
-            <circle cx="210" cy="190" r="42" fill="#ef4444"/>
-            <circle cx="430" cy="190" r="42" fill="#ef4444"/>
-            <circle cx="320" cy="260" r="30" fill="#111827"/>
+            <rect width="640" height="480" rx="28" fill="url(#gradA)"/>
+            <g opacity=".18">
+              <circle cx="120" cy="120" r="90" fill="url(#gradB)"/>
+              <circle cx="530" cy="90" r="70" fill="url(#gradB)"/>
+              <circle cx="520" cy="360" r="110" fill="url(#gradB)"/>
+            </g>
+            <!-- ECG line -->
+            <path d="M60 250 H170 l20 -25 l20 50 l25 -90 l25 120 l18 -30 h120"
+                  stroke="#ef4444" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Heart + paw -->
+            <g transform="translate(370,200)">
+              <path d="M60 20c-14-30-54-28-60 5c-6-33-46-35-60-5c-18 39 60 85 60 85s78-46 60-85z" fill="#ef4444" stroke="#ffffff20" stroke-width="2"/>
+              <circle cx="5" cy="-10" r="10" fill="#fff"/>
+              <circle cx="25" cy="-20" r="12" fill="#fff"/>
+              <circle cx="45" cy="-8" r="10" fill="#fff"/>
+              <circle cx="28" cy="12" r="12" fill="#fff"/>
+            </g>
           </svg>
         </div>
       </div>
@@ -176,53 +208,76 @@
 
   <!-- Value props -->
   <section class="section pt-0">
-    <div class="mx-auto max-w-7xl px-4 grid gap-5 md:grid-cols-3">
-      <div class="card p-6"><h3 class="font-semibold text-black">Global coverage</h3><p class="mt-2 text-gray-600">USA & international resources to locate licensed veterinary care.</p></div>
-      <div class="card p-6"><h3 class="font-semibold text-black">Evergreen guides</h3><p class="mt-2 text-gray-600">Checklists, questions to ask, and tips that don’t go out of date.</p></div>
-      <div class="card p-6"><h3 class="font-semibold text-black">Fast & accessible</h3><p class="mt-2 text-gray-600">Lightweight, mobile-first pages with clear navigation.</p></div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section class="section bg-white">
-    <div class="mx-auto max-w-7xl px-4">
-      <h2 class="section-title">How FindAVet Works</h2>
-      <div class="mt-6 grid gap-6 md:grid-cols-3">
-        <div class="card p-6"><div class="text-sm font-semibold text-red-700">Step 1</div><h3 class="mt-1 font-semibold">Search or browse</h3><p class="mt-2 text-sm text-gray-700">Use the search box or pick your region to find official associations, emergency options, and local clinics.</p></div>
-        <div class="card p-6"><div class="text-sm font-semibold text-red-700">Step 2</div><h3 class="mt-1 font-semibold">Prepare in minutes</h3><p class="mt-2 text-sm text-gray-700">Follow our checklists and questions so your visit is faster, clearer, and less stressful.</p></div>
-        <div class="card p-6"><div class="text-sm font-semibold text-red-700">Step 3</div><h3 class="mt-1 font-semibold">Get the right care</h3><p class="mt-2 text-sm text-gray-700">Find general practice, emergency hospitals, and board-certified specialists.</p></div>
+    <div class="mx-auto max-w-7xl px-4 grid gap-6 md:grid-cols-3">
+      <div class="card p-6">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-red-600/20 text-red-300">
+            <!-- globe icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg>
+          </span>
+          <h3 class="brand text-white text-lg font-bold">Global Coverage</h3>
+        </div>
+        <p class="mt-3 text-gray-300/85">USA & international resources to locate licensed veterinary care.</p>
+      </div>
+      <div class="card p-6">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-red-600/20 text-red-300">
+            <!-- checklist -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h7"/></svg>
+          </span>
+          <h3 class="brand text-white text-lg font-bold">Evergreen Guides</h3>
+        </div>
+        <p class="mt-3 text-gray-300/85">Checklists, questions to ask, and tips that don’t go out of date.</p>
+      </div>
+      <div class="card p-6">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-red-600/20 text-red-300">
+            <!-- bolt -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+          </span>
+          <h3 class="brand text-white text-lg font-bold">Fast & Accessible</h3>
+        </div>
+        <p class="mt-3 text-gray-300/85">Lightweight, mobile-first pages with clear navigation.</p>
       </div>
     </div>
   </section>
 
+  <div class="divider mx-auto max-w-7xl"></div>
+
   <!-- Directories -->
-  <section class="section bg-white" id="directories">
+  <section class="section" id="directories">
     <div class="mx-auto max-w-7xl px-4">
       <div class="flex items-end justify-between gap-4">
-        <h2 class="section-title">Find a Veterinarian</h2>
+        <h2 class="section-title text-xl md:text-2xl">Find a Veterinarian</h2>
         <a href="directory-global.html" class="text-sm font-semibold link-red">See all regions →</a>
       </div>
       <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <a href="directory-usa.html" class="card p-6 hover:shadow-md">
+        <a href="directory-usa.html" class="card p-6 group">
           <div class="flex items-start justify-between">
             <div>
-              <h3 class="text-lg font-semibold text-black">United States</h3>
-              <p class="mt-1 text-gray-600 text-sm">State pages for clinics, emergency hospitals, and specialty care.</p>
-            </div><span class="text-red-600 text-xl">→</span>
+              <h3 class="brand text-white text-[18px] font-bold">United States</h3>
+              <p class="mt-1 text-sm text-gray-300/85">State pages for clinics, emergency hospitals, and specialty care.</p>
+            </div>
+            <span class="text-red-400 text-xl group-hover:translate-x-1 transition">→</span>
           </div>
-          <ul class="mt-4 text-sm text-gray-700 list-disc pl-5 space-y-1">
-            <li>Emergency & after-hours options</li><li>Low-cost & nonprofit clinics</li><li>Specialists (ACVS, ACVIM, etc.)</li>
+          <ul class="mt-4 text-sm text-gray-300/90 list-disc pl-5 space-y-1">
+            <li>Emergency & after-hours options</li>
+            <li>Low-cost & nonprofit clinics</li>
+            <li>Specialists (ACVS, ACVIM, etc.)</li>
           </ul>
         </a>
-        <a href="directory-global.html" class="card p-6 hover:shadow-md">
+        <a href="directory-global.html" class="card p-6 group">
           <div class="flex items-start justify-between">
             <div>
-              <h3 class="text-lg font-semibold text-black">Worldwide</h3>
-              <p class="mt-1 text-gray-600 text-sm">Country pages with official associations and emergency resources.</p>
-            </div><span class="text-red-600 text-xl">→</span>
+              <h3 class="brand text-white text-[18px] font-bold">Worldwide</h3>
+              <p class="mt-1 text-sm text-gray-300/85">Country pages with official associations and emergency resources.</p>
+            </div>
+            <span class="text-red-400 text-xl group-hover:translate-x-1 transition">→</span>
           </div>
-          <ul class="mt-4 text-sm text-gray-700 list-disc pl-5 space-y-1">
-            <li>National vet registries & associations</li><li>Emergency lines & poison control</li><li>Travel & vaccination notes</li>
+          <ul class="mt-4 text-sm text-gray-300/90 list-disc pl-5 space-y-1">
+            <li>National vet registries & associations</li>
+            <li>Emergency lines & poison control</li>
+            <li>Travel & vaccination notes</li>
           </ul>
         </a>
       </div>
@@ -233,60 +288,84 @@
   <section class="section" id="guides">
     <div class="mx-auto max-w-7xl px-4">
       <div class="flex items-end justify-between gap-4">
-        <h2 class="section-title">Evergreen Guides</h2>
+        <h2 class="section-title text-xl md:text-2xl">Evergreen Guides</h2>
         <a href="articles/" class="text-sm font-semibold link-red">View all articles →</a>
       </div>
-      <p class="mt-2 text-gray-600 max-w-3xl">Practical guides that help you prepare, choose the right clinic, and handle common situations.</p>
+      <p class="mt-2 text-gray-300/80 max-w-3xl">Practical guides that help you prepare, choose the right clinic, and handle common situations.</p>
+
       <div class="mt-6 grid gap-6 md:grid-cols-3">
-        <a href="articles/choosing-a-vet.html" class="card p-6 hover:shadow-lg"><h3 class="font-semibold text-black">How to Choose the Right Vet</h3><p class="mt-2 text-sm text-gray-600">What to look for, questions to ask, and how to compare clinics.</p><span class="mt-3 inline-block text-red-600 text-sm font-semibold">Read guide →</span></a>
-        <a href="articles/first-visit-checklist.html" class="card p-6 hover:shadow-lg"><h3 class="font-semibold text-black">First Visit Checklist</h3><p class="mt-2 text-sm text-gray-600">Records, meds, behavior notes, and key questions to save time.</p><span class="mt-3 inline-block text-red-600 text-sm font-semibold">Read guide →</span></a>
-        <a href="articles/emergency-care-basics.html" class="card p-6 hover:shadow-lg"><h3 class="font-semibold text-black">Emergency Care Basics</h3><p class="mt-2 text-sm text-gray-600">How to spot an emergency, what to do en route, and what to expect.</p><span class="mt-3 inline-block text-red-600 text-sm font-semibold">Read guide →</span></a>
+        <a href="articles/choosing-a-vet.html" class="card p-6 hover:shadow-2xl">
+          <h3 class="brand text-white text-lg font-bold">How to Choose the Right Vet</h3>
+          <p class="mt-2 text-sm text-gray-300/85">What to look for, questions to ask, and how to compare clinics.</p>
+          <span class="mt-3 inline-block text-red-300 text-sm font-semibold">Read guide →</span>
+        </a>
+        <a href="articles/first-visit-checklist.html" class="card p-6 hover:shadow-2xl">
+          <h3 class="brand text-white text-lg font-bold">First Visit Checklist</h3>
+          <p class="mt-2 text-sm text-gray-300/85">Records, meds, behavior notes, and key questions to save time.</p>
+          <span class="mt-3 inline-block text-red-300 text-sm font-semibold">Read guide →</span>
+        </a>
+        <a href="articles/emergency-care-basics.html" class="card p-6 hover:shadow-2xl">
+          <h3 class="brand text-white text-lg font-bold">Emergency Care Basics</h3>
+          <p class="mt-2 text-sm text-gray-300/85">How to spot an emergency, what to do en route, and what to expect.</p>
+          <span class="mt-3 inline-block text-red-300 text-sm font-semibold">Read guide →</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="section bg-white">
+  <section id="faq" class="section">
     <div class="mx-auto max-w-3xl px-4">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <div class="mt-6 divide-y divide-gray-200 card">
+      <h2 class="section-title text-xl md:text-2xl">Frequently Asked Questions</h2>
+      <div class="mt-6 divide-y divide-white/10 card">
         <details class="group p-5" open>
-          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-black">Is FindAVet a veterinary clinic?<span class="ml-4 text-gray-400 group-open:rotate-180 transition">⌄</span></summary>
-          <p class="mt-2 text-sm text-gray-700">No. We’re a directory and guide hub to help you locate licensed veterinary care and prepare for visits.</p>
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-white">Is FindAVet a veterinary clinic?
+            <span class="ml-4 text-white/40 group-open:rotate-180 transition">⌄</span>
+          </summary>
+          <p class="mt-2 text-sm text-gray-300/90">No. We’re a directory and guide hub to help you locate licensed veterinary care and prepare for visits.</p>
         </details>
         <details class="group p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-black">Is the information here medical advice?<span class="ml-4 text-gray-400 group-open:rotate-180 transition">⌄</span></summary>
-          <p class="mt-2 text-sm text-gray-700">No. This content is educational only and not a substitute for a physical examination or diagnosis.</p>
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-white">Is the information here medical advice?
+            <span class="ml-4 text-white/40 group-open:rotate-180 transition">⌄</span>
+          </summary>
+          <p class="mt-2 text-sm text-gray-300/90">No. This content is educational only and not a substitute for a physical examination or diagnosis.</p>
         </details>
         <details class="group p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-black">Do you list emergency hospitals?<span class="ml-4 text-gray-400 group-open:rotate-180 transition">⌄</span></summary>
-          <p class="mt-2 text-sm text-gray-700">Yes — our USA and Global pages prioritize emergency resources and official associations where available.</p>
+          <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-white">Do you list emergency hospitals?
+            <span class="ml-4 text-white/40 group-open:rotate-180 transition">⌄</span>
+          </summary>
+          <p class="mt-2 text-sm text-gray-300/90">Yes — our USA and Global pages prioritize emergency resources and official associations where available.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- Footer (bold red/black gradient) -->
+  <!-- Footer -->
   <footer class="footer-grad text-white">
-    <div class="mx-auto max-w-7xl px-4 py-10 grid gap-8 md:grid-cols-4">
+    <div class="mx-auto max-w-7xl px-4 py-12 grid gap-10 md:grid-cols-4">
       <div>
-        <div class="flex items-center gap-2">
-          <img src="assets/logo-findavet.png" alt="FindAVet.online" class="h-8 w-8" />
-          <span class="font-semibold">FindAVet.online</span>
+        <div class="flex items-center gap-3">
+          <img src="assets/logo-findavet.png" alt="FindAVet.online" class="h-9 w-9" />
+          <span class="brand text-2xl font-extrabold tracking-wide">FindAVet.online</span>
         </div>
         <p class="mt-3 text-sm/6 text-white/85">A fast, friendly way to find licensed veterinary care and prepare for your visit with timeless, practical guides.</p>
+        <div class="mt-4 flex gap-3">
+          <!-- Social placeholders -->
+          <a aria-label="Twitter" class="p-2 rounded-lg border border-white/15 hover:bg-white/10" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.26 4.26 0 0 0 1.87-2.35 8.49 8.49 0 0 1-2.7 1.03 4.24 4.24 0 0 0-7.22 3.87 12 12 0 0 1-8.72-4.42 4.23 4.23 0 0 0 1.31 5.66 4.18 4.18 0 0 1-1.92-.53v.05a4.24 4.24 0 0 0 3.4 4.15 4.2 4.2 0 0 1-1.91.07 4.25 4.25 0 0 0 3.96 2.95A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21.5c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.35-.01-.53A8.34 8.34 0 0 0 22.46 6z"/></svg></a>
+          <a aria-label="Facebook" class="p-2 rounded-lg border border-white/15 hover:bg-white/10" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.3V12h2.3V9.7c0-2.3 1.37-3.6 3.47-3.6.7 0 1.42.12 1.42.12v2.5h-.8c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.9h-2.34v7A10 10 0 0 0 22 12z"/></svg></a>
+        </div>
       </div>
       <div>
-        <h4 class="font-semibold">Explore</h4>
-        <ul class="mt-3 space-y-2 text-sm/6">
+        <h4 class="brand font-semibold text-white">Explore</h4>
+        <ul class="mt-3 space-y-2 text-sm">
           <li><a class="hover:underline" href="directory-usa.html">USA Directory</a></li>
           <li><a class="hover:underline" href="directory-global.html">Global Directory</a></li>
           <li><a class="hover:underline" href="#guides">Evergreen Guides</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-semibold">Company</h4>
-        <ul class="mt-3 space-y-2 text-sm/6">
+        <h4 class="brand font-semibold text-white">Company</h4>
+        <ul class="mt-3 space-y-2 text-sm">
           <li><a class="hover:underline" href="about.html">About</a></li>
           <li><a class="hover:underline" href="contact.html">Contact</a></li>
           <li><a class="hover:underline" href="privacy.html">Privacy Policy</a></li>
@@ -294,8 +373,8 @@
         </ul>
       </div>
       <div>
-        <h4 class="font-semibold">Disclaimer</h4>
-        <p class="mt-3 text-xs/5 text-white/80">FindAVet.online provides educational information only and is not a replacement for an in-person examination by a licensed veterinarian. In an emergency, contact a veterinary hospital immediately.</p>
+        <h4 class="brand font-semibold text-white">Disclaimer</h4>
+        <p class="mt-3 text-xs/5 text-white/85">FindAVet.online provides educational information only and is not a replacement for an in-person examination by a licensed veterinarian. In an emergency, contact a veterinary hospital immediately.</p>
       </div>
     </div>
     <div class="border-t border-white/10">
@@ -306,20 +385,19 @@
     </div>
   </footer>
 
-  <!-- Minimal, robust JS -->
+  <!-- JS -->
   <script>
     // Footer year
     (function(){ const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear(); })();
 
-    // Mobile menu
+    // Mobile nav toggle
     (function(){
       const btn=document.getElementById('menuBtn');
       const menu=document.getElementById('mobileMenu');
       if(btn && menu){ btn.addEventListener('click',()=>menu.classList.toggle('hidden')); }
     })();
 
-    // Google Translate: one callback that mounts both desktop & mobile widgets.
-    // We keep a guard to avoid double-initialization if the script re-fires.
+    // Google Translate (desktop + mobile) with guard
     window.initGoogleTranslate = function(){
       if (window.__gtLoaded) return;
       try {
@@ -341,10 +419,9 @@
       } catch(e){ console.warn('Google Translate unavailable:', e); }
     };
   </script>
-  <!-- Load Google Translate (async) -->
   <script src="//translate.google.com/translate_a/element.js?cb=initGoogleTranslate"></script>
 
-  <!-- AdSense (uncomment only after approval)
+  <!-- AdSense (enable after approval)
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX" crossorigin="anonymous"></script>
   -->
 </body>
