@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terms of Use — FindAVet.online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Terms of Use for FindAVet.online."/>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+  <header class="w-full border-b border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/assets/logo.svg" alt="FindAVet.online" class="h-8 w-8" />
+        <span class="font-semibold tracking-tight text-slate-900">FindAVet.online</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-slate-900 text-slate-600" href="/directory/usa.html">USA</a>
+        <a class="hover:text-slate-900 text-slate-600" href="/directory/global.html">Global</a>
+        <a class="hover:text-slate-900 text-slate-600" href="/about.html">About</a>
+        <a class="hover:text-slate-900 text-slate-600" href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="text-3xl font-bold text-slate-900">Terms of Use</h1>
+    <p class="mt-4 text-slate-700">By using FindAVet.online, you agree to these terms.</p>
+
+    <h2 class="mt-6 text-2xl font-semibold text-slate-900">No medical advice</h2>
+    <p class="mt-2 text-slate-700">Content is for educational purposes only and not a substitute for professional veterinary care. In an emergency, contact a veterinary hospital immediately.</p>
+
+    <h2 class="mt-6 text-2xl font-semibold text-slate-900">Use of content</h2>
+    <p class="mt-2 text-slate-700">You may view and link to the site for personal, non-commercial use. Copying articles or scraping is prohibited without permission.</p>
+
+    <h2 class="mt-6 text-2xl font-semibold text-slate-900">Links to third parties</h2>
+    <p class="mt-2 text-slate-700">We link to external resources for convenience and are not responsible for their content or practices.</p>
+
+    <h2 class="mt-6 text-2xl font-semibold text-slate-900">Limitation of liability</h2>
+    <p class="mt-2 text-slate-700">FindAVet.online is provided “as is.” We disclaim warranties to the fullest extent permitted by law.</p>
+
+    <h2 class="mt-6 text-2xl font-semibold text-slate-900">Changes</h2>
+    <p class="mt-2 text-slate-700">We may update these terms from time to time. Continued use of the site means you accept the changes.</p>
+
+    <p class="mt-6 text-xs text-slate-500">Last updated: <!-- add date here --></p>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-6 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-4">
+      <span>© <span id="year"></span> FindAVet.online. All rights reserved.</span>
+      <a class="hover:underline" href="/privacy.html">Privacy</a>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
